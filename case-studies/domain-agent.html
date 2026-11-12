@@ -1,220 +1,304 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Designing GoDaddy's Domain Search and Registration Agent — a case study by Vinit Mankar.">
-  <meta name="theme-color" content="#ffffff">
-  <title>Domain Search &amp; Registration Agent — Vinit Mankar</title>
-  <link rel="stylesheet" href="agent-case.css">
-  <link rel="stylesheet" href="design-tuner.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Designing GoDaddy&#x27;s Domain Search and Registration Agent — a case study by Vinit Mankar.">
+<title>Domain Search &amp; Registration Agent — Vinit Mankar</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Ctext x='8' y='46' font-family='serif' font-size='46' fill='%23e7502d'%3Ev.%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="agent-case.css">
+<link rel="stylesheet" href="design-tuner.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+/* Top navigation shared with the homepage and the Growth case study */
+.home-nav .wrap{width:min(1380px,calc(100% - 96px));margin-inline:auto}
+@media (max-width:900px){.home-nav .wrap{width:calc(100% - 48px)}}
+@media (max-width:600px){.home-nav .wrap{width:calc(100% - 36px)}}
+.nav-links{position:relative;z-index:30}
+.home-nav .work-popover{background:var(--paper,#fff);border:1px solid rgba(25,27,23,.1);box-shadow:0 18px 40px -24px rgba(25,27,23,.35)}
+.work-shimmer{color:var(--ink);background-repeat:no-repeat;background-position:0% 0}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.work-shimmer{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}}
+@media (prefers-reduced-motion:no-preference){.work-shimmer{animation:workShimmer var(--shimmer-cycle,5s) linear infinite}}
+@keyframes workShimmer{from{background-position:0% 0}to{background-position:100% 0}}
+@media (prefers-reduced-motion:no-preference){.work-pop-item{transition:color .25s ease,padding .3s ease}}
+.work-pop-item[data-active="true"]{padding-left:16px!important}
+.nav-work-toggle:hover{color:var(--orange)!important}
+@media (prefers-reduced-motion:no-preference){.mobius-loader-dot{animation:mobiusLoaderTrail var(--loader-dur,2.4s) linear infinite;animation-delay:calc(var(--loader-dur,2.4s) * var(--f,0) * -1);transform-box:fill-box;transform-origin:center}}
+@keyframes mobiusLoaderTrail{0%{opacity:var(--o);transform:scale(1.45)}12%{opacity:var(--o);transform:scale(1.1)}50%{opacity:calc(var(--o) * .3);transform:scale(.85)}100%{opacity:var(--o);transform:scale(1.45)}}
+.nav-home-loader:hover{color:var(--orange,#ec542f)!important}
+.home-nav .wordmark{max-width:100%}
+.home-nav .wordmark{letter-spacing:normal}
+</style>
 </head>
 <body>
-  <a class="skip" href="#story">Skip to case study</a>
-  <div class="reading-progress" aria-hidden="true"><i></i></div>
+<div id="dc-root"></div>
+<template id="dc-template">
 
-  <header class="nav shell">
-    <a class="wordmark" href="../index.html">Vinit Mankar<sup>®</sup></a>
-    <p class="nav-context"><span></span> GoDaddy · Agent UX</p>
-    <a class="back" href="../index.html#work">Back to work <b>↗</b></a>
-  </header>
-
-  <main id="story">
-    <section class="hero shell">
-      <div class="hero-copy reveal">
-        <p class="kicker">Domain Search &amp; Registration Agent · 2025</p>
-        <h1>From vague intent to a <em>confident domain choice.</em></h1>
-        <p class="lede">I designed an AI-guided experience that interprets an early business idea, recommends relevant domains, and helps customers move confidently toward registration.</p>
-      </div>
-
-      <dl class="project-facts reveal">
-        <div><dt>Role</dt><dd>Product Designer</dd></div>
-        <div><dt>Focus</dt><dd>Agent UX · Interaction strategy</dd></div>
-        <div><dt>System</dt><dd>GoDaddy Airo</dd></div>
-      </dl>
-
-      <div class="hero-video-wrap">
-        <figure class="hero-video-stage reveal">
-          <div class="hero-video-canvas">
-            <video class="hero-background-video" muted playsinline loop preload="auto" aria-label="Domain Search and Registration Agent prototype playing in the hero">
-              <source src="assets/domain-agent-prototype.mp4" type="video/mp4">
-            </video>
-          </div>
-          <figcaption><span>DOMAIN AGENT · LIVE PROTOTYPE</span><span>CONTINUES WHILE THE HERO IS IN VIEW</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="context shell section-grid">
-      <div class="section-index reveal"><span>01</span><p>CONTEXT</p></div>
-      <div class="section-heading reveal">
-        <p class="kicker">AN ECOSYSTEM OF AGENTS</p>
-        <h2>Airo knew the customer.<br><em>The Domain Agent knew the task.</em></h2>
-      </div>
-      <div class="section-copy reveal">
-        <p>GoDaddy was evolving Airo into a coordinated system of specialized agents. Airo maintained customer context and directed work to the right product expert.</p>
-        <p>My focus was defining how the Domain Agent should understand intent, present recommendations, and support a purchase—without becoming an interrogation or an endless chat.</p>
-      </div>
-      <img class="section-sparkle section-sparkle-context" src="assets/airo-sparkle-brokenup.svg" alt="" aria-hidden="true">
-    </section>
-
-    <section class="entry-visual shell">
-      <div class="entry-copy reveal">
-        <div class="entry-kicker"><p class="kicker">JOURNEY ENTRY</p><img class="airo-logo-art" src="assets/airo-logo-3d.png" alt="Airo logo artwork exported from the Airo LOGO layer in Figma"></div>
-        <h2>The request begins in <em>Airo.</em></h2>
-        <p>Customers enter through the shared Airo home before the Domain Agent takes on the specialized task.</p>
-      </div>
-      <figure class="product-figure reveal">
-        <div class="product-stage product-stage-cream">
-          <img class="product-shot" src="assets/airo-home-clean.png" alt="Complete Airo home screen where customers begin their work" loading="lazy">
-        </div>
-        <figcaption><span>AIRO HOME</span><span>DESIGN FROM FIGMA · 00</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="challenge-band">
-      <div class="shell challenge-grid">
-        <div class="challenge-copy reveal">
-          <p class="kicker light">THE DESIGN CHALLENGE</p>
-          <h2>“I want to buy a domain”<br><em>isn’t a complete brief.</em></h2>
-          <p>The same request could come from a first-time founder, an established business, or someone adding a new venture. The agent needed enough context to be relevant—while minimizing questions and preserving control.</p>
-        </div>
-        <div class="intent-map reveal" aria-label="Different contexts behind the same request">
-          <div class="intent-prompt"><span>YOU</span><p>I want to buy a domain.</p></div>
-          <div class="intent-paths"><span>FIRST BUSINESS</span><span>EXISTING VENTURE</span><span>NEW BRAND</span><span>DOMAIN PORTFOLIO</span></div>
-          <svg viewBox="0 0 620 310" aria-hidden="true"><path d="M310 78 C310 125 90 115 90 175"/><path d="M310 78 C310 125 238 115 238 175"/><path d="M310 78 C310 125 385 115 385 175"/><path d="M310 78 C310 125 532 115 532 175"/></svg>
-        </div>
-      </div>
-    </section>
-
-    <section class="strategy shell">
-      <div class="section-index reveal"><span>02</span><p>STRATEGY</p></div>
-      <div class="strategy-title reveal"><p class="kicker">THE INTERACTION MODEL</p><h2>Three modes for three kinds of thinking.</h2></div>
-      <div class="principles">
-        <article class="principle reveal"><span>01</span><img class="principle-ornament principle-sparkle" src="assets/airo-sparkle-brokenup.svg" alt="" aria-hidden="true"><h3><em>Conversation</em><br>to understand intent.</h3><p>Use natural language when the customer’s goal is still fluid.</p></article>
-        <article class="principle reveal"><span>02</span><img class="principle-ornament principle-logo" src="assets/airo-logo-3d.png" alt="" aria-hidden="true"><h3><em>Structure</em><br>to compare options.</h3><p>Move names, extensions, availability, and price into a scannable surface.</p></article>
-        <article class="principle reveal"><span>03</span><div class="airo-loader" aria-hidden="true"><img src="assets/airo-loader-dot-1.svg" alt=""><img src="assets/airo-loader-dot-2.svg" alt=""><img src="assets/airo-loader-dot-3.svg" alt=""></div><h3><em>Clear actions</em><br>to make a decision.</h3><p>Reduce uncertainty as the customer moves from exploration to commitment.</p></article>
-      </div>
-    </section>
-
-    <section class="decision shell">
-      <div class="decision-copy reveal">
-        <p class="kicker">DESIGN DECISION · 01</p>
-        <h2>Reuse context before asking questions.</h2>
-        <p>When Airo already knew about a customer’s ventures, the agent surfaced them as editable choices. Customers could confirm an existing business or start something new without repeating information.</p>
-        <p class="takeaway">Ask customers to verify known context—not recreate it.</p>
-      </div>
-      <figure class="product-figure reveal">
-        <div class="product-stage product-stage-lilac">
-          <img class="product-shot" src="assets/dnr-existing-venture-complete-clean.png" alt="Complete Airo conversation using Sally’s Cakes as existing venture context, with relevant domain recommendations in the side panel" loading="lazy">
-        </div>
-        <figcaption><span>EXISTING VENTURE JOURNEY</span><span>DESIGN FROM FIGMA · 01</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="decision decision-progressive shell">
-      <div class="decision-copy reveal">
-        <p class="kicker">DESIGN DECISION · 02</p>
-        <h2>Gather intent progressively.</h2>
-        <p>For a new venture, the agent asked only what would improve the next recommendation. Each answer became a visible signal—not information disappearing into an opaque model.</p>
-        <p class="takeaway">Every question should improve what comes next.</p>
-      </div>
-      <figure class="product-figure reveal">
-        <div class="product-stage product-stage-peach product-stage-scroll">
-          <div class="product-scroll-track"><img src="assets/dnr-intent-gathering-clean.png" alt="Airo progressively gathering context for Nile Flowers while displaying available domain recommendations" loading="lazy"></div>
-          <span class="motion-note" aria-hidden="true">AUTO-SCROLLING PRODUCT FRAME</span>
-        </div>
-        <figcaption><span>NEW VENTURE DISCOVERY</span><span>DESIGN FROM FIGMA · 02</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="comparison-band">
-      <div class="shell comparison-intro reveal">
-        <div><p class="kicker light">DESIGN DECISION · 03</p><h2>Move comparison<br><em>out of the chat.</em></h2></div>
-        <p>Conversation remained the place to express preferences. A dedicated results surface made domain names, extensions, availability, and pricing easier to evaluate.</p>
-        <img class="section-sparkle section-sparkle-dark" src="assets/airo-sparkle-brokenup.svg" alt="" aria-hidden="true">
-      </div>
-      <figure class="product-figure shell reveal">
-        <div class="product-stage product-stage-blue product-stage-scroll">
-          <div class="product-scroll-track"><img src="assets/dnr-ecommerce-refinement-clean.png" alt="Airo responding to an ecommerce-focused refinement request with a revised set of Nile Flowers domains" loading="lazy"></div>
-          <span class="motion-note" aria-hidden="true">CONVERSATION + STRUCTURED RESULTS</span>
-        </div>
-        <figcaption><span>CONVERSATIONAL REFINEMENT</span><span>DESIGN FROM FIGMA · 03</span></figcaption>
-      </figure>
-      <p class="comparison-caption shell">One continuous task. Two coordinated surfaces.</p>
-    </section>
-
-    <section class="resolution-visual shell">
-      <div class="resolution-copy reveal"><p class="kicker">A DECISION, NOT JUST A LIST</p><h2>Move from exploration<br><em>toward commitment.</em></h2></div>
-      <figure class="product-figure resolution-figma reveal">
-        <div class="product-stage product-stage-yellow">
-          <img class="product-shot" src="assets/dnr-available-domain-clean.png" alt="Complete Airo frame confirming that adambakes.com is available and explaining the value included with the domain" loading="lazy">
-        </div>
-        <figcaption><span>AVAILABLE DOMAIN STATE</span><span>DESIGN FROM FIGMA · 04</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="mobile-proof shell">
-      <div class="mobile-proof-copy reveal">
-        <div>
-          <p class="kicker">RESPONSIVE PRODUCT DESIGN</p>
-          <h2>The decision model<br><em>held up on mobile.</em></h2>
-        </div>
-        <p>The same hierarchy carried into narrower surfaces: the recommendation remained scannable, the value proposition stayed close to the domain, and the next action remained within reach.</p>
-      </div>
-      <div class="mobile-gallery">
-        <figure class="mobile-product reveal">
-          <div class="mobile-product-stage mobile-product-stage-lilac"><img src="assets/dnr-domain-detail.png" alt="Mobile domain detail and checkout treatment for adambakes.com" loading="lazy"></div>
-          <figcaption><span>DOMAIN DETAIL</span><span>MOBILE</span></figcaption>
-        </figure>
-        <figure class="mobile-product reveal">
-          <div class="mobile-product-stage mobile-product-stage-peach product-stage-scroll">
-            <div class="product-scroll-track mobile-scroll-track"><img src="assets/dnr-panel-ecommerce.png" alt="Mobile ecommerce-focused domain recommendation list" loading="lazy"></div>
-          </div>
-          <figcaption><span>RECOMMENDATION LIST</span><span>MOBILE</span></figcaption>
-        </figure>
-        <img class="mobile-gallery-logo" src="assets/airo-logo-3d.png" alt="" aria-hidden="true">
-      </div>
-    </section>
-
-    <section class="prototype shell">
-      <div class="prototype-copy reveal"><p class="kicker">THE PROTOTYPE</p><h2>The interaction,<br><em>in motion.</em></h2><p>The full prototype brings the agent’s conversation, recommendation surface, and refinement loop together in one continuous journey.</p></div>
-      <figure class="prototype-frame reveal">
-        <video muted playsinline preload="metadata" controls aria-label="Domain Search and Registration Agent prototype">
-          <source src="assets/domain-agent-prototype.mp4" type="video/mp4">
-        </video>
-        <figcaption><span>DOMAIN AGENT · INTERACTION PROTOTYPE</span><span>PLAY WITH SOUND OFF</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="recovery shell">
-      <div class="recovery-copy reveal">
-        <p class="kicker">DESIGNING THE WHOLE EXPERIENCE</p>
-        <h2>Design for the moments<br><em>between the ideal moments.</em></h2>
-        <p>Waiting, refinement, recovery, and handoff were treated as part of the core journey—not edge cases. When the system could not respond, the experience explained what happened and kept retry close at hand.</p>
-        <ul><li>Empty and onboarding</li><li>Search and refinement</li><li>Error recovery</li><li>Registration handoff</li></ul>
-      </div>
-      <figure class="product-figure reveal">
-        <div class="product-stage product-stage-lilac product-stage-scroll">
-          <div class="product-scroll-track"><img src="assets/dnr-error-recovery-clean.png" alt="Airo error state explaining that the system is having trouble and offering a clear Try again action" loading="lazy"></div>
-        </div>
-        <figcaption><span>RECOVERY STATE</span><span>DESIGN FROM FIGMA · 05</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="outcome-band">
-      <div class="shell outcome reveal">
-        <p class="kicker light">OUTCOME</p>
-        <h2>A repeatable model for<br><em>agent-led decisions.</em></h2>
-        <div class="outcome-copy"><p>The work established a clear pattern for AI-assisted commerce: use conversation while intent is fluid, introduce structure when comparison begins, and preserve context through every transition.</p><blockquote>Designing the agent was less about making chat feel intelligent—and more about deciding when the interface should listen, guide, reveal structure, or get out of the way.</blockquote></div>
-        <div class="outcome-loader airo-loader" aria-hidden="true"><img src="assets/airo-loader-dot-1.svg" alt=""><img src="assets/airo-loader-dot-2.svg" alt=""><img src="assets/airo-loader-dot-3.svg" alt=""></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="next-case"><a class="shell" href="domain-upsell.html"><span>NEXT CASE STUDY</span><strong>Domain Upsell<br><em>Strategy</em></strong><b>↗</b></a></footer>
-  <button class="motion-toggle" type="button" aria-label="Pause portfolio motion" aria-pressed="false">Pause motion</button>
-  <script src="agent-case.js"></script>
-  <script src="design-tuner.js"></script>
+<div class="page-root dnr-study" data-source="case-studies/domain-agent.html" style="--paper: {{ pageTint }}; background-color: {{ pageTint }}">
+<a class="skip" href="#story">Skip to case study</a>
+<div aria-hidden="true" class="reading-progress"><i></i></div>
+<div class="home-nav" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: relative; z-index: 20; background: var(--paper)"><header class="nav nav-top wrap" style="height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 48px; padding: 28px 0 30px; border-bottom: 1px solid var(--line)"><div class="nav-identity" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><a aria-label="Vinit Mankar home" class="wordmark" href="../index.html" style="font-size: 22px; line-height: 1; color: var(--ink); font-family: DM Sans, sans-serif; font-weight: 400; width: 677px">Vinit Mankar</a><p class="availability" style="display: block; margin: 0; font: 20px/1.4 var(--sans); letter-spacing: -4px; color: var(--muted); font-family: Manrope, sans-serif; line-height: 1"><span style="color: var(--muted); letter-spacing: -1px; font-family: Manrope, sans-serif">Software Designer, Bay Area</span></p></div><p class="nav-intro" style="flex: 1 1 320px; min-width: 0; max-width: 680px; margin: 0; font: 22px/1.4 var(--sans); color: var(--muted); font-family: Manrope, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; letter-spacing: -0.5px; width: 468px; text-align: start">Designer with 5+ years of experience, specialized in designing digital experiences, problem solving, tweaking frameworks and running growth experiments. Currently @GoDaddy&nbsp;<span style="color: #5F6155; letter-spacing: normal; caret-color: rgb(0, 0, 0)">&lt;- AbleJobs (YC W20), Fractal Analytics</span><br></p></header></div><div class="home-nav home-nav-bar" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: sticky; top: 0; z-index: 25; background: {{ pageTintGlass }}; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px)"><nav aria-label="Main navigation" class="nav-links wrap" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; padding: 24px 0 0; font-size: 15px; padding-bottom: 8px"><span class="nav-work" style="position: relative; display: inline-flex"><sc-if value="{{ workOverlay }}" hint-placeholder-val="{{ false }}"><div class="work-popover" id="work-popover" onKeyDown="{{ workKeyDown }}" onMouseLeave="{{ clearWork }}" style="position: absolute; top: calc(100% + 12px); left: -12px; z-index: 30; min-width: 280px; padding: 6px; border-radius: 14px"><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px"><li><a class="work-pop-item" data-active="{{ work0.active }}" href="domain-agent.html" onFocus="{{ work0.enter }}" onMouseEnter="{{ work0.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work0.text }}">Domain Search &amp; Registration Agent</a></li><li><a class="work-pop-item" data-active="{{ work1.active }}" href="domain-upsell.html" onFocus="{{ work1.enter }}" onMouseEnter="{{ work1.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work1.text }}">Domain Upsell Strategy</a></li><li><a class="work-pop-item" data-active="{{ work2.active }}" href="domain-connect.html" onFocus="{{ work2.enter }}" onMouseEnter="{{ work2.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work2.text }}">Domain Connect Revamp</a></li><li><a class="work-pop-item" data-active="{{ work3.active }}" href="habitwave.html" onFocus="{{ work3.enter }}" onMouseEnter="{{ work3.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work3.text }}">Habitwave</a></li><li><a class="work-pop-item" data-active="{{ work4.active }}" href="able-jobs.html" onFocus="{{ work4.enter }}" onMouseEnter="{{ work4.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work4.text }}">Able Jobs</a></li></ul></div></sc-if></span><a aria-label="Home" class="nav-home-loader" href="../index.html" style="display: inline-flex; align-items: center; color: var(--ink); --loader-dur: {{ homeLoader.dur }}; height: 25px"><svg aria-hidden="true" data-dc-attr-viewBox="{{ homeLoader.viewBox }}" style="display: block; width: {{ homeLoader.width }}; height: auto; overflow: visible; fill: currentColor"><sc-for list="{{ homeLoader.dots }}" as="dot" hint-placeholder-count="60"><circle class="mobius-loader-dot" data-dc-attr-cx="{{ dot.cx }}" data-dc-attr-cy="{{ dot.cy }}" data-dc-attr-r="{{ dot.r }}" style="{{ dot.style }}"></circle></sc-for></svg></a><button aria-controls="{{ workMenuId }}" aria-expanded="{{ workExpanded }}" class="nav-work-toggle" onClick="{{ toggleWork }}" type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; font: inherit; color: var(--ink); cursor: pointer"><span class="work-shimmer" style="background-image: {{ shimmer.image }}; background-size: {{ shimmer.size }} 100%; --shimmer-cycle: {{ shimmer.cycle }}">Work</span> <span aria-hidden="true" style="font-size: 11px">{{ workChevron }}</span></button><a href="../index.html#about" style="color: var(--muted)">Playground</a><a href="../index.html#about" style="color: var(--muted)">About</a><a href="../index.html#about" style="color: var(--muted)">Resume</a></nav></div>
+<main id="story">
+<section class="hero shell">
+<div class="hero-copy reveal">
+<p class="kicker">Domain Search &amp; Registration Agent · 2025</p>
+<h1>From vague intent to a <em>confident domain choice.</em></h1>
+<p class="lede">I designed an AI-guided experience that interprets an early business idea, recommends relevant domains, and helps customers move confidently toward registration.</p>
+</div>
+<dl class="project-facts reveal">
+<div><dt>Role</dt><dd>Product Designer</dd></div>
+<div><dt>Focus</dt><dd>Agent UX · Interaction strategy</dd></div>
+<div><dt>System</dt><dd>GoDaddy Airo</dd></div>
+</dl>
+<div class="hero-video-wrap">
+<figure class="hero-video-stage reveal">
+<div class="hero-video-canvas">
+<video aria-label="Domain Search and Registration Agent prototype playing in the hero" class="hero-background-video" loop="" muted="" playsinline="" preload="auto">
+<source src="assets/domain-agent-prototype.mp4" type="video/mp4"/>
+</video>
+</div>
+<figcaption><span>DOMAIN AGENT · LIVE PROTOTYPE</span><span>CONTINUES WHILE THE HERO IS IN VIEW</span></figcaption>
+</figure>
+</div>
+</section>
+<section class="context shell section-grid">
+<div class="section-index reveal"><span>01</span><p>CONTEXT</p></div>
+<div class="section-heading reveal">
+<p class="kicker">AN ECOSYSTEM OF AGENTS</p>
+<h2>Airo knew the customer.<br/><em>The Domain Agent knew the task.</em></h2>
+</div>
+<div class="section-copy reveal">
+<p>GoDaddy was evolving Airo into a coordinated system of specialized agents. Airo maintained customer context and directed work to the right product expert.</p>
+<p>My focus was defining how the Domain Agent should understand intent, present recommendations, and support a purchase—without becoming an interrogation or an endless chat.</p>
+</div>
+<img alt="" aria-hidden="true" class="section-sparkle section-sparkle-context" src="assets/airo-sparkle-brokenup.svg"/>
+</section>
+<section class="entry-visual shell">
+<div class="entry-copy reveal">
+<div class="entry-kicker"><p class="kicker">JOURNEY ENTRY</p><img alt="Airo logo artwork exported from the Airo LOGO layer in Figma" class="airo-logo-art" src="assets/airo-logo-3d.png"/></div>
+<h2>The request begins in <em>Airo.</em></h2>
+<p>Customers enter through the shared Airo home before the Domain Agent takes on the specialized task.</p>
+</div>
+<figure class="product-figure reveal">
+<div class="product-stage product-stage-cream">
+<img alt="Complete Airo home screen where customers begin their work" class="product-shot" loading="lazy" src="assets/airo-home-clean.png"/>
+</div>
+<figcaption><span>AIRO HOME</span><span>DESIGN FROM FIGMA · 00</span></figcaption>
+</figure>
+</section>
+<section class="challenge-band">
+<div class="shell challenge-grid">
+<div class="challenge-copy reveal">
+<p class="kicker light">THE DESIGN CHALLENGE</p>
+<h2>“I want to buy a domain”<br/><em>isn’t a complete brief.</em></h2>
+<p>The same request could come from a first-time founder, an established business, or someone adding a new venture. The agent needed enough context to be relevant—while minimizing questions and preserving control.</p>
+</div>
+<div aria-label="Different contexts behind the same request" class="intent-map reveal">
+<div class="intent-prompt"><span>YOU</span><p>I want to buy a domain.</p></div>
+<div class="intent-paths"><span>FIRST BUSINESS</span><span>EXISTING VENTURE</span><span>NEW BRAND</span><span>DOMAIN PORTFOLIO</span></div>
+<svg aria-hidden="true" viewbox="0 0 620 310"><path d="M310 78 C310 125 90 115 90 175"></path><path d="M310 78 C310 125 238 115 238 175"></path><path d="M310 78 C310 125 385 115 385 175"></path><path d="M310 78 C310 125 532 115 532 175"></path></svg>
+</div>
+</div>
+</section>
+<section class="strategy shell">
+<div class="section-index reveal"><span>02</span><p>STRATEGY</p></div>
+<div class="strategy-title reveal"><p class="kicker">THE INTERACTION MODEL</p><h2>Three modes for three kinds of thinking.</h2></div>
+<div class="principles">
+<article class="principle reveal"><span>01</span><img alt="" aria-hidden="true" class="principle-ornament principle-sparkle" src="assets/airo-sparkle-brokenup.svg"/><h3><em>Conversation</em><br/>to understand intent.</h3><p>Use natural language when the customer’s goal is still fluid.</p></article>
+<article class="principle reveal"><span>02</span><img alt="" aria-hidden="true" class="principle-ornament principle-logo" src="assets/airo-logo-3d.png"/><h3><em>Structure</em><br/>to compare options.</h3><p>Move names, extensions, availability, and price into a scannable surface.</p></article>
+<article class="principle reveal"><span>03</span><div aria-hidden="true" class="airo-loader"><img alt="" src="assets/airo-loader-dot-1.svg"/><img alt="" src="assets/airo-loader-dot-2.svg"/><img alt="" src="assets/airo-loader-dot-3.svg"/></div><h3><em>Clear actions</em><br/>to make a decision.</h3><p>Reduce uncertainty as the customer moves from exploration to commitment.</p></article>
+</div>
+</section>
+<section class="decision shell">
+<div class="decision-copy reveal">
+<p class="kicker">DESIGN DECISION · 01</p>
+<h2>Reuse context before asking questions.</h2>
+<p>When Airo already knew about a customer’s ventures, the agent surfaced them as editable choices. Customers could confirm an existing business or start something new without repeating information.</p>
+<p class="takeaway">Ask customers to verify known context—not recreate it.</p>
+</div>
+<figure class="product-figure reveal">
+<div class="product-stage product-stage-lilac">
+<img alt="Complete Airo conversation using Sally’s Cakes as existing venture context, with relevant domain recommendations in the side panel" class="product-shot" loading="lazy" src="assets/dnr-existing-venture-complete-clean.png"/>
+</div>
+<figcaption><span>EXISTING VENTURE JOURNEY</span><span>DESIGN FROM FIGMA · 01</span></figcaption>
+</figure>
+</section>
+<section class="decision decision-progressive shell">
+<div class="decision-copy reveal">
+<p class="kicker">DESIGN DECISION · 02</p>
+<h2>Gather intent progressively.</h2>
+<p>For a new venture, the agent asked only what would improve the next recommendation. Each answer became a visible signal—not information disappearing into an opaque model.</p>
+<p class="takeaway">Every question should improve what comes next.</p>
+</div>
+<figure class="product-figure reveal">
+<div class="product-stage product-stage-peach product-stage-scroll">
+<div class="product-scroll-track"><img alt="Airo progressively gathering context for Nile Flowers while displaying available domain recommendations" loading="lazy" src="assets/dnr-intent-gathering-clean.png"/></div>
+<span aria-hidden="true" class="motion-note">AUTO-SCROLLING PRODUCT FRAME</span>
+</div>
+<figcaption><span>NEW VENTURE DISCOVERY</span><span>DESIGN FROM FIGMA · 02</span></figcaption>
+</figure>
+</section>
+<section class="comparison-band">
+<div class="shell comparison-intro reveal">
+<div><p class="kicker light">DESIGN DECISION · 03</p><h2>Move comparison<br/><em>out of the chat.</em></h2></div>
+<p>Conversation remained the place to express preferences. A dedicated results surface made domain names, extensions, availability, and pricing easier to evaluate.</p>
+<img alt="" aria-hidden="true" class="section-sparkle section-sparkle-dark" src="assets/airo-sparkle-brokenup.svg"/>
+</div>
+<figure class="product-figure shell reveal">
+<div class="product-stage product-stage-blue product-stage-scroll">
+<div class="product-scroll-track"><img alt="Airo responding to an ecommerce-focused refinement request with a revised set of Nile Flowers domains" loading="lazy" src="assets/dnr-ecommerce-refinement-clean.png"/></div>
+<span aria-hidden="true" class="motion-note">CONVERSATION + STRUCTURED RESULTS</span>
+</div>
+<figcaption><span>CONVERSATIONAL REFINEMENT</span><span>DESIGN FROM FIGMA · 03</span></figcaption>
+</figure>
+<p class="comparison-caption shell">One continuous task. Two coordinated surfaces.</p>
+</section>
+<section class="resolution-visual shell">
+<div class="resolution-copy reveal"><p class="kicker">A DECISION, NOT JUST A LIST</p><h2>Move from exploration<br/><em>toward commitment.</em></h2></div>
+<figure class="product-figure resolution-figma reveal">
+<div class="product-stage product-stage-yellow">
+<img alt="Complete Airo frame confirming that adambakes.com is available and explaining the value included with the domain" class="product-shot" loading="lazy" src="assets/dnr-available-domain-clean.png"/>
+</div>
+<figcaption><span>AVAILABLE DOMAIN STATE</span><span>DESIGN FROM FIGMA · 04</span></figcaption>
+</figure>
+</section>
+<section class="mobile-proof shell">
+<div class="mobile-proof-copy reveal">
+<div>
+<p class="kicker">RESPONSIVE PRODUCT DESIGN</p>
+<h2>The decision model<br/><em>held up on mobile.</em></h2>
+</div>
+<p>The same hierarchy carried into narrower surfaces: the recommendation remained scannable, the value proposition stayed close to the domain, and the next action remained within reach.</p>
+</div>
+<div class="mobile-gallery">
+<figure class="mobile-product reveal">
+<div class="mobile-product-stage mobile-product-stage-lilac"><img alt="Mobile domain detail and checkout treatment for adambakes.com" loading="lazy" src="assets/dnr-domain-detail.png"/></div>
+<figcaption><span>DOMAIN DETAIL</span><span>MOBILE</span></figcaption>
+</figure>
+<figure class="mobile-product reveal">
+<div class="mobile-product-stage mobile-product-stage-peach product-stage-scroll">
+<div class="product-scroll-track mobile-scroll-track"><img alt="Mobile ecommerce-focused domain recommendation list" loading="lazy" src="assets/dnr-panel-ecommerce.png"/></div>
+</div>
+<figcaption><span>RECOMMENDATION LIST</span><span>MOBILE</span></figcaption>
+</figure>
+<img alt="" aria-hidden="true" class="mobile-gallery-logo" src="assets/airo-logo-3d.png"/>
+</div>
+</section>
+<section class="prototype shell">
+<div class="prototype-copy reveal"><p class="kicker">THE PROTOTYPE</p><h2>The interaction,<br/><em>in motion.</em></h2><p>The full prototype brings the agent’s conversation, recommendation surface, and refinement loop together in one continuous journey.</p></div>
+<figure class="prototype-frame reveal">
+<video aria-label="Domain Search and Registration Agent prototype" controls="" muted="" playsinline="" preload="metadata">
+<source src="assets/domain-agent-prototype.mp4" type="video/mp4"/>
+</video>
+<figcaption><span>DOMAIN AGENT · INTERACTION PROTOTYPE</span><span>PLAY WITH SOUND OFF</span></figcaption>
+</figure>
+</section>
+<section class="recovery shell">
+<div class="recovery-copy reveal">
+<p class="kicker">DESIGNING THE WHOLE EXPERIENCE</p>
+<h2>Design for the moments<br/><em>between the ideal moments.</em></h2>
+<p>Waiting, refinement, recovery, and handoff were treated as part of the core journey—not edge cases. When the system could not respond, the experience explained what happened and kept retry close at hand.</p>
+<ul><li>Empty and onboarding</li><li>Search and refinement</li><li>Error recovery</li><li>Registration handoff</li></ul>
+</div>
+<figure class="product-figure reveal">
+<div class="product-stage product-stage-lilac product-stage-scroll">
+<div class="product-scroll-track"><img alt="Airo error state explaining that the system is having trouble and offering a clear Try again action" loading="lazy" src="assets/dnr-error-recovery-clean.png"/></div>
+</div>
+<figcaption><span>RECOVERY STATE</span><span>DESIGN FROM FIGMA · 05</span></figcaption>
+</figure>
+</section>
+<section class="outcome-band">
+<div class="shell outcome reveal">
+<p class="kicker light">OUTCOME</p>
+<h2>A repeatable model for<br/><em>agent-led decisions.</em></h2>
+<div class="outcome-copy"><p>The work established a clear pattern for AI-assisted commerce: use conversation while intent is fluid, introduce structure when comparison begins, and preserve context through every transition.</p><blockquote>Designing the agent was less about making chat feel intelligent—and more about deciding when the interface should listen, guide, reveal structure, or get out of the way.</blockquote></div>
+<div aria-hidden="true" class="outcome-loader airo-loader"><img alt="" src="assets/airo-loader-dot-1.svg"/><img alt="" src="assets/airo-loader-dot-2.svg"/><img alt="" src="assets/airo-loader-dot-3.svg"/></div>
+</div>
+</section>
+</main>
+<footer class="next-case"><a class="shell" href="domain-upsell.html"><span>NEXT CASE STUDY</span><strong>Domain Upsell<br/><em>Strategy</em></strong><b>↗</b></a></footer>
+<button aria-label="Pause portfolio motion" aria-pressed="false" class="motion-toggle" type="button">Pause motion</button>
+</div>
+</template>
+<script type="application/json" id="dc-props">{"homeLoaderWidth": {"editor": "range", "default": 40, "min": 16, "max": 120, "step": 1, "unit": "px", "section": "Home loader"}, "homeLoaderDotSize": {"editor": "range", "default": 3, "min": 0.3, "max": 3, "step": 0.05, "section": "Home loader"}, "homeLoaderBandWidth": {"editor": "range", "default": 0.36, "min": 0.2, "max": 1.6, "step": 0.02, "section": "Home loader"}, "homeLoaderDensity": {"editor": "range", "default": 42, "min": 16, "max": 140, "step": 1, "section": "Home loader"}, "homeLoaderRows": {"editor": "range", "default": 6, "min": 1, "max": 14, "step": 1, "section": "Home loader"}, "homeLoaderSpeed": {"editor": "range", "default": 8, "min": 0.6, "max": 8, "step": 0.1, "unit": "s", "section": "Home loader"}, "pageTintColor": {"editor": "color", "default": "#95CEE3", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6", "#CE9895"], "section": "Page tint"}, "pageTintAmount": {"editor": "range", "default": 0.2, "min": 0, "max": 0.3, "step": 0.005, "section": "Page tint"}, "$preview": {"width": 1440, "height": 14359}}</script>
+<script src="../dc-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  /* Home link Möbius loader (same geometry as the homepage footer loader): dots sampled on a real half-twisted strip, seen from a raised three-quarter angle. */
+  homeLoaderGeometry() {
+    const p = this.props;
+    const dotSize = p.homeLoaderDotSize ?? 3, bandW = p.homeLoaderBandWidth ?? 0.36;
+    const U = Math.round(p.homeLoaderDensity ?? 52), V = Math.round(p.homeLoaderRows ?? 6), em = p.homeLoaderWidth ?? 34;
+    const key = [dotSize, bandW, U, V, em, p.homeLoaderSpeed ?? 8].join('|');
+    if (this._homeLoaderKey === key) return this._homeLoader;
+    const pitch = -1.2, yaw = 1.9, dur = 2.4, pts = [];
+    for (let i = 0; i < U; i++) {
+      const u = i / U * 2 * Math.PI, c = Math.cos(u), sn = Math.sin(u), ch = Math.cos(u / 2), sh = Math.sin(u / 2);
+      for (let j = 0; j < V; j++) {
+        const v = (V === 1 ? 0 : j / (V - 1) - 0.5) * bandW;
+        let x = c + v * ch * c, y = sn + v * ch * sn, z = v * sh;
+        const x2 = x * Math.cos(yaw) - y * Math.sin(yaw), y2 = x * Math.sin(yaw) + y * Math.cos(yaw);
+        const y3 = y2 * Math.cos(pitch) - z * Math.sin(pitch), z3 = y2 * Math.sin(pitch) + z * Math.cos(pitch);
+        pts.push([x2, -y3, z3, i]);
+      }
+    }
+    let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity, zmin = Infinity, zmax = -Infinity;
+    for (const q of pts) { minx = Math.min(minx, q[0]); maxx = Math.max(maxx, q[0]); miny = Math.min(miny, q[1]); maxy = Math.max(maxy, q[1]); zmin = Math.min(zmin, q[2]); zmax = Math.max(zmax, q[2]); }
+    const pad = 4 * Math.max(1, dotSize), VW = 100, sc = (VW - 2 * pad) / (maxx - minx), VH = Math.round((maxy - miny) * sc + 2 * pad);
+    pts.sort((a, b) => a[2] - b[2]);
+    const dots = pts.map(q => {
+      const d = (q[2] - zmin) / ((zmax - zmin) || 1), o = 0.22 + 0.78 * d;
+      return { cx: ((q[0] - minx) * sc + pad).toFixed(2), cy: ((q[1] - miny) * sc + pad).toFixed(2), r: ((0.75 + 0.95 * d) * dotSize).toFixed(2),
+        style: '--o: ' + o.toFixed(2) + '; --f: ' + (1 - q[3] / U).toFixed(3) + '; opacity: ' + o.toFixed(2) };
+    });
+    this._homeLoaderKey = key;
+    this._homeLoader = { dur: (p.homeLoaderSpeed ?? 8) + 's', dots, viewBox: '0 0 ' + VW + ' ' + VH, width: em + 'px', height: (em * VH / VW).toFixed(3) + 'em' };
+    return this._homeLoader;
+  }
+  /* Page tint: white with a whisper of the first Work-dropdown accent. */
+  pageTintVals(vals) {
+    const p = this.props, hex = String(p.pageTintColor ?? '#95CEE3').replace('#', ''), amt = Math.max(0, Math.min(1, p.pageTintAmount ?? 0.06));
+    const n = parseInt(hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex.slice(0, 6), 16);
+    const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(c => Math.round(255 + (c - 255) * amt));
+    vals.pageTint = 'rgb(' + ch.join(',') + ')';
+    vals.pageTintGlass = 'rgba(' + ch.join(',') + ',0.9)';
+    // the bright, on-white member of the tint colour's family (palette: soft accent -> bright accent)
+    const family = { '95CEE3': '#007EC2', 'E3A37C': '#D85100', '8AC9A1': '#21934C', 'AC8FE6': '#7937E8', 'CE9895': '#D23B65',
+      'C2C5D0': '#5265C7', 'C9C9C9': '#565D6C', 'CBC7C2': '#836247', 'D5C8C2': '#C45162', 'B3DAD9': '#008C91', 'C0B9B1': '#947044', 'D6D293': '#958000', 'FF362B': '#EF2518' };
+    vals.pageAccent = p.pageAccentColor ?? family[hex.toUpperCase()] ?? '#141414';
+    return vals;
+  }
+  workNav(vals) {
+    const s = this.state || {}, open = !!s.workOpen, idx = open && s.activeWork != null ? s.activeWork : null;
+    const bright = ['#007EC2', '#D85100', '#21934C', '#7937E8', '#D23B65'];
+    vals.workOverlay = open; vals.workExpanded = String(open); vals.workChevron = open ? '\u25B4' : '\u25BE'; vals.workMenuId = 'work-popover';
+    vals.toggleWork = () => this.setState({ workOpen: !open, activeWork: null });
+    vals.clearWork = () => this.setState({ activeWork: null });
+    vals.workKeyDown = e => { if (e.key === 'Escape') this.setState({ workOpen: false, activeWork: null }); };
+    bright.forEach((c, i) => { vals['work' + i] = { active: String(idx === i), text: idx === i ? c : 'var(--ink)', enter: () => this.setState({ activeWork: i }) }; });
+    const sweep = 2.2, every = 5, r = sweep / every, W = r / (2 + r), pct = v => (v * 100).toFixed(2) + '%';
+    const stops = ['var(--ink) 0%', 'var(--ink) ' + pct(W)];
+    bright.forEach((c, i) => stops.push(c + ' ' + pct(W + W * (i + 1) / (bright.length + 1))));
+    stops.push('var(--ink) ' + pct(2 * W), 'var(--ink) 100%');
+    vals.shimmer = { image: 'linear-gradient(90deg, ' + stops.join(', ') + ')', size: (100 / W).toFixed(1) + '%', cycle: every + 's' };
+    return vals;
+  }
+  renderVals() {
+    const vals = {};
+    this.workNav(vals);
+    this.pageTintVals(vals);
+    vals.homeLoader = this.homeLoaderGeometry();
+    return vals;
+  }
+}
+window.Component = Component;
+</script>
+<script type="text/dc-after" data-dc-after src="agent-case.js"></script>
+<script type="text/dc-after" data-dc-after src="design-tuner.js"></script>
 </body>
 </html>

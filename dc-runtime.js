@@ -177,6 +177,15 @@
     host.appendChild(frag);
     render();
     if (typeof comp.componentDidMount === 'function') comp.componentDidMount();
+    // Original page scripts that expect the finished DOM run after the first render, in order.
+    const after = [...document.querySelectorAll('script[data-dc-after]')];
+    (function next(i) {
+      if (i >= after.length) return;
+      const el = document.createElement('script');
+      el.src = after[i].getAttribute('src');
+      el.onload = el.onerror = () => next(i + 1);
+      document.body.appendChild(el);
+    })(0);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();

@@ -1,9 +1,530 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>Domains For You — Vinit Mankar</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff;color:#191b17;font:400 18px/1.5 Manrope,system-ui,sans-serif}main{max-width:560px;padding:32px}p{color:#5f6155}a{color:#191b17}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Domains For You: from broadcast upsells to intent-led discovery. A Growth UX case study by Vinit Mankar.">
+<title>Domains For You — Growth UX by Vinit Mankar</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Ctext x='8' y='46' font-family='serif' font-size='46' fill='%23e7502d'%3Ev.%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="domain-agent-studio.css">
+<link rel="stylesheet" href="growth-case.css">
+<link rel="stylesheet" href="../static-states.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap">
+<style>
+body{margin:0}
+/* homepage nav, copied for the case study */
+.home-nav .wrap{width:min(1380px,calc(100% - 96px));margin-inline:auto}
+@media (max-width:900px){.home-nav .wrap{width:calc(100% - 48px)}}
+@media (max-width:600px){.home-nav .wrap{width:calc(100% - 36px)}}
+.nav-links{position:relative;z-index:30}
+.home-nav .work-popover{background:var(--paper,#fff);border:1px solid rgba(25,27,23,.1);box-shadow:0 18px 40px -24px rgba(25,27,23,.35)}
+/* Work label shimmer through all dropdown accents */
+.work-shimmer{color:var(--ink);background-repeat:no-repeat;background-position:0% 0}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.work-shimmer{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}}
+@media (prefers-reduced-motion:no-preference){.work-shimmer{animation:workShimmer var(--shimmer-cycle,5s) linear infinite}}
+@keyframes workShimmer{from{background-position:0% 0}to{background-position:100% 0}}
+@media (prefers-reduced-motion:no-preference){.work-pop-item{transition:color .25s ease,padding .3s ease}}
+.work-pop-item[data-active="true"]{padding-left:16px!important}
+.nav-work-toggle:hover{color:var(--orange)!important}
+/* Möbius loader as the Home link (same look as the homepage footer loader) */
+@media (prefers-reduced-motion:no-preference){.mobius-loader-dot{animation:mobiusLoaderTrail var(--loader-dur,2.4s) linear infinite;animation-delay:calc(var(--loader-dur,2.4s) * var(--f,0) * -1);transform-box:fill-box;transform-origin:center}}
+@keyframes mobiusLoaderTrail{0%{opacity:var(--o);transform:scale(1.45)}12%{opacity:var(--o);transform:scale(1.1)}50%{opacity:calc(var(--o) * .3);transform:scale(.85)}100%{opacity:var(--o);transform:scale(1.45)}}
+.nav-home-loader:hover{color:var(--orange,#ec542f)!important}
+/* Tag: flat black-and-white. Echoes the homepage Möbius as a single continuous outline with a solid bead, no colour or gloss. */
+.glass-tag{background:transparent;border:1px solid rgba(25,27,23,.18);box-shadow:none}
+.glass-tag-bead{flex:none;width:6px;height:6px;border-radius:50%;background:#141414}
+/* Brief: desktop narrative left, sticky visual right; mobile stacks text then visual */
+@media (min-width:961px){.growth-study .chapter>.chapter-media{position:sticky;top:84px;align-self:start}}
+.growth-study .evidence-view{flex:1;min-height:0;display:flex;flex-direction:column}
+.growth-study .chapter-media .screen-surround{flex:1;min-height:0}
+@media (prefers-reduced-motion:no-preference){.growth-study .evidence-view:not([hidden]){animation:dfyPaneIn .35s ease both}}
+@keyframes dfyPaneIn{from{opacity:0}to{opacity:1}}
+.home-nav .wordmark{max-width:100%}
+/* V1 interactions reel */
+.category-reel>.cat-stage.act-stage{flex-basis:var(--act-w,100%)}
+.act-stage{align-content:center}
+.act-stage .act-screen{position:relative;flex:1 1 100%;min-width:0;aspect-ratio:2880/1800;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 18px 40px -28px rgba(25,27,23,.35)}
+.act-stage .act-camera{position:absolute;inset:0;transform-origin:0 0;transition:transform .9s cubic-bezier(.45,0,.2,1);will-change:transform}
+.act-stage .act-layer{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .2s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.act-stage .act-base{opacity:1;position:relative;height:auto}
+.act-stage .act-added{clip-path:inset(0 0 12% 0)}
+.act-stage .act-bar{clip-path:inset(88% 0 0 19.45%);opacity:1;transform:translateY(12%)}
+.act-stage .act-drawer{clip-path:inset(59.6% 52.75% 12.64% 21.1%);transform:translateY(2%)}
+.act-stage .act-chevron{clip-path:inset(91.2% 68.2% 6.4% 29.7%)}
+.act-stage.is-hover .act-hover,.act-stage.is-added .act-added,.act-stage.is-drawer .act-drawer,.act-stage.is-drawer .act-chevron{opacity:1}
+.act-stage.is-bar .act-bar{transform:none}
+.act-stage.is-drawer .act-drawer{transform:none;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1)}
+.act-stage .act-cursor{position:absolute;left:55%;top:60%;width:22px;height:22px;margin:-3px 0 0 -5px;transform:scale(var(--act-inv,1));transform-origin:5px 3px;z-index:5;opacity:0;pointer-events:none;transition:left .7s cubic-bezier(.45,0,.2,1),top .7s cubic-bezier(.45,0,.2,1),opacity .3s;filter:drop-shadow(0 2px 3px rgba(25,27,23,.25))}
+.act-stage .act-cursor svg{display:block;transition:transform .12s}
+.act-stage .act-cursor.is-press svg{transform:scale(.85)}
+.act-stage .act-ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--accent);opacity:0;z-index:4;pointer-events:none}
+.act-stage .act-ring.is-tap{animation:act-ring .6s ease-out}
+@keyframes act-ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.3)}}
+.act-stage .act-panel{flex:1 1 100%}
+.act-stage .act-panel .cat-kicker{margin-bottom:14px}
+.act-stage .act-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:18px 24px}
+.act-stage .act-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;opacity:.45;transition:opacity .35s}
+.act-stage .act-step.is-on{opacity:1}
+.act-stage .act-num{font:500 12px/1.6 var(--sans);letter-spacing:.06em;color:var(--muted)}
+.act-stage .act-verb{margin:0 0 2px;font:600 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.act-stage .act-title{margin:0 0 4px;font:500 calc(var(--cat-label,20px) * .85)/1.2 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+.act-stage .act-desc{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.act-stage .act-step{opacity:1}.act-stage .act-cursor,.act-stage .act-ring{display:none}}
+
+/* V1 categories reel */
+.category-reel{margin:0 0 72px;display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.category-reel>.cat-stage{flex:0 1 var(--cat-w,100%);min-width:0}
+.category-reel .cat-stage{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;background:#e0eef2;border-radius:12px;padding:clamp(20px,4vw,56px)}
+.category-reel .cat-screen{flex:1.55 1 340px;min-width:0}
+.category-reel .cat-panel{flex:1 1 220px;min-width:0}
+.category-reel .cat-screen{height:var(--cat-h,520px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(25,27,23,.25) transparent;cursor:ns-resize;border-radius:10px;background:#fff;box-shadow:0 18px 40px -28px rgba(25,27,23,.35)}
+.category-reel .cat-screen img{display:block;width:var(--cat-zoom,150%);max-width:none;height:auto;margin-left:calc(var(--cat-shift,0%) * -1)}
+.category-reel .cat-screen:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.category-reel .cat-kicker{margin:0 0 18px;font:500 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.category-reel .cat-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.category-reel .cat-item{display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.category-reel .cat-item.is-in{opacity:1;transform:none}
+.category-reel .cat-item.is-current .cat-name{color:var(--ink)}
+.category-reel .cat-icon{flex:none;width:var(--cat-icon,28px);height:var(--cat-icon,28px);display:grid;place-items:center;background:none;box-shadow:none}
+.category-reel .cat-icon img{width:var(--cat-icon,28px);height:var(--cat-icon,28px);display:block}
+.category-reel .cat-name{font:500 var(--cat-label,20px)/1.2 var(--sans);letter-spacing:-.01em;color:var(--muted);transition:color .3s}
+@media(max-width:760px){.category-reel>.cat-stage{flex-basis:100%}.category-reel .cat-screen{height:min(var(--cat-h,520px),420px)}}
+@media (prefers-reduced-motion: reduce){.category-reel .cat-item{opacity:1;transform:none;transition:none}}
+
+/* image gallery (reference: guglieri.com/work, matched by approximation; tune in Tweaks › Gallery) */
+.dfy-gallery .gallery-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--g-cols),minmax(0,1fr));gap:var(--g-gap)}
+.dfy-gallery .gallery-tile{position:relative;aspect-ratio:4/3;background:var(--g-tile);border-radius:var(--g-radius);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6%}
+.dfy-gallery .gallery-item:first-child{grid-column:1/-1}
+.dfy-gallery .gallery-item:first-child .gallery-tile{aspect-ratio:auto;padding:0;display:block}
+.dfy-gallery .gallery-item:first-child .gallery-tile img{width:100%;height:auto;max-width:none;max-height:none}
+.dfy-gallery .gallery-tile img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:calc(var(--g-radius) * .4);box-shadow:0 12px 28px -18px rgba(25,27,23,.35)}
+.dfy-gallery .gallery-caption{margin:10px 2px 0;font-size:13px;line-height:1.4;color:var(--muted)}
+@media(max-width:960px){.dfy-gallery .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.dfy-gallery .gallery-grid{grid-template-columns:1fr}.dfy-gallery .gallery-item:first-child .gallery-tile{aspect-ratio:auto;padding:0}}
+
+.growth-study .chapter-copy>.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.12em}
+/* hero show reel */
+.growth-cover .reel-frame{position:relative;flex:1;min-height:0;display:flex;width:100%}
+.growth-cover .reel-cursor{position:absolute;left:62%;top:20%;width:22px;height:22px;margin:-3px 0 0 -5px;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;filter:drop-shadow(0 2px 3px rgba(25,27,23,.25))}
+.growth-cover .reel-cursor svg{display:block}
+.growth-cover .reel-ring{position:absolute;width:9.8%;height:1.55%;transform:translate(-50%,-50%);border:2px solid var(--accent);border-radius:8px;pointer-events:none;opacity:0;z-index:2}
+.growth-cover .reel-ring.is-tap{animation:reel-ring .7s ease-out}
+.growth-cover .reel-dot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent);pointer-events:none;opacity:0;z-index:2}
+.growth-cover .reel-dot.is-tap{animation:reel-dot .8s cubic-bezier(.3,.6,.3,1)}
+.growth-cover .reel-cursor.is-press svg{transform:scale(.86);transition:transform .12s}
+.growth-cover .reel-checkout{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .6s ease;z-index:4}
+.growth-cover .reel-checkout img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.growth-cover .reel-checkout.is-on{opacity:1}
+@keyframes reel-ring{0%{opacity:0;transform:translate(-50%,-50%) scale(.85)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.25)}}
+@keyframes reel-dot{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(26px,-90px) scale(.5)}}
+@media (prefers-reduced-motion: reduce){.growth-cover .reel-cursor,.growth-cover .reel-ring,.growth-cover .reel-dot,.growth-cover .reel-checkout{display:none}}
+
+/* homepage visual system: ink / muted / hairline, page-family accent, flat white surfaces */
+.growth-study .chapter-media{background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:none}
+.growth-study .chapter-media:before{display:none}
+.growth-study .media-label{color:var(--muted)}
+.growth-study .chapter-media figcaption{color:var(--muted);border-top:1px solid var(--hairline)}
+.growth-study .screen-scroll,.growth-study .mobile-screen-scroll{border:1px solid var(--hairline);border-radius:10px;box-shadow:none}
+.growth-study .view-controls{border-color:var(--hairline);background:transparent}
+.growth-study .view-controls button{color:var(--muted)}
+.growth-study .view-controls button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.growth-study .view-summary{font:400 15px/1.45 var(--sans);color:var(--muted)}
+.growth-study .screen-observation p{color:var(--muted)}
+.growth-study .chapter-copy>p:not(.eyebrow){color:var(--muted)}
+.growth-study .chapter-copy strong{color:var(--ink)}
+.growth-study .project-facts>div,.growth-study .decision-line{border-color:var(--line)}
+.growth-study .read-on{border-color:var(--line)}
+.growth-study h1 em,.growth-study h2 em,.growth-study .decision-line p,.growth-study .closing-line,.growth-study em{font-style:normal!important}
+.growth-study .model-equation .eq-var{white-space:nowrap}
+@media(max-width:960px){.growth-study .chapter-media.diagnosis-media{height:auto;min-height:0}}
+@media(max-width:700px){.growth-study .dissect-marker{width:15px!important;height:15px!important;font-size:8px!important;line-height:15px!important;box-shadow:0 0 0 2px #fff!important}}
+.growth-study .model-equation .eq-lhs,.growth-study .model-equation .eq-rhs{display:inline-flex;align-items:baseline;gap:4px 12px;white-space:nowrap}
+@media(max-width:700px){.growth-study .model-equation .eq-rhs{flex-wrap:wrap}}
+.growth-study .model-equation .eq-op{font:300 .85em/1 var(--sans);font-style:normal;color:var(--muted)}
+.growth-study .model-equation .eq-key{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:7px}
+.growth-study .decision-line p{font-weight:500;letter-spacing:-.02em}
+.growth-study h1{max-width:100%}
+
+.growth-study{--sans:'Manrope',Arial,sans-serif;--serif:'Manrope',Arial,sans-serif;font-family:var(--sans)}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap">
 </head>
-<body><main><p>GoDaddy · Growth UX</p><h1>Domains For You</h1><p>This case study is available on request.</p><p><a href="../index.html">← Back to vinitmankar.com</a></p></main></body>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div class="page-root growth-study" data-source="case-studies/domain-upsell.html" style="--paper: {{ pageTint }}; background-color: {{ pageTint }}; --accent: {{ pageAccent }}; --ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --hairline: rgba(25, 27, 23, 0.12); color: var(--ink)">
+<a class="skip" href="#overview">Skip to case study</a>
+<div class="home-nav" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: relative; z-index: 20; background: var(--paper)"><header class="nav nav-top wrap" style="height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 48px; padding: 28px 0 30px; border-bottom: 1px solid var(--line)"><div class="nav-identity" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><a aria-label="Vinit Mankar home" class="wordmark" href="../index.html" style="font-size: 22px; line-height: 1; color: var(--ink); font-family: DM Sans, sans-serif; font-weight: 400; width: 677px">Vinit Mankar</a><p class="availability" style="display: block; margin: 0; font: 20px/1.4 var(--sans); letter-spacing: -4px; color: var(--muted); font-family: Manrope, sans-serif; line-height: 1"><span style="color: var(--muted); letter-spacing: -1px; font-family: Manrope, sans-serif">Software Designer, Bay Area</span></p></div><p class="nav-intro" style="flex: 1 1 320px; min-width: 0; max-width: 680px; margin: 0; font: 22px/1.4 var(--sans); color: var(--muted); font-family: Manrope, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; letter-spacing: -0.5px; width: 468px; text-align: start">Designer with 5+ years of experience, specialized in designing digital experiences, problem solving, tweaking frameworks and running growth experiments. Currently @GoDaddy&nbsp;<span style="color: #5F6155; letter-spacing: normal; caret-color: rgb(0, 0, 0)">&lt;- AbleJobs (YC W20), Fractal Analytics</span><br></p></header></div><div class="home-nav home-nav-bar" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: sticky; top: 0; z-index: 25; background: {{ pageTintGlass }}; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px)"><nav aria-label="Main navigation" class="nav-links wrap" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; padding: 24px 0 0; font-size: 15px; padding-bottom: 8px"><span class="nav-work" style="position: relative; display: inline-flex"><sc-if value="{{ workOverlay }}" hint-placeholder-val="{{ false }}"><div class="work-popover" id="work-popover" onKeyDown="{{ workKeyDown }}" onMouseLeave="{{ clearWork }}" style="position: absolute; top: calc(100% + 12px); left: -12px; z-index: 30; min-width: 280px; padding: 6px; border-radius: 14px"><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px"><li><a class="work-pop-item" data-active="{{ work0.active }}" href="domain-agent.html" onFocus="{{ work0.enter }}" onMouseEnter="{{ work0.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work0.text }}">Domain Search &amp; Registration Agent</a></li><li><a class="work-pop-item" data-active="{{ work1.active }}" href="domain-upsell.html" onFocus="{{ work1.enter }}" onMouseEnter="{{ work1.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work1.text }}">Domain Upsell Strategy</a></li><li><a class="work-pop-item" data-active="{{ work2.active }}" href="domain-connect.html" onFocus="{{ work2.enter }}" onMouseEnter="{{ work2.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work2.text }}">Domain Connect Revamp</a></li><li><a class="work-pop-item" data-active="{{ work3.active }}" href="habitwave.html" onFocus="{{ work3.enter }}" onMouseEnter="{{ work3.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work3.text }}">Habitwave</a></li><li><a class="work-pop-item" data-active="{{ work4.active }}" href="able-jobs.html" onFocus="{{ work4.enter }}" onMouseEnter="{{ work4.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work4.text }}">Able Jobs</a></li></ul></div></sc-if></span><a aria-label="Home" class="nav-home-loader" href="../index.html" style="display: inline-flex; align-items: center; color: var(--ink); --loader-dur: {{ homeLoader.dur }}; height: 25px"><svg aria-hidden="true" data-dc-attr-viewBox="{{ homeLoader.viewBox }}" style="display: block; width: {{ homeLoader.width }}; height: auto; overflow: visible; fill: currentColor"><sc-for list="{{ homeLoader.dots }}" as="dot" hint-placeholder-count="60"><circle class="mobius-loader-dot" data-dc-attr-cx="{{ dot.cx }}" data-dc-attr-cy="{{ dot.cy }}" data-dc-attr-r="{{ dot.r }}" style="{{ dot.style }}"></circle></sc-for></svg></a><button aria-controls="{{ workMenuId }}" aria-expanded="{{ workExpanded }}" class="nav-work-toggle" onClick="{{ toggleWork }}" type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; font: inherit; color: var(--ink); cursor: pointer"><span class="work-shimmer" style="background-image: {{ shimmer.image }}; background-size: {{ shimmer.size }} 100%; --shimmer-cycle: {{ shimmer.cycle }}">Work</span> <span aria-hidden="true" style="font-size: 11px">{{ workChevron }}</span></button><a href="../index.html#about" style="color: var(--muted)">Playground</a><a href="../index.html#about" style="color: var(--muted)">About</a><a href="../index.html#about" style="color: var(--muted)">Resume</a><span style="margin-left: auto"><button aria-pressed="{{ notesPressed }}" class="notes-toggle" onClick="{{ toggleNotes }}" type="button"><span aria-hidden="true" class="toggle-mark"></span>Design notes</button></span></nav></div>
+<main class="study" style="padding-top: 32px"><div class="narrative">
+<div class="dfy-hero" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px 56px; margin: 0 0 8px"><div class="dfy-hero-copy" style="flex: 1 1 520px; min-width: 0"><p class="eyebrow glass-tag" style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px 4px 4px; border-radius: 999px; font-size: 10px; letter-spacing: 0.12em; color: var(--ink); margin: 0 0 27px; position: relative"><span aria-hidden="true" class="glass-tag-icon-disc" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff"><svg aria-hidden="true" class="glass-tag-icon" fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="12" style="flex: none; display: block; fill: none"><path d="M9 3h6"></path><path d="M10 3v7.5L5.2 18.6A1.6 1.6 0 0 0 6.6 21h10.8a1.6 1.6 0 0 0 1.4-2.4L14 10.5V3"></path><path d="M7.5 15h9"></path></svg></span><span>GROWTH UX</span></p><h1 style="font-family: Manrope, sans-serif; width: 100%"><span style="white-space: normal">Personalized domain name</span><em style="white-space: normal">recommendations.</em></h1><p class="intro-deck" style="font-size: 20px; width: 547px">From portfolio upsells to intent-led discovery.</p></div><figure class="dfy-hero-art" style="flex: 0 1 520px; min-width: 0; margin: 0; background-color: #e0eef2; border-radius: 16px; overflow: hidden"><img src="../assets/canvas/ccf8e77fdd9e.png" width="1168" height="708" alt="A café website on a phone, with a Domains for You prompt and suggested extensions such as .com, .nyc, .coffee and .shop." style="display: block; width: 100%; height: auto; border-radius: 16px"></figure></div><section class="chapter introduction" data-label="Personalized domain recommendations" id="overview" style="padding-top: 56px; padding-bottom: 56px"><div class="chapter-copy">
+
+
+
+<dl class="project-facts"><div><dt>Role</dt><dd>Design Lead · end-to-end design</dd></div><div><dt>Scope</dt><dd>Strategy, interaction &amp; visual design</dd></div><div><dt>Product</dt><dd>Domains For You</dd></div></dl>
+<p class="opening-thesis">Domain Portfolio’s acquisition prompts were winning experiments, but customer sentiment suggested we upsold too much. I proposed a dedicated, personalized destination. V1 showed promise, but only 8.64% of assigned shoppers found it, so V2 rebuilt discovery and browsing. It won for small businesses.</p>
+<div class="impact-highlights" style="display: grid; gap: 16px; margin: 30px 0 28px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><div class="impact-item" style="display: flex; align-items: center; gap: 14px"><strong style="font: 400 52px/1 var(--serif); letter-spacing: -0.04em; color: var(--accent)">+35K</strong><p style="margin: 0; font-size: 15px; line-height: 1.45">annualized new domain registrations<br><span style="color: var(--muted); font-size: 13px">SMB rollout</span></p></div><div class="impact-item" style="display: flex; align-items: center; gap: 14px"><strong style="font: 400 34px/1 var(--serif); letter-spacing: -0.03em">+$945K</strong><p style="margin: 0; font-size: 15px; line-height: 1.45">reported GCR addition associated with the SMB result</p></div><div class="impact-item" style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #21934C; flex: none"></span><p style="margin: 0; font-size: 15px; line-height: 1.45; font-weight: 500">Statistically significant registration win · rolled out to SMBs</p></div></div>
+
+<aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">My responsibility</p><p>I shaped the experience strategy, interaction model and visual design across desktop and mobile. My analysis and design rationale helped keep the team aligned as the experiments changed our understanding.</p></aside>
+</div><figure class="chapter-media growth-cover" data-caption="Domains For You V2 · desktop overview" ref="{{ setReel }}"><div class="screen-surround" style="background-color: #e0eef2"><div class="reel-frame"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the complete V2 overview"><button class="screen-button" type="button" aria-label="Inspect the complete V2 overview at full size" style="position: relative"><img src="assets/dfy/v2-overview.png" width="2160" height="4295" alt="Domains For You V2 desktop: left navigation, category chips and recommendation lists for curated, brand, budget and premium domains." loading="lazy"><span aria-hidden="true" class="reel-ring"></span><span aria-hidden="true" class="reel-dot"></span><span aria-hidden="true" class="reel-cursor"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 3l14 8.2-6.1 1.3 3.6 6.6-2.6 1.4-3.6-6.6L5.6 18z" fill="#191b17" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round"></path></svg></span></button></div><div aria-hidden="true" class="reel-checkout"><img src="assets/dfy/v2-checkout.png" width="1024" height="729" alt=""></div></div></div></figure></section>
+<section class="dfy-gallery" data-label="Gallery" aria-label="Selected screens" style="--g-radius: {{ gallery.radius }}; --g-gap: {{ gallery.gap }}; --g-tile: {{ gallery.tile }}; --g-cols: {{ gallery.cols }}; margin: 24px 0 72px"><ul class="gallery-grid" style="gap: 8px; grid-template-rows: repeat(1, minmax(0, 1fr))"><li class="gallery-item"><figure style="margin: 0"><div class="gallery-tile" style="background-color: #e0eef2"><img src="../assets/canvas/06b38e012213.png" width="2620" height="1310" style="box-shadow: none; border-radius: 0" alt="Domains For You V1, a portfolio tab with card previews, beside V2, a dedicated destination with denser lists, labelled +35K domain units and +$945K GCR." loading="lazy"></div></figure></li></ul></section>
+
+
+<section class="chapter" data-label="The problem" id="opportunity"><div class="chapter-copy">
+<p class="eyebrow">OPPORTUNITY</p><h2 style="font-family: Manrope, sans-serif">Opportunity Space</h2>
+<p>Domain Portfolio was primarily a place to manage domains. An inline banner, search and recommendation prompts also helped customers acquire more domains.</p>
+<p>These channels had won earlier experiments. The challenge was growing their contribution while responding to user-feedback about excessive upselling.</p>
+<div class="decision-line"><span>DESIGN FRAME</span><p>How could recommendations earn attention without interrupting the task?</p></div>
+</div><figure class="chapter-media opportunity-media" data-caption="Legacy acquisition entry points"><div class="media-label" style="background-color: #e0eef2"><span>01 / BEFORE DFY</span></div><div class="evidence-view" data-pane="banner" hidden="{{ view_opportunity.hide_banner }}" style="background-color: #e0eef2"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the inline portfolio banner"><button class="screen-button" type="button" aria-label="Inspect the inline portfolio banner at full size" style="position: relative"><img src="../assets/canvas/9fc6fdacd67f.png" width="2880" height="2032" alt="Domain Portfolio list with an acquisition offer placed between owned-domain rows." loading="lazy"><span aria-hidden="true" class="callout-box" style="position: absolute; left: 20.6%; top: 42.1%; width: 78.2%; height: 6.4%; border: 2px solid var(--accent); border-radius: 8px; box-shadow: 0 0 0 4px rgba(0, 126, 194, 0.12); pointer-events: none"></span><span class="callout-label" style="position: absolute; left: 20.6%; top: 42.1%; transform: translateY(calc(-100% - 8px)); padding: 0.45em 0.9em; border-radius: 999px; background: var(--accent); color: #ffffff; font: 600 clamp(8px, 0.9vw, 11px)/1.2 var(--sans); letter-spacing: 0.02em; white-space: nowrap; pointer-events: none">Inline Banner</span></button></div></div><p class="view-summary" style="color: #191b17">domain acquisition channel: an inline banner placed between owned-domain rows.</p></div><div class="evidence-view" data-pane="nomatch" hidden="{{ view_opportunity.hide_nomatch }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the unmatched search"><button class="screen-button" type="button" aria-label="Inspect the unmatched search at full size"><img src="../assets/canvas/1434a16adbb8.png" width="1440" height="900" alt="An unmatched portfolio search offering Check Availability, which leads to a purchase flow." loading="lazy"></button></div></div><p class="view-summary">An unmatched search leads to “Check Availability,” then a purchase flow.</p></div><div class="evidence-view" data-pane="flyout" hidden="{{ view_opportunity.hide_flyout }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the search recommendation flyout"><button class="screen-button" type="button" aria-label="Inspect the search recommendation flyout at full size"><img src="../assets/canvas/0a9f2b686c52.png" width="2880" height="2032" alt="Recommendation prompts in portfolio search opening a separate browsing flow." loading="lazy"></button></div></div><p class="view-summary">Recommendation prompts open a separate browsing flow.</p></div></figure></section>
+<section class="chapter" data-label="Problem dissection" id="diagnosis"><div class="chapter-copy">
+<p class="eyebrow">DISSECTING THE PROBLEM</p><h2 style="font-family: Manrope, sans-serif">A relevance problem.<br><em>A space to solve it.</em></h2>
+<p>I broke the banner journey into three questions: would customers notice it, would the offer fit, and would the message give them a reason? Small businesses needed a connection to their brand; investors were looking for acquisition opportunities.</p>
+<p>I proposed a dedicated destination with more relevant inventory. Proactive recommendations could use existing customer context instead of requiring a new search.</p>
+<div class="decision-line"><span>MY DIRECTION</span><p>A relevant offer deserves a dedicated place.</p></div><aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">What made it possible</p><p>A new recommendation capability enabled the shift from request-driven results to proactive suggestions. My role was defining how customers would discover, explore and act on that opportunity.</p></aside>
+</div><figure class="chapter-media diagnosis-media" data-caption="Problem dissection: the inline banner, broken into three questions"><div class="media-label"><span>02 / PROBLEM DISSECTION</span><span>INLINE BANNER</span></div><div class="dissection" style="flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 18px clamp(20px, 4%, 44px) 22px"><div class="dissect-crop" role="img" aria-label="The inline banner between owned-domain rows, marked 1 at the banner placement, 2 at the recommended domain, and 3 at the message." style="position: relative; flex: none; overflow: hidden; aspect-ratio: 4.72; border: 1px solid var(--hairline); border-radius: 10px; background: #ffffff"><img src="../assets/canvas/9fc6fdacd67f.png" width="2880" height="2032" alt="" style="position: relative; display: block; width: 125%; max-width: none; height: auto; margin: -26.46% 0 0 -25%"><span aria-hidden="true" style="position: absolute; left: 1%; right: 1.5%; top: 50%; height: 25%; border: 2px solid var(--accent); border-radius: 6px; pointer-events: none"></span><span aria-hidden="true" class="dissect-marker" style="position: absolute; left: 3%; top: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center; box-shadow: 0 0 0 3px #ffffff">1</span><span aria-hidden="true" class="dissect-marker" style="position: absolute; left: 27%; top: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center; box-shadow: 0 0 0 3px #ffffff">2</span><span aria-hidden="true" class="dissect-marker" style="position: absolute; left: 54%; top: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center; box-shadow: 0 0 0 3px #ffffff">3</span></div><ol class="diagnosis-steps" style="list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--hairline)"><li class="diagnosis-step" style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-top: 1px solid var(--hairline)"><span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center">1</span><div><p style="margin: 0 0 3px; font: 500 19px/1.25 var(--sans); letter-spacing: -0.01em; color: var(--ink)">Banner Blindness</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted)">Could the offer be overlooked inside the domain list?</p></div></li><li class="diagnosis-step" style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-top: 1px solid var(--hairline)"><span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center">2</span><div><p style="margin: 0 0 3px; font: 500 19px/1.25 var(--sans); letter-spacing: -0.01em; color: var(--ink)">Domain &lt;&gt; Offer mismatch</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted)">Was the domain associated or the offer right for this customer given that they couldn't choose another?</p></div></li><li class="diagnosis-step" style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-top: 1px solid var(--hairline)"><span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #ffffff; font: 600 11px/22px var(--sans); text-align: center">3</span><div><p style="margin: 0 0 3px; font: 500 19px/1.25 var(--sans); letter-spacing: -0.01em; color: var(--ink)">Messaging</p><p style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted)">Did the message explain why this domain is valuable for that particular user, in the space available?</p></div></li></ol></div></figure></section>
+<section class="chapter" data-label="Version 1" id="first-iteration"><div class="chapter-copy">
+<p class="eyebrow">LAUNCH</p><h2 style="font-family: Manrope, sans-serif">Domains For You V1</h2>
+<p>V1 added personalized domain recommendations as a new tab inside Domain Portfolio. The trade-off was breadth versus density: my PM wanted more inventory in view; I wanted the full range of categories visible within a scroll. We increased the previews and kept the structure.</p>
+<p>The test told two stories. Customers who opened DFY added a domain to cart about <strong>16% more often</strong> than engaged customers in the control group: an encouraging, directional signal. But only <strong>8.64%</strong> of shoppers in the test ever saw DFY, roughly 27K of 316K.</p>
+<p>I had framed this as a relevance problem. V1 showed reach had to come first.</p>
+<div class="decision-line"><span>NEXT PRIORITY</span><p>Make DFY easy to find before refining what’s in it.</p></div><aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">Reading the numbers</p><p>The ~16% is relative: 14.53% vs 12.52% add-to-cart, among engaged customers only, not completed purchases. DFY engagement meant clicking “See more”; control engagement is believed to be a search-bar click. Because the thresholds differ, I treat the gap as directional, not as a causal lift.</p></aside>
+</div><figure class="chapter-media v1-media" data-caption="V1 SMB experience"><div class="media-label"><span>03 / VERSION 1</span><span>PORTFOLIO TAB · SMB</span></div><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the complete V1 SMB screen"><button class="screen-button" type="button" aria-label="Inspect the complete V1 SMB screen at full size"><img src="assets/dfy/v1-smb.png" width="2160" height="3458" alt="V1 Domains For You inside a Domain Portfolio tab: personalized category cards with limited previews." loading="lazy"></button></div></div><div class="v1-readout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 28px; margin: 0 clamp(20px, 3%, 28px) 18px; padding-top: 16px; border-top: 1px solid var(--hairline)"><div class="v1-stat"><p style="margin: 0; font: 500 11px/1.4 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted)">Reach · the problem</p><p style="margin: 6px 0 8px; display: flex; align-items: baseline; gap: 10px"><strong style="font: 500 32px/1 var(--sans); letter-spacing: -0.03em; color: var(--accent)">8.64%</strong><span style="font-size: 13px; line-height: 1.4; color: var(--muted)">of shoppers in the test ever saw DFY</span></p><div aria-hidden="true" style="height: 6px; border-radius: 999px; background: rgba(25, 27, 23, 0.08); overflow: hidden"><div style="width: 8.64%; height: 100%; background: var(--accent); border-radius: 999px"></div></div><p style="margin: 6px 0 0; font-size: 12px; color: var(--muted)">~27K of ~316K shoppers</p></div><div class="v1-stat"><p style="margin: 0; font: 500 11px/1.4 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted)">Engagement · the promise</p><p style="margin: 6px 0 8px; display: flex; align-items: center; gap: 10px"><strong style="font: 500 32px/1 var(--sans); letter-spacing: -0.03em; color: var(--ink)">+16%</strong><span style="font-size: 13px; line-height: 1.4; color: var(--muted)">more engaged customers added to cart than in control</span></p><p style="margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted)">Directional: customers who explored DFY converted to add-to-cart more often · not a causal lift</p></div></div></figure></section><section class="category-reel" data-label="Categories reel" aria-label="V1 page categories, revealed while the page scrolls" ref="{{ setCatReel }}" style="--cat-w: {{ catReel.width }}; --cat-h: {{ catReel.height }}; --cat-icon: {{ catReel.icon }}; --cat-label: {{ catReel.label }}; --cat-zoom: {{ catReel.zoom }}; --cat-shift: {{ catReel.shift }}; flex-wrap: nowrap"><div class="cat-stage" style="width: 873px"><div class="cat-screen" tabindex="0" aria-label="V1 Domain Portfolio page, Domains For You tab. Scroll to explore." style="width: 577px; height: 303px"><img src="../assets/canvas/91bf42f611c4.png" width="2880" height="5244" alt="V1 Domains For You tab: Top Pick, Curated Domains, Protect Your Brand, Budget Domains and Premium Domains, with Favorites on the side." loading="lazy"></div><div class="cat-panel"><p class="cat-kicker">Categories on this page</p><ol class="cat-list"><li class="cat-item" data-y="0.1398"><span class="cat-icon"><img src="../assets/canvas/5289f6ce0e49.svg" width="32" height="32" alt=""></span><span class="cat-name">Top Pick For You</span></li><li class="cat-item" data-y="0.2411"><span class="cat-icon"><img src="../assets/canvas/42d13319f33c.svg" width="32" height="32" alt=""></span><span class="cat-name">Curated Domains For You</span></li><li class="cat-item" data-y="0.4254"><span class="cat-icon"><img src="../assets/canvas/09aebe88421e.svg" width="32" height="32" alt=""></span><span class="cat-name">Protect Your Brand</span></li><li class="cat-item" data-y="0.5966"><span class="cat-icon"><img src="../assets/canvas/caead759fac1.svg" width="32" height="32" alt=""></span><span class="cat-name">Budget Domains For You</span></li><li class="cat-item" data-y="0.7814"><span class="cat-icon"><img src="../assets/canvas/9c00bbc42b61.svg" width="32" height="32" alt=""></span><span class="cat-name">Premium Domains For You</span></li></ol></div></div><div class="cat-stage act-stage" ref="{{ setActReel }}" style="--act-w: {{ actReel.width }}"><div class="act-screen" role="img" aria-label="V1 interactions: hovering a card reveals the favorite, Add to Cart switches to Added and a cart bar appears, then the cart drawer opens." style="width: 658px"><div class="act-camera"><img class="act-layer act-base" src="../assets/canvas/27cd541f9e0a.png" width="2880" height="1800" alt=""><img class="act-layer act-hover" src="../assets/canvas/ea5f639a0ac2.png" width="2880" height="1800" alt=""><img class="act-layer act-added" src="../assets/canvas/60f998a85a26.png" width="2880" height="1800" alt=""><img class="act-layer act-bar" src="../assets/canvas/60f998a85a26.png" width="2880" height="1800" alt=""><img class="act-layer act-drawer" src="../assets/canvas/afd20bf2c9c9.png" width="2880" height="1800" alt=""><img class="act-layer act-chevron" src="../assets/canvas/afd20bf2c9c9.png" width="2880" height="1800" alt=""><span aria-hidden="true" class="act-ring"></span><span aria-hidden="true" class="act-cursor"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 3l14 8.2-6.1 1.3 3.6 6.6-2.6 1.4-3.6-6.6L5.6 18z" fill="#191b17" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round"></path></svg></span></div></div><div class="cat-panel act-panel"><p class="cat-kicker">Acting on a recommendation</p><ol class="act-steps"><li class="act-step"><span class="act-num">01</span><div><p class="act-verb">Consider</p><p class="act-title">Save it for later</p><p class="act-desc">Hovering a card reveals the favorite.</p></div></li><li class="act-step"><span class="act-num">02</span><div><p class="act-verb">Act</p><p class="act-title">Add several, one click each</p><p class="act-desc">Buttons switch to the chosen state and the cart bar appears.</p></div></li><li class="act-step"><span class="act-num">03</span><div><p class="act-verb">Review</p><p class="act-title">Check the cart without leaving</p><p class="act-desc">The cart drawer opens from the bar.</p></div></li></ol></div></div></section>
+<section class="chapter" data-label="Strategy" id="clarity"><div class="chapter-copy">
+<p class="eyebrow">LEARNINGS FROM V1</p><h2>What the V1 readout<br><em>was really saying.</em></h2>
+<p>I used a simple growth model to connect the V1 readout to design priorities: audience, intent, discovery and conversion.</p>
+<p>It gave the team a shared rationale for V2: improve the routes into DFY, make categories easier to explore, and put more inventory within reach.</p>
+<div class="decision-line"><span>PRIORITY</span><p>Discovery first. Then exploration, then action.</p></div>
+<aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">What the model is—and isn’t</p><p>This is a strategic decomposition rather than a measured accounting identity. Intent was not an independent observed rate, and registration units can also depend on domains per purchase. The model helped explain priorities, not calculate a forecast.</p></aside>
+</div><figure class="chapter-media model-media" data-caption="My prioritization model"><div class="media-label"><span>04 / PRIORITIZATION MODEL</span><span>CREATED FOR V2 ALIGNMENT</span></div><div class="growth-model" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; padding: 32px clamp(24px, 5%, 56px)"><p class="model-equation" aria-label="Domain registrations equals Audience times Intent times Discovery times Conversion" style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 22px 26px; border: 1px solid var(--hairline); border-radius: 12px; background: rgba(25, 27, 23, 0.03); font: italic 400 clamp(20px, 1.75vw, 27px)/1.3 'Newsreader', Georgia, serif; letter-spacing: -0.01em; color: var(--ink)"><span class="eq-lhs"><span class="eq-var">Domain registrations</span><span aria-hidden="true" class="eq-op">=</span></span><span class="eq-rhs"><span class="eq-var">Audience</span><span aria-hidden="true" class="eq-op">×</span><span class="eq-var">Intent</span><span aria-hidden="true" class="eq-op">×</span><span class="eq-var eq-key">Discovery</span><span aria-hidden="true" class="eq-op">×</span><span class="eq-var">Conversion</span></span></p><div class="model-terms" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px"><div class="model-term" style="padding: 18px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff"><p style="margin: 0 0 6px; font: 400 24px/1.1 var(--serif)">Audience</p><p style="margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted)">Who can we reach?</p></div><div class="model-term" style="padding: 18px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff"><p style="margin: 0 0 6px; font: 400 24px/1.1 var(--serif)">Intent</p><p style="margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted)">Why would they buy?</p><p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--hairline); font-size: 13px; line-height: 1.45; color: var(--muted)"><span style="font-weight: 600; color: var(--ink)">V2 →</span> Exploration: easier to judge fit, with denser lists and dedicated category views</p></div><div class="model-term" style="padding: 18px; border: 2px solid var(--accent); border-radius: 12px; background: #fff"><p style="margin: 0 0 6px; font: 400 24px/1.1 var(--serif)">Discovery</p><p style="margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted)">Will they find it?</p><span style="display: inline-block; margin-top: 10px; font: 500 10px/1.4 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent)">V1’s demonstrated constraint</span><p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--hairline); font-size: 13px; line-height: 1.45; color: var(--muted)"><span style="font-weight: 600; color: var(--ink)">V2 →</span> Access: a persistent navigation home, search entry points</p></div><div class="model-term" style="padding: 18px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff"><p style="margin: 0 0 6px; font: 400 24px/1.1 var(--serif)">Conversion</p><p style="margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted)">Can they act on it?</p><p style="margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--hairline); font-size: 13px; line-height: 1.45; color: var(--muted)"><span style="font-weight: 600; color: var(--ink)">V2 →</span> Action: a contextual bundle, inline</p></div></div></div><figcaption><span>A prioritization model, not four independently measured rates.</span></figcaption></figure></section>
+<section class="chapter" data-label="Version 2: Discovery" id="find"><div class="chapter-copy">
+<p class="eyebrow">DOMAINS FOR YOU V2 : DISCOVERY</p><h2>Give discovery<br><em>a permanent home.</em></h2>
+<p>I moved DFY into the left navigation and strengthened its discovery cues. The experience became a persistent destination rather than a tab nested in domain management.</p>
+<p>I also connected existing search entry points to relevant recommendations, so customers could reach a useful category from the context they already had.</p>
+<div class="decision-line"><span>DESIGN INTENT</span><p>A clearer route in. A recognizable place to return.</p></div>
+</div><figure class="chapter-media find-media" data-caption="V2 discovery entry points"><div class="media-label"><span>05 / FIND IT</span><div class="view-controls" role="group" aria-label="Discovery view"><button type="button" data-view="before" aria-pressed="{{ view_find.pressed_before }}" onClick="{{ view_find.pick_before }}">Before</button><button type="button" data-view="after" aria-pressed="{{ view_find.pressed_after }}" onClick="{{ view_find.pick_after }}">After</button><button type="button" data-view="search" aria-pressed="{{ view_find.pressed_search }}" onClick="{{ view_find.pick_search }}">Search</button></div></div><div class="evidence-view" data-pane="before" hidden="{{ view_find.hide_before }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V1 nested tab"><button class="screen-button" type="button" aria-label="Inspect the V1 nested tab at full size"><img src="assets/dfy/v1-entry.png" width="2160" height="1524" alt="V1: Domains For You as a tab nested inside Domain Portfolio." loading="lazy"></button></div></div><p class="view-summary">Before / A tab nested in domain management.</p></div><div class="evidence-view" data-pane="after" hidden="{{ view_find.hide_after }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V2 navigation destination"><button class="screen-button" type="button" aria-label="Inspect the V2 navigation destination at full size"><img src="assets/dfy/v2-discovery.png" width="2160" height="1401" alt="V2: Domains For You as a persistent destination in the left navigation with a discovery popover." loading="lazy"></button></div></div><p class="view-summary">After / A persistent destination in the navigation.</p></div><div class="evidence-view" data-pane="search" hidden="{{ view_find.hide_search }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: V2 search entry points"><button class="screen-button" type="button" aria-label="Inspect V2 search entry points at full size"><img src="assets/dfy/v2-search.png" width="1024" height="978" alt="V2 search with recommendation starters and recent searches." loading="lazy"></button></div></div><p class="view-summary">Search / Starters and recent searches lead to relevant categories.</p></div><figcaption><span>From a nested tab to a persistent destination.</span><span class="expand-hint">Switch views ↑</span></figcaption></figure></section>
+<section class="chapter" data-label="Version 2: Browse &amp; buy" id="explore"><div class="chapter-copy">
+<p class="eyebrow">DOMAINS FOR YOU V2 : CONVERSION RATE</p><h2>More choice.<br><em>Less back-and-forth.</em></h2>
+<p>V2 went further toward density. I shifted from small card previews and category modals to denser lists and dedicated category views. Distinct icons and labels were intended to invite exploration without hiding the inventory.</p>
+<p>After an add-to-cart action, a contextual bundle appeared inline. The selected domain, remaining options and checkout stayed connected.</p>
+<div class="decision-line"><span>DESIGN SHIFT</span><p>From previewing categories to evaluating options.</p></div><aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">Attribution</p><p>The V2 result evaluated the combined experience. I do not attribute the outcome to icons, list density or any single change in isolation.</p></aside>
+</div><figure class="chapter-media explore-media" data-caption="V2 explore and act"><div class="media-label"><span>06 / EXPLORE &amp; ACT</span><div class="view-controls" role="group" aria-label="Explore view"><button type="button" data-view="filter" aria-pressed="{{ view_explore.pressed_filter }}" onClick="{{ view_explore.pick_filter }}">Filter</button><button type="button" data-view="cart" aria-pressed="{{ view_explore.pressed_cart }}" onClick="{{ view_explore.pick_cart }}">Add to cart</button><button type="button" data-view="mobile" aria-pressed="{{ view_explore.pressed_mobile }}" onClick="{{ view_explore.pick_mobile }}">Mobile</button></div></div><div class="evidence-view" data-pane="filter" hidden="{{ view_explore.hide_filter }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V2 brand filters"><button class="screen-button" type="button" aria-label="Inspect the V2 brand filters at full size"><img src="assets/dfy/v2-brand-filters.png" width="1440" height="1158" alt="V2 brand category with filters narrowing the inventory." loading="lazy"></button></div></div><p class="view-summary">Narrow the inventory around a brand.</p></div><div class="evidence-view" data-pane="cart" hidden="{{ view_explore.hide_cart }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V2 add-to-cart bundle"><button class="screen-button" type="button" aria-label="Inspect the V2 add-to-cart bundle at full size"><img src="assets/dfy/v2-checkout.png" width="1024" height="729" alt="V2 inline contextual bundle after add to cart, with checkout in reach." loading="lazy"></button></div></div><p class="view-summary">A contextual bundle, without leaving the list.</p></div><div class="evidence-view" data-pane="mobile" hidden="{{ view_explore.hide_mobile }}"><div class="screen-surround" style="justify-content: center"><div class="mobile-screen-scroll" tabindex="0" aria-label="Scroll to explore: the V2 mobile category view" style="width: 46%; max-width: 260px"><button class="screen-button" type="button" aria-label="Inspect the V2 mobile category view at full size"><img src="assets/dfy/v2-mobile-category.png" width="375" height="1780" alt="V2 mobile category view." loading="lazy"></button></div></div><p class="view-summary">Mobile / The same lists and actions, in a single column.</p></div><figcaption><span>Denser lists, dedicated views, an inline bundle.</span><span class="expand-hint">Switch views ↑</span></figcaption></figure></section>
+<section class="chapter" data-label="Impact" id="outcome"><div class="chapter-copy">
+<p class="eyebrow">IMPACT</p><h2>A win to scale.<br><em>A loss to learn from.</em></h2>
+<p>The SMB experiment delivered a statistically significant improvement in new domain registrations and rolled out. The reported annualized impact: <strong>35K new registrations, associated with approximately $945K GCR.</strong></p>
+<p>The Investor experience lost on registrations and was rolled back. Auction bids / add-to-cart rose <strong>10%</strong>, a statistically significant secondary result. Investors leaned toward auctions and expiring inventory; curation from portfolio history appeared to miss what they wanted now.</p>
+<div class="decision-line"><span>THE LEARNING</span><p>Shared UI does not imply shared customer intent.</p></div><aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">Keep the outcomes distinct</p><p>The cohort results apply to the combined experience. The 35K figure is annualized rather than an observed experiment-period total. Approximately $945K is the associated reported GCR figure, not labeled as realized revenue. The +10% auction result is a statistically significant secondary signal, not a win on the primary registration metric.</p></aside>
+</div><figure class="chapter-media outcome-media" data-caption="V2 readout by cohort"><div class="media-label"><span>07 / V2 READOUT</span><div class="view-controls" role="group" aria-label="Outcome view"><button type="button" data-view="outcomes" aria-pressed="{{ view_outcome.pressed_outcomes }}" onClick="{{ view_outcome.pick_outcomes }}">Outcomes</button><button type="button" data-view="investor" aria-pressed="{{ view_outcome.pressed_investor }}" onClick="{{ view_outcome.pick_investor }}">Investor V2</button><button type="button" data-view="v1investor" aria-pressed="{{ view_outcome.pressed_v1investor }}" onClick="{{ view_outcome.pick_v1investor }}">Investor V1</button></div></div><div class="evidence-view" data-pane="outcomes" hidden="{{ view_outcome.hide_outcomes }}"><div class="outcome-panel" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0; padding: 8px clamp(24px, 5%, 48px); background: #191b17; color: #ffffff"><div class="outcome-cohort outcome-smb" style="padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,.14)"><div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 14px"><span style="font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase">Small businesses</span><span style="font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: #8AC9A1">Rolled out</span></div><p style="margin: 0; font: 400 clamp(46px, 5vw, 68px)/1 var(--serif); letter-spacing: -0.04em">35K <em style="font-size: 0.42em; letter-spacing: 0; color: #8AC9A1">/ year</em></p><p style="margin: 8px 0 18px; font-size: 15px; color: rgba(255, 255, 255, 0.64)">Annualized new domain registrations</p><p style="margin: 0; font: 400 clamp(30px, 3vw, 40px)/1 var(--serif); color: #8AC9A1">~$945K <span style="font: 400 13px/1.4 var(--sans); color: rgba(255, 255, 255, 0.64)">associated reported GCR</span></p><p style="margin: 16px 0 0; font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: #8AC9A1">Primary metric · statistically significant win</p></div><div class="outcome-cohort outcome-investor" style="padding: 30px 0"><div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 14px"><span style="font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase">Domain investors</span><span style="font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: #E3A37C">Rolled back</span></div><p style="margin: 0 0 6px; font: 400 clamp(26px, 2.6vw, 34px)/1.1 var(--serif)">Registration loss</p><p style="margin: 0 0 18px; font-size: 15px; color: rgba(255, 255, 255, 0.64)">Primary metric: registration loss; rolled back.</p><p style="margin: 0; font: 400 clamp(30px, 3vw, 40px)/1 var(--serif); color: #E3A37C">+10% <em style="font-size: 0.6em">auction bids / add-to-cart</em></p><p style="margin: 16px 0 0; font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: #E3A37C">Secondary result · statistically significant</p></div></div></div><div class="evidence-view" data-pane="investor" hidden="{{ view_outcome.hide_investor }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V2 Investor UI"><button class="screen-button" type="button" aria-label="Inspect the V2 Investor UI at full size"><img src="assets/dfy/v2-investor.png" width="693" height="1024" alt="V2 Investor experience with auctions and expiring inventory." loading="lazy"></button></div></div><p class="view-summary">Investor V2 / Auction views: valuation, activity and urgency.</p></div><div class="evidence-view" data-pane="v1investor" hidden="{{ view_outcome.hide_v1investor }}"><div class="screen-surround"><div class="screen-scroll" tabindex="0" aria-label="Scroll to explore: the V1 Investor overview"><button class="screen-button" type="button" aria-label="Inspect the V1 Investor overview at full size"><img src="../assets/canvas/aeaaf345dfe7.png" width="2160" height="3968" alt="V1 Investor overview: a top pick, curated domains and auctions described as matching the customer’s portfolio." loading="lazy"></button></div></div><p class="view-summary">Investor V1 / Auctions curated to “match your portfolio”: the assumption the result challenged (interpretation).</p></div><figcaption><span>SMB impact is annualized. Investor auction lift is a secondary result.</span></figcaption></figure></section>
+<section class="chapter closing" data-label="Learnings" id="reflection"><div class="chapter-copy">
+<p class="eyebrow">08 / Learnings &amp; next steps</p><h2>Intent changes.<br><em>Relevance must, too.</em></h2>
+<p>V1 and V2 used the same growth model to decide what to test next. That reasoning carried into two open questions: how to explain the value of additional domains to SMBs, and how to better reflect investors’ current interests.</p>
+<p class="closing-line">My contribution was creating clarity—and carrying that reasoning through to the experience.</p>
+<aside class="design-note" hidden="{{ notesHidden }}"><p class="note-label">Supporting interpretation</p><p>Investors engaged strongly with search, auctions, expiring inventory and premium domains. Portfolio-based curation appeared misaligned with their immediate interests. Recency and opportunity-driven recommendations became hypotheses for the next iteration.</p></aside>
+<div class="end-links"><a href="../index.html#work">Back to selected work ↗</a><a href="domain-agent.html">Explore the Domain Agent case study ↗</a></div>
+</div><figure class="chapter-media reflection-media" data-caption="Two open questions"><div class="media-label"><span>08 / NEXT QUESTIONS</span><span>HYPOTHESES TO TEST</span></div><div class="open-questions" style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 24px clamp(24px, 5%, 56px)"><div style="border-bottom: 1px solid var(--hairline)"><div class="open-question" style="padding: 26px 0; border-top: 1px solid var(--hairline)"><p style="margin: 0 0 10px; font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">Small businesses</p><p style="margin: 0 0 10px; font: italic 400 clamp(24px, 2.3vw, 32px)/1.2 var(--serif); letter-spacing: -0.01em">“Relevant to my brand. But useful for what?”</p><p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted)">Make the purpose of owning another domain clearer—not just the recommendation.</p></div><div class="open-question" style="padding: 26px 0; border-top: 1px solid var(--hairline)"><p style="margin: 0 0 10px; font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">Domain investors</p><p style="margin: 0 0 10px; font: italic 400 clamp(24px, 2.3vw, 32px)/1.2 var(--serif); letter-spacing: -0.01em">“Relevant to my portfolio. But relevant today?”</p><p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted)">Test current opportunities against assumptions based on historical ownership.</p></div></div></div><figcaption><span>Questions for the next iteration—not shipped results.</span></figcaption></figure></section>
+
+</div></main>
+<footer class="study-footer"><span>Vinit Mankar · Design Lead · GoDaddy</span><span>Intent before inventory.</span><a href="#overview">Back to the beginning ↑</a></footer>
+<dialog aria-labelledby="image-title" class="image-dialog"><div class="dialog-bar"><p id="image-title">Product design</p><div><button aria-pressed="false" class="zoom-toggle" type="button">Original size</button><button class="close-dialog" type="button">Close <span>×</span></button></div></div><div class="dialog-canvas"><img alt=""></div></dialog>
+</div>
+</template>
+<script type="application/json" id="dc-props">{"showDesignNotes": {"editor": "boolean", "default": false, "section": "Page states"}, "homeLoaderWidth": {"editor": "range", "default": 40, "min": 16, "max": 120, "step": 1, "unit": "px", "section": "Home loader"}, "homeLoaderDotSize": {"editor": "range", "default": 3, "min": 0.3, "max": 3, "step": 0.05, "section": "Home loader"}, "homeLoaderBandWidth": {"editor": "range", "default": 0.36, "min": 0.2, "max": 1.6, "step": 0.02, "section": "Home loader"}, "homeLoaderDensity": {"editor": "range", "default": 42, "min": 16, "max": 140, "step": 1, "section": "Home loader"}, "homeLoaderRows": {"editor": "range", "default": 6, "min": 1, "max": 14, "step": 1, "section": "Home loader"}, "homeLoaderSpeed": {"editor": "range", "default": 8, "min": 0.6, "max": 8, "step": 0.1, "unit": "s", "section": "Home loader"}, "pageTintColor": {"editor": "color", "default": "#95CEE3", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6", "#CE9895"], "section": "Page tint"}, "pageTintAmount": {"editor": "range", "default": 0.2, "min": 0, "max": 0.3, "step": 0.005, "section": "Page tint"}, "view_opportunity": {"editor": "enum", "options": ["banner", "nomatch", "flyout"], "default": "banner", "section": "Figure views"}, "view_find": {"editor": "enum", "options": ["before", "after", "search"], "default": "after", "section": "Figure views"}, "view_explore": {"editor": "enum", "options": ["filter", "cart", "mobile"], "default": "filter", "section": "Figure views"}, "view_outcome": {"editor": "enum", "options": ["outcomes", "investor", "v1investor"], "default": "outcomes", "section": "Figure views"}, "galleryColumns": {"editor": "range", "default": 2, "min": 1, "max": 4, "step": 1, "section": "Gallery"}, "galleryGap": {"editor": "range", "default": 12, "min": 0, "max": 48, "step": 1, "unit": "px", "section": "Gallery"}, "galleryRadius": {"editor": "range", "default": 12, "min": 0, "max": 40, "step": 1, "unit": "px", "section": "Gallery"}, "catReelWidth": {"editor": "range", "default": 74, "min": 30, "max": 100, "step": 1, "unit": "%", "section": "Categories reel"}, "catScreenHeight": {"editor": "range", "default": 460, "min": 280, "max": 900, "step": 10, "unit": "px", "section": "Categories reel"}, "catIconSize": {"editor": "range", "default": 28, "min": 16, "max": 48, "step": 1, "unit": "px", "section": "Categories reel"}, "catLabelSize": {"editor": "range", "default": 20, "min": 13, "max": 32, "step": 1, "unit": "px", "section": "Categories reel"}, "catScrollSpeed": {"editor": "range", "default": 2.6, "min": 0.25, "max": 3, "step": 0.05, "unit": "×", "section": "Categories reel"}, "catZoom": {"editor": "range", "default": 100, "min": 100, "max": 250, "step": 5, "unit": "%", "section": "Categories reel"}, "catFocusX": {"editor": "range", "default": 71, "min": 0, "max": 100, "step": 1, "unit": "%", "section": "Categories reel"}, "actReelWidth": {"editor": "range", "default": 76, "min": 30, "max": 100, "step": 1, "unit": "%", "section": "Interactions reel"}, "actSpeed": {"editor": "range", "default": 3, "min": 0.25, "max": 3, "step": 0.05, "unit": "×", "section": "Interactions reel"}, "actZoom": {"editor": "range", "default": 3, "min": 1.2, "max": 3.5, "step": 0.1, "unit": "×", "section": "Interactions reel"}, "galleryTileColor": {"editor": "color", "default": "#F2F2F0", "section": "Gallery"}, "$preview": {"width": 1440, "height": 7208}}</script>
+<script src="../dc-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  componentDidUpdate(prev) {
+    const keys = ["showDesignNotes", "view_opportunity", "view_find", "view_explore", "view_outcome"];
+    if (keys.some(k => prev[k] !== this.props[k])) this.setState(Object.fromEntries(keys.map(k => [k, undefined])));
+  }
+  current(key, fallback) {
+    const s = this.state && this.state[key];
+    return s !== undefined ? s : (this.props[key] !== undefined ? this.props[key] : fallback);
+  }
+  group(key, views, fallback) {
+    const cur = this.current(key, fallback), g = {};
+    views.forEach(v => {
+      g['pick_' + v] = () => this.setState({ [key]: v });
+      g['pressed_' + v] = String(cur === v);
+      g['hide_' + v] = cur !== v;
+    });
+    return g;
+  }
+  /* Home link Möbius loader (same geometry as the homepage footer loader): dots sampled on a real half-twisted strip, seen from a raised three-quarter angle. */
+  homeLoaderGeometry() {
+    const p = this.props;
+    const dotSize = p.homeLoaderDotSize ?? 3, bandW = p.homeLoaderBandWidth ?? 0.36;
+    const U = Math.round(p.homeLoaderDensity ?? 52), V = Math.round(p.homeLoaderRows ?? 6), em = p.homeLoaderWidth ?? 34;
+    const key = [dotSize, bandW, U, V, em, p.homeLoaderSpeed ?? 8].join('|');
+    if (this._homeLoaderKey === key) return this._homeLoader;
+    const pitch = -1.2, yaw = 1.9, dur = 2.4, pts = [];
+    for (let i = 0; i < U; i++) {
+      const u = i / U * 2 * Math.PI, c = Math.cos(u), sn = Math.sin(u), ch = Math.cos(u / 2), sh = Math.sin(u / 2);
+      for (let j = 0; j < V; j++) {
+        const v = (V === 1 ? 0 : j / (V - 1) - 0.5) * bandW;
+        let x = c + v * ch * c, y = sn + v * ch * sn, z = v * sh;
+        const x2 = x * Math.cos(yaw) - y * Math.sin(yaw), y2 = x * Math.sin(yaw) + y * Math.cos(yaw);
+        const y3 = y2 * Math.cos(pitch) - z * Math.sin(pitch), z3 = y2 * Math.sin(pitch) + z * Math.cos(pitch);
+        pts.push([x2, -y3, z3, i]);
+      }
+    }
+    let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity, zmin = Infinity, zmax = -Infinity;
+    for (const q of pts) { minx = Math.min(minx, q[0]); maxx = Math.max(maxx, q[0]); miny = Math.min(miny, q[1]); maxy = Math.max(maxy, q[1]); zmin = Math.min(zmin, q[2]); zmax = Math.max(zmax, q[2]); }
+    const pad = 4 * Math.max(1, dotSize), VW = 100, sc = (VW - 2 * pad) / (maxx - minx), VH = Math.round((maxy - miny) * sc + 2 * pad);
+    pts.sort((a, b) => a[2] - b[2]);
+    const dots = pts.map(q => {
+      const d = (q[2] - zmin) / ((zmax - zmin) || 1), o = 0.22 + 0.78 * d;
+      return { cx: ((q[0] - minx) * sc + pad).toFixed(2), cy: ((q[1] - miny) * sc + pad).toFixed(2), r: ((0.75 + 0.95 * d) * dotSize).toFixed(2),
+        style: '--o: ' + o.toFixed(2) + '; --f: ' + (1 - q[3] / U).toFixed(3) + '; opacity: ' + o.toFixed(2) };
+    });
+    this._homeLoaderKey = key;
+    this._homeLoader = { dur: (p.homeLoaderSpeed ?? 8) + 's', dots, viewBox: '0 0 ' + VW + ' ' + VH, width: em + 'px', height: (em * VH / VW).toFixed(3) + 'em' };
+    return this._homeLoader;
+  }
+  /* Page tint: white with a whisper of the first Work-dropdown accent. */
+  pageTintVals(vals) {
+    const p = this.props, hex = String(p.pageTintColor ?? '#95CEE3').replace('#', ''), amt = Math.max(0, Math.min(1, p.pageTintAmount ?? 0.06));
+    const n = parseInt(hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex.slice(0, 6), 16);
+    const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(c => Math.round(255 + (c - 255) * amt));
+    vals.pageTint = 'rgb(' + ch.join(',') + ')';
+    vals.pageTintGlass = 'rgba(' + ch.join(',') + ',0.9)';
+    // the bright, on-white member of the tint colour's family (palette: soft accent -> bright accent)
+    const family = { '95CEE3': '#007EC2', 'E3A37C': '#D85100', '8AC9A1': '#21934C', 'AC8FE6': '#7937E8', 'CE9895': '#D23B65',
+      'C2C5D0': '#5265C7', 'C9C9C9': '#565D6C', 'CBC7C2': '#836247', 'D5C8C2': '#C45162', 'B3DAD9': '#008C91', 'C0B9B1': '#947044', 'D6D293': '#958000', 'FF362B': '#EF2518' };
+    vals.pageAccent = p.pageAccentColor ?? family[hex.toUpperCase()] ?? '#141414';
+    return vals;
+  }
+  workNav(vals) {
+    const s = this.state || {}, open = !!s.workOpen, idx = open && s.activeWork != null ? s.activeWork : null;
+    const bright = ['#007EC2', '#D85100', '#21934C', '#7937E8', '#D23B65'];
+    vals.workOverlay = open; vals.workExpanded = String(open); vals.workChevron = open ? '\u25B4' : '\u25BE'; vals.workMenuId = 'work-popover';
+    vals.toggleWork = () => this.setState({ workOpen: !open, activeWork: null });
+    vals.clearWork = () => this.setState({ activeWork: null });
+    vals.workKeyDown = e => { if (e.key === 'Escape') this.setState({ workOpen: false, activeWork: null }); };
+    bright.forEach((c, i) => { vals['work' + i] = { active: String(idx === i), text: idx === i ? c : 'var(--ink)', enter: () => this.setState({ activeWork: i }) }; });
+    const sweep = 2.2, every = 5, r = sweep / every, W = r / (2 + r), pct = v => (v * 100).toFixed(2) + '%';
+    const stops = ['var(--ink) 0%', 'var(--ink) ' + pct(W)];
+    bright.forEach((c, i) => stops.push(c + ' ' + pct(W + W * (i + 1) / (bright.length + 1))));
+    stops.push('var(--ink) ' + pct(2 * W), 'var(--ink) 100%');
+    vals.shimmer = { image: 'linear-gradient(90deg, ' + stops.join(', ') + ')', size: (100 / W).toFixed(1) + '%', cycle: every + 's' };
+    return vals;
+  }
+
+  /* Hero show reel: scrolls the V2 overview and taps Add to Cart, then shows the real added state. */
+  startReel(fig) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+    const q = c => fig.querySelector(c);
+    const sc = q('.screen-scroll'), btn = q('.screen-button'), cur = q('.reel-cursor'), ring = q('.reel-ring'), dot = q('.reel-dot'), co = q('.reel-checkout');
+    if (!sc || !btn || !cur) return;
+    const BX = 0.907, ROWS = [0.168, 0.379, 0.615, 0.802];
+    const segs = [{ type: 'hold', dur: 1200 }];
+    ROWS.forEach((r, i) => { segs.push({ type: 'scroll', row: r, dur: 1500 }, { type: 'aim', row: r, dur: 650 }, { type: 'tap', row: r, dur: 650 }); });
+    segs.push({ type: 'checkout', dur: 3600 }, { type: 'reset', dur: 900 });
+    const total = segs.reduce((a, s) => a + s.dur, 0);
+    const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    let visible = true, hover = false, idleUntil = 0, clock = 0, prev = performance.now(), segIdx = -1, from = null;
+    let cx = 0.62, cy = 0.2;
+    const place = () => { cur.style.left = (cx * 100) + '%'; cur.style.top = (cy * 100) + '%'; };
+    const targetTop = r => Math.max(0, Math.min(sc.scrollHeight - sc.clientHeight, r * btn.offsetHeight - sc.clientHeight * 0.55));
+    const pulse = (el) => { el.classList.remove('is-tap'); void el.offsetWidth; el.classList.add('is-tap'); };
+    const enter = () => { hover = true; cur.style.opacity = '0'; co.classList.remove('is-on'); };
+    const leave = () => { hover = false; segIdx = -1; };
+    const nudge = () => { idleUntil = performance.now() + 4000; cur.style.opacity = '0'; co.classList.remove('is-on'); segIdx = -1; };
+    sc.addEventListener('wheel', nudge, { passive: true }); sc.addEventListener('touchstart', nudge, { passive: true });
+    const io = 'IntersectionObserver' in window ? null : null;
+    if (io) io.observe(fig);
+    const loop = now => {
+      this.reelRaf = requestAnimationFrame(loop);
+      const dt = Math.min(100, now - prev); prev = now;
+      if (!visible || hover || now < idleUntil || reduce.matches) return;
+      clock = (clock + dt) % total;
+      let t = clock, i = 0; while (t >= segs[i].dur) { t -= segs[i].dur; i++; }
+      const seg = segs[i], k = ease(Math.min(1, t / seg.dur));
+      if (i !== segIdx) {
+        segIdx = i; from = { top: sc.scrollTop, cx, cy };
+        if (seg.type === 'hold') { cur.style.opacity = '0'; cx = 0.62; cy = 0.2; place(); }
+        if (seg.type === 'scroll') cur.style.opacity = '1';
+        if (seg.type === 'tap') {
+          [ring, dot].forEach(el => { el.style.left = (BX * 100) + '%'; el.style.top = (seg.row * 100) + '%'; pulse(el); });
+          cur.classList.add('is-press'); setTimeout(() => cur.classList.remove('is-press'), 160);
+        }
+        if (seg.type === 'checkout') { co.classList.add('is-on'); cur.style.opacity = '0'; }
+        if (seg.type === 'reset') co.classList.remove('is-on');
+      }
+      if (seg.type === 'scroll') {
+        const to = targetTop(seg.row);
+        sc.scrollTop = from.top + (to - from.top) * k;
+        cx = from.cx + (0.8 - from.cx) * k; cy = from.cy + ((seg.row + 0.025) - from.cy) * k; place();
+      } else if (seg.type === 'aim') {
+        cx = from.cx + (BX - from.cx) * k; cy = from.cy + (seg.row - from.cy) * k; place();
+      } else if (seg.type === 'reset') {
+        sc.scrollTop = from.top * (1 - k);
+      }
+    };
+    this.reelRaf = requestAnimationFrame(loop);
+    this.reelStop = () => {
+      cancelAnimationFrame(this.reelRaf); if (io) io.disconnect();
+      fig.removeEventListener('pointerenter', enter); fig.removeEventListener('pointerleave', leave);
+      sc.removeEventListener('wheel', nudge); sc.removeEventListener('touchstart', nudge);
+    };
+  }
+
+  /* V1 categories reel: scrolls the page and lists each category as it passes. */
+  startCatReel(root) {
+    const sc = root.querySelector('.cat-screen'), img = sc && sc.querySelector('img');
+    const items = [...root.querySelectorAll('.cat-item')];
+    if (!sc || !img || !items.length) return;
+    const yOf = li => parseFloat(li.dataset.y) * img.offsetHeight;
+    // Reveal every category whose heading has scrolled into the top part of the screen.
+    const syncToScroll = () => {
+      const line = sc.scrollTop + sc.clientHeight * 0.35; let cur = -1;
+      items.forEach((li, n) => { const on = yOf(li) <= line; li.classList.toggle('is-in', on); if (on) cur = n; });
+      items.forEach((li, n) => li.classList.toggle('is-current', n === cur));
+    };
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) { items.forEach(li => li.classList.add('is-in')); sc.addEventListener('scroll', syncToScroll, { passive: true }); this.catStop = () => sc.removeEventListener('scroll', syncToScroll); return; }
+    const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const segs = [{ type: 'hold', dur: 900 }];
+    items.forEach((li, n) => segs.push({ type: 'scroll', i: n, dur: n === 0 ? 900 : 1300 }, { type: 'reveal', i: n, dur: 1000 }));
+    segs.push({ type: 'hold', dur: 1800 }, { type: 'reset', dur: 1000 });
+    const total = segs.reduce((a, x) => a + x.dur, 0);
+    let visible = true, hover = false, manualUntil = 0, clock = 0, prev = performance.now(), segIdx = -1, from = 0;
+    const target = n => Math.max(0, Math.min(sc.scrollHeight - sc.clientHeight, yOf(items[n]) - sc.clientHeight * 0.12));
+    const setTop = v => { sc.scrollTop = v; };
+    const enter = () => { hover = true; }, leave = () => { hover = false; manualUntil = performance.now() + 1500; segIdx = -1; };
+    const manual = () => { manualUntil = performance.now() + 4000; segIdx = -1; };
+    const onScroll = () => { if (hover || performance.now() < manualUntil) syncToScroll(); };
+    sc.addEventListener('wheel', manual, { passive: true }); sc.addEventListener('touchstart', manual, { passive: true }); sc.addEventListener('keydown', manual);
+    sc.addEventListener('scroll', onScroll, { passive: true });
+    const io = 'IntersectionObserver' in window ? null : null;
+    if (io) io.observe(root);
+    const loop = now => {
+      this.catRaf = requestAnimationFrame(loop);
+      const speed = Math.max(0.1, this.props.catScrollSpeed ?? 1);
+      const dt = Math.min(100, now - prev) * speed; prev = now;
+      if (!visible || hover || now < manualUntil) return;
+      if (segIdx === -1) {
+        // Resume after a manual scroll: continue from the next category below the current position.
+        const nextN = items.findIndex(li => yOf(li) > sc.scrollTop + sc.clientHeight * 0.35);
+        let acc = 0, startSeg = 0;
+        if (nextN > 0) { for (let n = 0; n < segs.length; n++) { if (segs[n].type === 'scroll' && segs[n].i === nextN) { startSeg = n; break; } acc += segs[n].dur; } clock = acc; }
+        else if (nextN === -1 && sc.scrollTop > 0) { clock = total - segs[segs.length - 1].dur - segs[segs.length - 2].dur; }
+      }
+      clock = (clock + dt) % total;
+      let t = clock, n = 0; while (t >= segs[n].dur) { t -= segs[n].dur; n++; }
+      const seg = segs[n], k = ease(Math.min(1, t / seg.dur));
+      if (n !== segIdx) {
+        if (n < segIdx) items.forEach(li => li.classList.remove('is-in', 'is-current'));
+        segIdx = n; from = sc.scrollTop;
+        if (seg.type === 'reveal') { items.forEach(li => li.classList.remove('is-current')); items.slice(0, seg.i + 1).forEach(li => li.classList.add('is-in')); items[seg.i].classList.add('is-current'); }
+        if (seg.type === 'reset') items.forEach(li => li.classList.remove('is-in', 'is-current'));
+      }
+      if (seg.type === 'scroll') setTop(from + (target(seg.i) - from) * k);
+      else if (seg.type === 'reset') setTop(from * (1 - k));
+    };
+    this.catRaf = requestAnimationFrame(loop);
+    this.catStop = () => {
+      cancelAnimationFrame(this.catRaf); if (io) io.disconnect();
+      root.removeEventListener('pointerenter', enter); root.removeEventListener('pointerleave', leave);
+      sc.removeEventListener('wheel', manual); sc.removeEventListener('touchstart', manual); sc.removeEventListener('keydown', manual); sc.removeEventListener('scroll', onScroll);
+    };
+  }
+
+  /* V1 interactions reel: hover -> favorite, Add to Cart -> chosen + cart bar, then the cart drawer. Built only from exported states. */
+  startActReel(root) {
+    const q = c => root.querySelector(c);
+    const cur = q('.act-cursor'), ring = q('.act-ring'), steps = [...root.querySelectorAll('.act-step')];
+    if (!cur || !ring) return;
+    const cls = (c, on) => root.classList.toggle(c, on);
+    const step = n => steps.forEach((li, k) => li.classList.toggle('is-on', k === n));
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { cls('is-added', true); cls('is-bar', true); steps.forEach(li => li.classList.add('is-on')); return; }
+    const cam = q('.act-camera'), screen = q('.act-screen');
+    // Camera: zoom 1 shows the whole screen; otherwise centre (cx, cy) in % at zoom z, clamped so no edge shows.
+    const camera = (z, cx, cy) => {
+      const W = screen.clientWidth, H = screen.clientHeight;
+      let tx = W * (0.5 - (cx / 100) * z), ty = H * (0.5 - (cy / 100) * z);
+      tx = Math.min(0, Math.max(W * (1 - z), tx)); ty = Math.min(0, Math.max(H * (1 - z), ty));
+      cam.style.transform = z === 1 ? 'none' : 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
+      root.style.setProperty('--act-inv', String(1 / z));
+    };
+    const zoom = this.props.actZoom ?? 2;
+    const move = (x, y) => { cur.style.left = x + '%'; cur.style.top = y + '%'; };
+    const tap = (x, y) => { ring.style.left = x + '%'; ring.style.top = y + '%'; ring.classList.remove('is-tap'); void ring.offsetWidth; ring.classList.add('is-tap'); cur.classList.add('is-press'); setTimeout(() => cur.classList.remove('is-press'), 140); };
+    const ev = [
+      [0, () => { ['is-hover', 'is-added', 'is-bar', 'is-drawer'].forEach(c => cls(c, false)); step(-1); cur.style.opacity = '0'; move(50, 70); camera(1, 50, 50); }],
+      [700, () => { step(0); camera(zoom, 59, 80); }],
+      [1500, () => { cur.style.opacity = '1'; move(60, 84); }],
+      [2200, () => cls('is-hover', true)],
+      [3600, () => { cls('is-hover', false); cur.style.opacity = '0'; camera(1, 50, 50); }],
+      [4500, () => { step(1); camera(Math.max(1.2, zoom * 0.8), 60, 74); }],
+      [5300, () => { cur.style.opacity = '1'; move(63.5, 54.7); }],
+      [6000, () => { tap(63.5, 54.7); cls('is-added', true); }],
+      [6600, () => move(67.9, 98.6)],
+      [7300, () => { tap(67.9, 98.6); cls('is-bar', true); }],
+      [8500, () => { cur.style.opacity = '0'; camera(1, 50, 50); }],
+      [9400, () => { step(2); camera(zoom, 36, 78); }],
+      [10200, () => { cur.style.opacity = '1'; move(30.7, 92.4); }],
+      [10900, () => { tap(30.7, 92.4); cls('is-drawer', true); }],
+      [13000, () => { tap(30.7, 92.4); cls('is-drawer', false); }],
+      [13600, () => { cur.style.opacity = '0'; camera(1, 50, 50); }],
+      [14600, () => { cls('is-bar', false); cls('is-added', false); step(-1); }],
+      [15600, null]
+    ];
+    const total = ev[ev.length - 1][0];
+    let clock = 0, next = 0, prev = performance.now(), visible = true, hover = false;
+    const enter = () => { hover = true; }, leave = () => { hover = false; };
+    const io = 'IntersectionObserver' in window ? null : null;
+    if (io) io.observe(root);
+    const loop = now => {
+      this.actRaf = requestAnimationFrame(loop);
+      const dt = Math.min(100, now - prev) * Math.max(0.1, this.props.actSpeed ?? 1); prev = now;
+      if (!visible || hover) return;
+      clock += dt;
+      while (next < ev.length && clock >= ev[next][0]) { if (ev[next][1]) ev[next][1](); next++; }
+      if (clock >= total) { clock = 0; next = 0; }
+    };
+    this.actRaf = requestAnimationFrame(loop);
+    this.actStop = () => { cancelAnimationFrame(this.actRaf); if (io) io.disconnect(); root.removeEventListener('pointerenter', enter); root.removeEventListener('pointerleave', leave); };
+  }
+  componentWillUnmount() { clearInterval(this.reelWatch); if (this.actStop) this.actStop(); if (this.reelStop) this.reelStop(); if (this.catStop) this.catStop(); }
+  renderVals() {
+    const vals = {};
+    if (!this.reelWatch && typeof document !== 'undefined') {
+      const ensure = () => {
+        const pick = (sel, key, setter) => { const el = document.querySelector(sel); if (el && (el !== this[key] || !this[key].isConnected)) { this[key] = null; setter(el); } };
+        if (this.setReel) pick('.growth-cover', 'reelFig', this.setReel);
+        if (this.setCatReel) pick('.category-reel', 'catRoot', this.setCatReel);
+        if (this.setActReel) pick('.act-stage', 'actRoot', this.setActReel);
+      };
+      setTimeout(ensure, 0);
+      this.reelWatch = setInterval(ensure, 1500);
+    }
+    if (!this.setReel) this.setReel = el => { if (el === this.reelFig) return; if (this.reelStop) this.reelStop(); this.reelStop = null; this.reelFig = el; if (el) this.startReel(el); };
+    vals.setReel = this.setReel;
+    if (!this.setCatReel) this.setCatReel = el => { if (el === this.catRoot) return; if (this.catStop) this.catStop(); this.catStop = null; this.catRoot = el; if (el) this.startCatReel(el); };
+    vals.setCatReel = this.setCatReel;
+    if (!this.setActReel) this.setActReel = el => { if (el === this.actRoot) return; if (this.actStop) this.actStop(); this.actStop = null; this.actRoot = el; if (el) this.startActReel(el); };
+    vals.setActReel = this.setActReel;
+    vals.actReel = { width: 'calc(' + (this.props.actReelWidth ?? 100) + '% - ' + ((this.props.actReelWidth ?? 100) < 100 ? 8 : 0) + 'px)' };
+    vals.catReel = { width: 'calc(' + (this.props.catReelWidth ?? 100) + '% - ' + ((this.props.catReelWidth ?? 100) < 100 ? 8 : 0) + 'px)', height: (this.props.catScreenHeight ?? 520) + 'px', icon: (this.props.catIconSize ?? 28) + 'px', label: (this.props.catLabelSize ?? 20) + 'px', zoom: (this.props.catZoom ?? 100) + '%', shift: (((this.props.catZoom ?? 100) - 100) * (this.props.catFocusX ?? 58) / 100) + '%' };
+    const notes = this.current('showDesignNotes', false);
+    vals.notesHidden = !notes;
+    vals.notesPressed = String(!!notes);
+    vals.toggleNotes = () => this.setState({ showDesignNotes: !notes });
+    vals.view_opportunity = this.group('view_opportunity', ["banner", "nomatch", "flyout"], 'banner');
+    vals.view_find = this.group('view_find', ["before", "after", "search"], 'after');
+    vals.view_explore = this.group('view_explore', ["filter", "cart", "mobile"], 'filter');
+    vals.view_outcome = this.group('view_outcome', ["outcomes", "investor", "v1investor"], 'outcomes');
+    vals.gallery = { cols: String(this.props.galleryColumns ?? 2), gap: (this.props.galleryGap ?? 12) + 'px', radius: (this.props.galleryRadius ?? 12) + 'px', tile: this.props.galleryTileColor ?? '#F2F2F0' };
+    this.workNav(vals);
+    this.pageTintVals(vals);
+    vals.homeLoader = this.homeLoaderGeometry();
+    return vals;
+  }
+}
+window.Component = Component;
+</script>
+</body>
 </html>
