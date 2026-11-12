@@ -1,0 +1,117 @@
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/c176b0e5-becc-4942-b184-38305991c729/Frame+665+%285%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/649e4ae3-7a01-40f9-9226-ba43485fa26b/Slide+16_9+-+10855.png
+
+## Increasing job application rate
+
+This case study is all about how we revamped the entire jobs listing, discovery, and application journey on the Able Jobs platform.
+Able Jobs is a job preparation application for all sales, customer support, and business development roles. (Think of lambda school but for sales and customer support roles!)
+We completely revamped the job discovery, listing, and application experience which increased the overall job applications rate by 11% 🕺
+
+### Prologue
+
+I started working with Able Jobs as their first full-time product designer. Working with the cofounders directly and tackling every problem coming my way was extremely challenging and a very rewarding experience altogether.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/c9dc2404-30d5-4673-aa0d-492f0ac5d5f2/Desktop+-+3+%285%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/caecb429-0234-4e25-a6d5-73a67439e7cf/Desktop+-+4+%282%29.png
+
+### Problem
+
+Amongst the candidates enrolled in a course - only fewer candidates actually applied for a job on the app
+
+### Solution
+
+We re-designed the entire jobs landing, job description pages, and the bottom navigation of the app.
+
+### Metrics
+
+We were successful in increasing the overall job application rate by 11% on the app.
+
+### About Able Jobs
+
+Able Jobs is a skilling platform for private jobs. They help graduates get jobs in sales, operations, marketing, Analyst, finance, and more. They are backed by marquee investors like Elevation Capital and Y Combinator. They have a 2 million+ user base of graduates and early working professionals looking to advance in their careers.
+
+### Project Context
+
+The north-star metric of the product was the number of students getting jobs (placements) from the platform. However, when the candidate's journey from course enrollment to job application was analyzed - it was pretty evident that only a few candidates (enrolled in the course) would apply for jobs on the platform. And candidates applying for jobs would lead to placements (North-star metric). This project revolved around increasing the job application rate specifically.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/1d2708de-ae0a-44f1-aaef-e497f23ab351/Desktop+-+6.jpg
+
+### Process
+
+Product-data analysis
+User research
+Problem identification
+Ideation
+Design
+Testing
+Hand-off
+Iterations
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/143410d1-13b5-4814-bb42-5dcce2d1a4bb/Frame+3094+%282%29.jpg
+
+### Research for identifying the problem
+
+We analyzed the dropped-off users from Mixpanel in terms of their activity, demographics, and field of interest. etc
+And we came up with 2 cohorts of dropped-off users to interview:
+
+- Users leaving the platform in module 1 of the course
+
+- Users leaving the platform after module 1 of the course
+
+I interviewed 10 users from each cohort to find any common patterns that hint at the root cause of not opening the job listing page.
+The common pattern we found was that neither of the candidates in the cohort knew about the job listing page.
+Candidates don’t know about the job listing page
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/b48bc843-9fbd-4f6b-9f28-725904212b2c/Frame+3125+%283%29.jpg
+
+### Design explorations
+
+As soon as the user leaves the course they land on the ‘Prepare’ section tab on the app. We found it a very perfect opportunity to introduce the users to our job section. I brainstormed on different explorations to increase the discoverability of the job section without hampering the learning experience.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/fb6aed76-670f-4e43-a2cf-bc433af4a9f7/Frame+3126+%281%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/d5d645c2-3292-4ce3-b439-2ec1f328f868/Frame+3127+%281%29.jpg
+
+### Impact
+
+The new variant shipped saw an increase of 11% from the course enrollment to the jobs listing page.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/9e50028b-386e-4ffd-a32d-9b89d59eb905/Frame+3128+%283%29.jpg
+
+### Working on the second drop-off
+
+After fixing the first dropoff of the overall funnel we moved to fix the second dropoff which was the -
+
+- No. of candidates opening the jobs listing page to
+
+- No. of candidates clicking on a job listing & landing on the description
+
+The main goal was to increase the number of job applications on the app.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/ea90bd99-16c0-4d64-bf03-4ad1e4b83eb1/Frame+3129+%282%29.jpg
+
+### Research for identifying the problem
+
+We analyzed the dropped-off users from Mixpanel in terms of their activity, demographics, and field of interest. etc
+And we came up with two cohorts of dropped-off users to interview:
+
+- Cohort 1 - Users who know what they are looking for (“I want to apply for Amazon BDE”)
+
+- Cohort 2 - Users who don't know what they're looking for (“I want to apply to jobs that are relevant to me”)
+
+I interviewed 10 users from each cohort to find any common patterns that hint at the root cause of not opening any job listing in the jobs section.
+The common pattern we found was that neither of the candidates in the cohort found any desirable jobs and did not know how to find them.
+Candidates don’t know how to find desirable jobs
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/ee758bb7-7e3d-4bd2-9a0b-e0acfa950bac/Frame+3130+%281%29.jpg
+
+### Design explorations
+
+As soon as the user lands on the jobs listing page based on our research we got to know that the users are unable to find desirable jobs on the page - we analyzed the usage data of search/filter buttons and found that users who used those options ended up exploring more (clicking on a particular job card) - so we focused on how to make it extremely easier for users to search and filter jobs.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/3640427b-c57d-412d-b59b-1d040675f78f/Frame+3131+%281%29.jpg
+
+Coming soon!
+
