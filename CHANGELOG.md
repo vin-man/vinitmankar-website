@@ -8,6 +8,8 @@ This site is exported from the Design canvas ("Vinit Mankar Portfolio — editin
 - `case-studies/domain-agent.html`: a **reconstruction** of the canvas page (DomainAgent.dc.html). The content and scripts are the original; the top navigation was replaced with the homepage nav (Work menu, Möbius loader) and a light-blue page tint matching its Work-menu colour.
 - `case-studies/domain-agent-studio.html`: original source **patched**. The canvas title edit ("Domain Name Registration Agent") was carried over. It is unlinked; the original layout is the one linked from the homepage.
 - `case-studies/domain-upsell.html`: a **reconstruction** of the canvas page (DomainUpsell.dc.html), published at the owner's request.
+- `case-studies/habitwave.html`, `case-studies/able-jobs.html`: **new** pages built on the canvas in the Growth case study's layout. Body copy is the old vinitmankar.com wording, unchanged; original images kept. Pages tinted lavender (Habitwave) and rose (Able Jobs).
+- `playground.html`, `about.html`: **new** pages with facts, lists, quotes and links from the old site only.
 - `static-states.css`: the settled hero, layout and overlay states the canvas design was built on, plus a mobile fix that keeps the long wordmark inside narrow screens.
 - `assets/canvas/`: images added on the canvas (intro reel portraits).
 

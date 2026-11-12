@@ -1,1 +1,319 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="case.css"><title>Case Study — Vinit Mankar</title></head><body data-project="habitwave"><div id="case-root"></div><script src="case.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Habitwave: a social habit-building app. A product design case study by Vinit Mankar.">
+<title>Habitwave — Vinit Mankar</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Ctext x='8' y='46' font-family='serif' font-size='46' fill='%23e7502d'%3Ev.%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="domain-agent-studio.css">
+<link rel="stylesheet" href="growth-case.css">
+<link rel="stylesheet" href="../static-states.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap">
+<style>
+body{margin:0}
+/* homepage nav, copied for the case study */
+.home-nav .wrap{width:min(1380px,calc(100% - 96px));margin-inline:auto}
+@media (max-width:900px){.home-nav .wrap{width:calc(100% - 48px)}}
+@media (max-width:600px){.home-nav .wrap{width:calc(100% - 36px)}}
+.nav-links{position:relative;z-index:30}
+.home-nav .work-popover{background:var(--paper,#fff);border:1px solid rgba(25,27,23,.1);box-shadow:0 18px 40px -24px rgba(25,27,23,.35)}
+/* Work label shimmer through all dropdown accents */
+.work-shimmer{color:var(--ink);background-repeat:no-repeat;background-position:0% 0}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.work-shimmer{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}}
+@media (prefers-reduced-motion:no-preference){.work-shimmer{animation:workShimmer var(--shimmer-cycle,5s) linear infinite}}
+@keyframes workShimmer{from{background-position:0% 0}to{background-position:100% 0}}
+@media (prefers-reduced-motion:no-preference){.work-pop-item{transition:color .25s ease,padding .3s ease}}
+.work-pop-item[data-active="true"]{padding-left:16px!important}
+.nav-work-toggle:hover{color:var(--orange)!important}
+/* Möbius loader as the Home link (same look as the homepage footer loader) */
+@media (prefers-reduced-motion:no-preference){.mobius-loader-dot{animation:mobiusLoaderTrail var(--loader-dur,2.4s) linear infinite;animation-delay:calc(var(--loader-dur,2.4s) * var(--f,0) * -1);transform-box:fill-box;transform-origin:center}}
+@keyframes mobiusLoaderTrail{0%{opacity:var(--o);transform:scale(1.45)}12%{opacity:var(--o);transform:scale(1.1)}50%{opacity:calc(var(--o) * .3);transform:scale(.85)}100%{opacity:var(--o);transform:scale(1.45)}}
+.nav-home-loader:hover{color:var(--orange,#ec542f)!important}
+/* Tag: flat black-and-white. Echoes the homepage Möbius as a single continuous outline with a solid bead, no colour or gloss. */
+.glass-tag{background:transparent;border:1px solid rgba(25,27,23,.18);box-shadow:none}
+.glass-tag-bead{flex:none;width:6px;height:6px;border-radius:50%;background:#141414}
+/* Brief: desktop narrative left, sticky visual right; mobile stacks text then visual */
+@media (min-width:961px){.growth-study .chapter>.chapter-media{position:sticky;top:84px;align-self:start}}
+.growth-study .evidence-view{flex:1;min-height:0;display:flex;flex-direction:column}
+.growth-study .chapter-media .screen-surround{flex:1;min-height:0}
+@media (prefers-reduced-motion:no-preference){.growth-study .evidence-view:not([hidden]){animation:dfyPaneIn .35s ease both}}
+@keyframes dfyPaneIn{from{opacity:0}to{opacity:1}}
+.home-nav .wordmark{max-width:100%}
+/* V1 interactions reel */
+.category-reel>.cat-stage.act-stage{flex-basis:var(--act-w,100%)}
+.act-stage{align-content:center}
+.act-stage .act-screen{position:relative;flex:1 1 100%;min-width:0;aspect-ratio:2880/1800;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 18px 40px -28px rgba(25,27,23,.35)}
+.act-stage .act-camera{position:absolute;inset:0;transform-origin:0 0;transition:transform .9s cubic-bezier(.45,0,.2,1);will-change:transform}
+.act-stage .act-layer{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .2s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.act-stage .act-base{opacity:1;position:relative;height:auto}
+.act-stage .act-added{clip-path:inset(0 0 12% 0)}
+.act-stage .act-bar{clip-path:inset(88% 0 0 19.45%);opacity:1;transform:translateY(12%)}
+.act-stage .act-drawer{clip-path:inset(59.6% 52.75% 12.64% 21.1%);transform:translateY(2%)}
+.act-stage .act-chevron{clip-path:inset(91.2% 68.2% 6.4% 29.7%)}
+.act-stage.is-hover .act-hover,.act-stage.is-added .act-added,.act-stage.is-drawer .act-drawer,.act-stage.is-drawer .act-chevron{opacity:1}
+.act-stage.is-bar .act-bar{transform:none}
+.act-stage.is-drawer .act-drawer{transform:none;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1)}
+.act-stage .act-cursor{position:absolute;left:55%;top:60%;width:22px;height:22px;margin:-3px 0 0 -5px;transform:scale(var(--act-inv,1));transform-origin:5px 3px;z-index:5;opacity:0;pointer-events:none;transition:left .7s cubic-bezier(.45,0,.2,1),top .7s cubic-bezier(.45,0,.2,1),opacity .3s;filter:drop-shadow(0 2px 3px rgba(25,27,23,.25))}
+.act-stage .act-cursor svg{display:block;transition:transform .12s}
+.act-stage .act-cursor.is-press svg{transform:scale(.85)}
+.act-stage .act-ring{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--accent);opacity:0;z-index:4;pointer-events:none}
+.act-stage .act-ring.is-tap{animation:act-ring .6s ease-out}
+@keyframes act-ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.3)}}
+.act-stage .act-panel{flex:1 1 100%}
+.act-stage .act-panel .cat-kicker{margin-bottom:14px}
+.act-stage .act-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:18px 24px}
+.act-stage .act-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;opacity:.45;transition:opacity .35s}
+.act-stage .act-step.is-on{opacity:1}
+.act-stage .act-num{font:500 12px/1.6 var(--sans);letter-spacing:.06em;color:var(--muted)}
+.act-stage .act-verb{margin:0 0 2px;font:600 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.act-stage .act-title{margin:0 0 4px;font:500 calc(var(--cat-label,20px) * .85)/1.2 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+.act-stage .act-desc{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.act-stage .act-step{opacity:1}.act-stage .act-cursor,.act-stage .act-ring{display:none}}
+
+/* V1 categories reel */
+.category-reel{margin:0 0 72px;display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.category-reel>.cat-stage{flex:0 1 var(--cat-w,100%);min-width:0}
+.category-reel .cat-stage{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;background:#e0eef2;border-radius:12px;padding:clamp(20px,4vw,56px)}
+.category-reel .cat-screen{flex:1.55 1 340px;min-width:0}
+.category-reel .cat-panel{flex:1 1 220px;min-width:0}
+.category-reel .cat-screen{height:var(--cat-h,520px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(25,27,23,.25) transparent;cursor:ns-resize;border-radius:10px;background:#fff;box-shadow:0 18px 40px -28px rgba(25,27,23,.35)}
+.category-reel .cat-screen img{display:block;width:var(--cat-zoom,150%);max-width:none;height:auto;margin-left:calc(var(--cat-shift,0%) * -1)}
+.category-reel .cat-screen:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.category-reel .cat-kicker{margin:0 0 18px;font:500 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.category-reel .cat-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.category-reel .cat-item{display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.category-reel .cat-item.is-in{opacity:1;transform:none}
+.category-reel .cat-item.is-current .cat-name{color:var(--ink)}
+.category-reel .cat-icon{flex:none;width:var(--cat-icon,28px);height:var(--cat-icon,28px);display:grid;place-items:center;background:none;box-shadow:none}
+.category-reel .cat-icon img{width:var(--cat-icon,28px);height:var(--cat-icon,28px);display:block}
+.category-reel .cat-name{font:500 var(--cat-label,20px)/1.2 var(--sans);letter-spacing:-.01em;color:var(--muted);transition:color .3s}
+@media(max-width:760px){.category-reel>.cat-stage{flex-basis:100%}.category-reel .cat-screen{height:min(var(--cat-h,520px),420px)}}
+@media (prefers-reduced-motion: reduce){.category-reel .cat-item{opacity:1;transform:none;transition:none}}
+
+/* image gallery (reference: guglieri.com/work, matched by approximation; tune in Tweaks › Gallery) */
+.dfy-gallery .gallery-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--g-cols),minmax(0,1fr));gap:var(--g-gap)}
+.dfy-gallery .gallery-tile{position:relative;aspect-ratio:4/3;background:var(--g-tile);border-radius:var(--g-radius);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6%}
+.dfy-gallery .gallery-item:first-child{grid-column:1/-1}
+.dfy-gallery .gallery-item:first-child .gallery-tile{aspect-ratio:auto;padding:0;display:block}
+.dfy-gallery .gallery-item:first-child .gallery-tile img{width:100%;height:auto;max-width:none;max-height:none}
+.dfy-gallery .gallery-tile img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:calc(var(--g-radius) * .4);box-shadow:0 12px 28px -18px rgba(25,27,23,.35)}
+.dfy-gallery .gallery-caption{margin:10px 2px 0;font-size:13px;line-height:1.4;color:var(--muted)}
+@media(max-width:960px){.dfy-gallery .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.dfy-gallery .gallery-grid{grid-template-columns:1fr}.dfy-gallery .gallery-item:first-child .gallery-tile{aspect-ratio:auto;padding:0}}
+
+.growth-study .chapter-copy>.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.12em}
+/* hero show reel */
+.growth-cover .reel-frame{position:relative;flex:1;min-height:0;display:flex;width:100%}
+.growth-cover .reel-cursor{position:absolute;left:62%;top:20%;width:22px;height:22px;margin:-3px 0 0 -5px;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;filter:drop-shadow(0 2px 3px rgba(25,27,23,.25))}
+.growth-cover .reel-cursor svg{display:block}
+.growth-cover .reel-ring{position:absolute;width:9.8%;height:1.55%;transform:translate(-50%,-50%);border:2px solid var(--accent);border-radius:8px;pointer-events:none;opacity:0;z-index:2}
+.growth-cover .reel-ring.is-tap{animation:reel-ring .7s ease-out}
+.growth-cover .reel-dot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent);pointer-events:none;opacity:0;z-index:2}
+.growth-cover .reel-dot.is-tap{animation:reel-dot .8s cubic-bezier(.3,.6,.3,1)}
+.growth-cover .reel-cursor.is-press svg{transform:scale(.86);transition:transform .12s}
+.growth-cover .reel-checkout{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .6s ease;z-index:4}
+.growth-cover .reel-checkout img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.growth-cover .reel-checkout.is-on{opacity:1}
+@keyframes reel-ring{0%{opacity:0;transform:translate(-50%,-50%) scale(.85)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.25)}}
+@keyframes reel-dot{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(26px,-90px) scale(.5)}}
+@media (prefers-reduced-motion: reduce){.growth-cover .reel-cursor,.growth-cover .reel-ring,.growth-cover .reel-dot,.growth-cover .reel-checkout{display:none}}
+
+/* homepage visual system: ink / muted / hairline, page-family accent, flat white surfaces */
+.growth-study .chapter-media{background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:none}
+.growth-study .chapter-media:before{display:none}
+.growth-study .media-label{color:var(--muted)}
+.growth-study .chapter-media figcaption{color:var(--muted);border-top:1px solid var(--hairline)}
+.growth-study .screen-scroll,.growth-study .mobile-screen-scroll{border:1px solid var(--hairline);border-radius:10px;box-shadow:none}
+.growth-study .view-controls{border-color:var(--hairline);background:transparent}
+.growth-study .view-controls button{color:var(--muted)}
+.growth-study .view-controls button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.growth-study .view-summary{font:400 15px/1.45 var(--sans);color:var(--muted)}
+.growth-study .screen-observation p{color:var(--muted)}
+.growth-study .chapter-copy>p:not(.eyebrow){color:var(--muted)}
+.growth-study .chapter-copy strong{color:var(--ink)}
+.growth-study .project-facts>div,.growth-study .decision-line{border-color:var(--line)}
+.growth-study .read-on{border-color:var(--line)}
+.growth-study h1 em,.growth-study h2 em,.growth-study .decision-line p,.growth-study .closing-line,.growth-study em{font-style:normal!important}
+.growth-study .model-equation .eq-var{white-space:nowrap}
+@media(max-width:960px){.growth-study .chapter-media.diagnosis-media{height:auto;min-height:0}}
+@media(max-width:700px){.growth-study .dissect-marker{width:15px!important;height:15px!important;font-size:8px!important;line-height:15px!important;box-shadow:0 0 0 2px #fff!important}}
+.growth-study .model-equation .eq-lhs,.growth-study .model-equation .eq-rhs{display:inline-flex;align-items:baseline;gap:4px 12px;white-space:nowrap}
+@media(max-width:700px){.growth-study .model-equation .eq-rhs{flex-wrap:wrap}}
+.growth-study .model-equation .eq-op{font:300 .85em/1 var(--sans);font-style:normal;color:var(--muted)}
+.growth-study .model-equation .eq-key{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:7px}
+.growth-study .decision-line p{font-weight:500;letter-spacing:-.02em}
+.growth-study h1{max-width:100%}
+
+.growth-study{--sans:'Manrope',Arial,sans-serif;--serif:'Manrope',Arial,sans-serif;font-family:var(--sans)}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap">
+
+<style>
+/* Older case studies, About and Playground: same type, nav and tint as the Growth case study */
+.oc-study{--sans:'Manrope',Arial,sans-serif;font-family:var(--sans)}
+.oc-main{width:calc(100% - 96px);max-width:1344px;margin:0 auto;padding:40px 0 0}
+.oc-study h1{font:500 clamp(44px,5vw,72px)/.98 var(--sans);letter-spacing:-.055em;margin:0 0 28px;max-width:100%}
+.oc-study h1 em{display:block;font-style:normal;color:var(--accent)}
+.oc-study h2{font:400 clamp(30px,3.1vw,44px)/1.08 var(--sans);letter-spacing:-.04em;margin:0 0 24px;color:var(--ink)}
+.oc-study h2.oc-h2-long{font-size:clamp(24px,2.2vw,30px);line-height:1.2;letter-spacing:-.025em}
+.oc-study h3{font:500 22px/1.3 var(--sans);letter-spacing:-.02em;margin:0 0 14px;color:var(--ink)}
+.oc-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;padding:24px 0 72px}
+.oc-deck{font:400 20px/1.6 var(--sans);color:var(--ink);max-width:540px;margin:0}
+.oc-tag{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px;border-radius:999px;border:1px solid rgba(25,27,23,.18);font:500 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 27px}
+.oc-tag i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.oc-fig{margin:0;border-radius:16px;overflow:hidden;background:var(--fig,#fff)}
+.oc-fig img{display:block;width:100%;height:auto}
+.oc-fig.oc-pad{padding:28px;display:flex;justify-content:center}
+.oc-fig.oc-pad img{width:auto;max-width:100%;max-height:560px;border-radius:12px}
+.oc-intro,.oc-chapter{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:72px;padding:72px 0;border-top:1px solid var(--line)}
+.oc-copy{min-width:0}
+@media (min-width:961px){.oc-chapter>.oc-copy{position:sticky;top:84px;align-self:start}}
+.oc-eyebrow{font:600 11px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.oc-copy p,.oc-copy li{font:400 16px/1.75 var(--sans);color:var(--muted)}
+.oc-copy p{margin:0 0 18px}
+.oc-copy ul{margin:0 0 18px;padding-left:18px}
+.oc-copy li{margin:0 0 6px}
+.oc-copy strong{color:var(--ink);font-weight:600}
+.oc-facts{margin:0 0 28px}
+.oc-facts>div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);font:400 12px/1.65 var(--sans)}
+.oc-facts>div:last-child{border-bottom:1px solid var(--line)}
+.oc-facts dt{color:var(--muted)}
+.oc-facts dd{margin:0;color:var(--ink)}
+.oc-impact{display:flex;flex-wrap:wrap;gap:18px 40px;margin:28px 0 0;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.oc-impact div{display:flex;align-items:center;gap:14px}
+.oc-impact strong{font:400 52px/1 var(--sans);letter-spacing:-.04em;color:var(--accent)}
+.oc-impact span{font:400 15px/1.45 var(--sans);color:var(--ink);max-width:180px}
+.oc-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding:56px 0;border-top:1px solid var(--line)}
+.oc-overview p{margin:0;font:400 18px/1.55 var(--sans);color:var(--ink)}
+.oc-callout{margin:28px 0 0;padding:22px 0 0;border-top:1px solid var(--line)}
+.oc-callout span{display:block;font:600 10px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.oc-callout p{margin:0!important;font:500 23px/1.3 var(--sans)!important;letter-spacing:-.02em;color:var(--ink)!important}
+.oc-media{display:grid;gap:16px;min-width:0;align-content:start}
+.oc-wide{grid-column:1/-1;display:grid;gap:12px;min-width:0}
+.oc-label{display:flex;justify-content:space-between;gap:12px;font:500 10px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.oc-grid{display:grid;gap:12px}
+.oc-grid-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.oc-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.oc-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.oc-end{display:flex;flex-wrap:wrap;gap:12px 28px;margin:28px 0 0}
+.oc-end a{color:var(--ink);font:500 15px/1.4 var(--sans);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:6px}
+.oc-footer{width:calc(100% - 96px);max-width:1344px;margin:72px auto 0;padding:22px 0 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font:400 12px/1.5 var(--sans);color:var(--muted)}
+.oc-footer a{color:var(--ink)}
+.oc-list,.oc-copy ul.oc-list{list-style:none;margin:0;padding:0}
+.oc-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:16px 0;border-top:1px solid var(--line);font:400 16px/1.5 var(--sans);color:var(--ink)}
+.oc-list li:last-child{border-bottom:1px solid var(--line)}
+.oc-list li span{color:var(--muted)}
+.oc-list a{color:var(--ink)}
+.oc-list small{grid-column:1/-1;font:400 14px/1.5 var(--sans);color:var(--muted)}
+.oc-quote{margin:0;padding:24px 0;border-top:1px solid var(--line)}
+.oc-quote p{margin:0 0 14px;font:400 20px/1.55 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+.oc-quote cite{font:400 13px/1.5 var(--sans);font-style:normal;color:var(--muted)}
+.oc-quote cite a{color:var(--ink)}
+.oc-button{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:12px 20px;border-radius:999px;background:var(--ink);color:#fff!important;font:500 14px/1 var(--sans);text-decoration:none}
+@media (max-width:960px){
+  .oc-hero,.oc-intro,.oc-chapter{grid-template-columns:minmax(0,1fr);gap:32px}
+  .oc-overview{grid-template-columns:minmax(0,1fr);gap:24px}
+  .oc-grid-5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .oc-intro,.oc-chapter{padding:52px 0}
+}
+@media (max-width:600px){
+  .oc-main,.oc-footer{width:calc(100% - 48px)}
+  .oc-study .home-nav .nav-top,.oc-study .home-nav .nav-links{padding-left:24px!important;padding-right:24px!important}
+  .oc-grid-5,.oc-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .oc-grid-2{grid-template-columns:minmax(0,1fr)}
+  .oc-fig.oc-pad{padding:18px}
+  .oc-fig.oc-pad img{max-height:420px}
+  .oc-impact strong{font-size:42px}
+  .oc-footer{flex-direction:column}
+  .oc-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div class="page-root growth-study oc-study" data-source="case-studies/habitwave.html" style="--paper: {{ pageTint }}; background-color: {{ pageTint }}; --accent: {{ pageAccent }}; --ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --hairline: rgba(25, 27, 23, 0.12); color: var(--ink)">
+<a class="skip" href="#overview">Skip to case study</a>
+<div class="home-nav" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: relative; z-index: 20; background: var(--paper)"><header class="nav nav-top wrap" style="height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 48px; padding: 28px 0 30px; border-bottom: 1px solid var(--line); width: 100%; padding-left: 48px; padding-right: 48px"><div class="nav-identity" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><a aria-label="Vinit Mankar home" class="wordmark" href="../index.html" style="font-size: 22px; line-height: 1; color: var(--ink); font-family: DM Sans, sans-serif; font-weight: 400; width: 677px">Vinit Mankar</a><p class="availability" style="display: block; margin: 0; font: 20px/1.4 var(--sans); letter-spacing: -4px; color: var(--muted); font-family: Manrope, sans-serif; line-height: 1"><span style="color: var(--muted); letter-spacing: -1px; font-family: Manrope, sans-serif">Software Designer, Bay Area</span></p></div><p class="nav-intro" style="flex: 1 1 320px; min-width: 0; max-width: 680px; margin: 0; font: 22px/1.4 var(--sans); color: var(--muted); font-family: Manrope, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; letter-spacing: -0.5px; width: 468px; text-align: start">Designer with 5+ years of experience, specialized in designing digital experiences, problem solving, tweaking frameworks and running growth experiments. Currently @GoDaddy&nbsp;<span style="color: #5F6155; letter-spacing: normal; caret-color: rgb(0, 0, 0)">&lt;- AbleJobs (YC W20), Fractal Analytics</span><br></p></header></div><div class="home-nav home-nav-bar" style="--ink: #191b17; --muted: #5f6155; --line: #cfc8a9; --sans: 'Manrope', Arial, sans-serif; position: sticky; top: 0; z-index: 25; background: {{ pageTintGlass }}; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px)"><nav aria-label="Main navigation" class="nav-links wrap" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; padding: 24px 0 0; font-size: 15px; padding-bottom: 8px; width: 100%; padding-right: 48px; padding-left: 48px"><span class="nav-work" style="position: relative; display: inline-flex; margin-right: -26px"><sc-if value="{{ workOverlay }}" hint-placeholder-val="{{ false }}"><div class="work-popover" id="work-popover" onKeyDown="{{ workKeyDown }}" onMouseLeave="{{ clearWork }}" style="position: absolute; top: calc(100% + 12px); left: -12px; z-index: 30; min-width: 280px; padding: 6px; border-radius: 14px"><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px"><li><a class="work-pop-item" data-active="{{ work1.active }}" href="domain-upsell.html" onFocus="{{ work1.enter }}" onMouseEnter="{{ work1.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work1.text }}">Domain Upsell Strategy</a></li><li><a class="work-pop-item" data-active="{{ work0.active }}" href="domain-agent.html" onFocus="{{ work0.enter }}" onMouseEnter="{{ work0.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work0.text }}">Domain Search &amp; Registration Agent</a></li><li><a class="work-pop-item" data-active="{{ work2.active }}" href="domain-connect.html" onFocus="{{ work2.enter }}" onMouseEnter="{{ work2.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work2.text }}">Domain Connect Revamp</a></li><li><a class="work-pop-item" data-active="{{ work3.active }}" href="habitwave.html" onFocus="{{ work3.enter }}" onMouseEnter="{{ work3.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work3.text }}">Habitwave</a></li><li><a class="work-pop-item" data-active="{{ work4.active }}" href="able-jobs.html" onFocus="{{ work4.enter }}" onMouseEnter="{{ work4.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work4.text }}">Able Jobs</a></li></ul></div></sc-if></span><a aria-label="Home" class="nav-home-loader" href="../index.html" style="display: inline-flex; align-items: center; color: var(--ink); --loader-dur: {{ homeLoader.dur }}; height: 25px"><svg aria-hidden="true" data-dc-attr-viewBox="{{ homeLoader.viewBox }}" style="display: block; width: {{ homeLoader.width }}; height: auto; overflow: visible; fill: currentColor"><sc-for list="{{ homeLoader.dots }}" as="dot" hint-placeholder-count="60"><circle class="mobius-loader-dot" data-dc-attr-cx="{{ dot.cx }}" data-dc-attr-cy="{{ dot.cy }}" data-dc-attr-r="{{ dot.r }}" style="{{ dot.style }}"></circle></sc-for></svg></a><button aria-controls="{{ workMenuId }}" aria-expanded="{{ workExpanded }}" class="nav-work-toggle" onClick="{{ toggleWork }}" type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; font: inherit; color: var(--ink); cursor: pointer"><span class="work-shimmer" style="background-image: {{ shimmer.image }}; background-size: {{ shimmer.size }} 100%; --shimmer-cycle: {{ shimmer.cycle }}">Work</span> <span aria-hidden="true" style="font-size: 11px">{{ workChevron }}</span></button><a href="../playground.html" style="color: var(--muted)">Playground</a><a href="../about.html" style="color: var(--muted)">About</a><a href="../index.html#about" style="color: var(--muted)">Resume</a></nav></div>
+<main class="oc-main" id="overview"><div class="oc-hero"><div><p class="oc-tag"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"></path></svg></i><span>Product design · Feb–Nov ’20</span></p><h1>Habitwave</h1><p class="oc-deck">A new age habit-building app that elevates the traditional ways of building habits by adding a refreshing social twist and turning it into a fresh and engaging experience!</p></div><figure class="oc-fig" style="--fig: #dbdbdb"><img src="../assets/canvas/15ca381cb7d6.webp" width="2500" height="1027" alt="Habitwave cover: the app’s screens on a purple background with a Google Play badge." loading="lazy"></figure></div><section class="oc-intro" data-label="TLDR"><div class="oc-copy"><p class="oc-eyebrow">TLDR;</p><dl class="oc-facts"><div><dt>Role</dt><dd>Design, research and experience</dd></div><div><dt>Timeline</dt><dd>Feb–Nov ’20</dd></div><div><dt>Team</dt><dd>Charmie, Vedant (software developer) and me</dd></div></dl><p>Habitwave is a side project that we started during the lockdown to make the habit-building journey more exciting!</p><p>I was responsible for the product’s design, research, and taking care of the experience.</p><div class="oc-impact"><div><strong>~600+</strong><span>users</span></div><div><strong>23</strong><span>countries</span></div></div></div><div class="oc-media"><figure class="oc-fig oc-pad" style="--fig: #ffffff"><img src="../assets/canvas/fd728fac4828.gif" width="295" height="600" alt="Habitwave app demo: tracking a habit and checking in with a squad." loading="lazy"></figure></div></section><section class="oc-overview" data-label="Overview"><div><p class="oc-eyebrow">Problem</p><p>People start with a habit but they fail to keep up with it. We were interested to devise solutions to tackle this problem space in particular.</p></div><div><p class="oc-eyebrow">Solution</p><p>We built Habitwave - an app that brings a refreshing social spin to habit-building.</p></div><div><p class="oc-eyebrow">Metrics</p><p>Habitwave is used in 23 countries by ~600+ users!</p></div></section><section class="oc-chapter" id="prologue" data-label="Prologue"><div class="oc-copy"><p class="oc-eyebrow">01 / Prologue</p><h2>“UX designer needed to work on a fun project”</h2><p>That’s how I met Charmie via an Instagram story. She had a couple of ideas and wanted to work on them alongside her grad school. I was interning with Fractal Analytics back then. Vedant (a software developer) joined us as well. We immediately connected and started discussing ideas &amp; problem spaces to tackle.</p></div><div class="oc-media"><figure class="oc-fig" style="--fig: #000000"><img src="../assets/canvas/51a2135ae3e1.webp" width="2500" height="757" alt="Habitwave timeline, platform and team." loading="lazy"></figure></div></section><section class="oc-chapter" id="problem" data-label="Problem"><div class="oc-copy"><p class="oc-eyebrow">02 / Problem</p><h2 class="oc-h2-long">They faced challenges in staying motivated and often gave up in a few days.</h2><p>As the world was slowly approaching a lockdown due to the COVID’19 pandemic 🦠. More people started picking up new hobbies — working out daily, 10mins of guitar every day. etc.</p><p>To have an in-depth understanding of the problem, I conducted user-interviews to validate assumptions, find and prioritize needs, and discover more pain-points in this problem space.</p></div><div class="oc-media"></div></section><section class="oc-chapter" id="research" data-label="Research"><div class="oc-copy"><p class="oc-eyebrow">03 / Research</p><h2>User Interviews</h2><p>User recruitment - We were mainly targeting professionals in their 20s, I interviewed people who picked up habits the previous week - to understand their progress, how they are tracking their habits and what other challenges they are facing to keep up with their habits.</p></div><div class="oc-media"><figure class="oc-fig" style="--fig: #2f2f41"><img src="../assets/canvas/5d6ed8f6a354.webp" width="2500" height="1900" alt="Telephonic conversations: interview quotes and extracted key insights." loading="lazy"></figure></div></section><section class="oc-chapter" id="insights" data-label="Insights to actions"><div class="oc-copy"><p class="oc-eyebrow">04 / Insights ➡️ Actions</p><h2 class="oc-h2-long">As more and more people started picking up new habits during the lockdown, we approached the entire habit-building journey from a social angle ✴️</h2><p>Most of the products out there revolve around habit tracking — a simple ‘press done if you have performed your habit for the day’. Apps like Fabulous, Habitica, and Habitnow motivated their users through personalized vocal advice, unlocking avatar accessories, and data analysis respectively.</p><p>We then started ideating around building a support system that’ll help the user stay on task regularly, motivating them throughout their journey, achieving their goals, and thus building a habit.</p></div><div class="oc-media"><figure class="oc-fig" style="--fig: #2f2f41"><img src="../assets/canvas/0956a9274510.webp" width="2500" height="1635" alt="Translating insights into actions and features." loading="lazy"></figure></div></section><section class="oc-chapter" id="mvp" data-label="Solution V1.0"><div class="oc-copy"><p class="oc-eyebrow">05 / Solution : V.1.0 (MVP)</p><h2 class="oc-h2-long">We planned to ship the proof of concept quickly to validate our ideas and get early feedback from the actual users.</h2><p>I started out actualizing the above ideas with some rough quick sketches about what the product might be and what features to include in the MVP.</p><p>The first release had the rudimentary habit tracker and the squad’s page where the user could track their friends’ habits.</p></div><div class="oc-media"></div><div class="oc-wide"><p class="oc-label"><span>Habitwave //MVP</span></p><div class="oc-grid oc-grid-5"><figure class="oc-fig" style="--fig: #e4e1f4"><img src="../assets/canvas/9025f67682d5.webp" width="2112" height="3756" alt="MVP screen: build good habits, break the bad ones." loading="lazy"></figure><figure class="oc-fig" style="--fig: #ddebf4"><img src="../assets/canvas/d2be68876b2a.webp" width="2112" height="3756" alt="MVP screen: add your squad and share your journey." loading="lazy"></figure><figure class="oc-fig" style="--fig: #e2f0ed"><img src="../assets/canvas/9127d3e17e07.webp" width="2112" height="3756" alt="MVP screen: motivate, inspire and nudge your squad." loading="lazy"></figure><figure class="oc-fig" style="--fig: #e7f2e5"><img src="../assets/canvas/023ba4e29c1d.webp" width="2112" height="3756" alt="MVP screen: crush your goals and create waves." loading="lazy"></figure><figure class="oc-fig" style="--fig: #ecf4dd"><img src="../assets/canvas/571e0d2c2292.webp" width="2112" height="3756" alt="MVP screen: unlock milestones and flex your achievements." loading="lazy"></figure></div></div></section><section class="oc-chapter" id="reassess" data-label="Re-assessing V1.0"><div class="oc-copy"><p class="oc-eyebrow">06 / Re-assessing V.1.0</p><h2>Re-assessing V.1.0</h2><p>After a few weeks of the release, I interviewed two cohorts of users -</p><ul><li>Cohort 1 - who actively used our platform to track the habits.</li><li>Cohort 2 - who did it for &lt;=5 times and then dropped off from the platform.</li></ul><div class="oc-callout"><span>Cohort 1</span><p>The insights that I got from cohort 1 were pretty similar to the play store reviews</p></div><div class="oc-callout"><span>Cohort 2</span><p>The insights from cohort 2 were that even though the app was great, they got bored because their friends weren’t on it.</p></div></div><div class="oc-media"><figure class="oc-fig" style="--fig: #2f2f41"><img src="../assets/canvas/db2e28d09ec2.webp" width="2500" height="953" alt="Play Store reviews of Habitwave V1.0." loading="lazy"></figure><figure class="oc-fig" style="--fig: #2f2f41"><img src="../assets/canvas/343f79ae92fe.webp" width="2500" height="1027" alt="Habitwave V1.0 screens." loading="lazy"></figure></div></section><section class="oc-chapter" id="v2" data-label="V2.0"><div class="oc-copy"><p class="oc-eyebrow">07 / V2.0</p><h2>…and, We were back with a bang V2.0!</h2></div><div class="oc-media"><figure class="oc-fig" style="--fig: #2f2f41"><img src="../assets/canvas/c6b2e01f0ec4.webp" width="2500" height="745" alt="Habitwave V2.0: build habits, the social way." loading="lazy"></figure><figure class="oc-fig" style="--fig: #ffffff"><img src="../assets/canvas/716127aa8707.webp" width="2500" height="1229" alt="Habitwave V2.0 habit tracker screens." loading="lazy"></figure></div><div class="oc-wide"><div class="oc-grid oc-grid-2"><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/e4dcc3c863da.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #141c25"><img src="../assets/canvas/d9b1cc15e86f.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/b60f9fb5d659.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/b8b262c0745e.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/01d0e92b898d.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/731e9af1c204.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #141c25"><img src="../assets/canvas/302d571d717c.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #141c25"><img src="../assets/canvas/fa116216c213.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/797d6b7a6ad3.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/caed72057cb0.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure><figure class="oc-fig" style="--fig: #fefefe"><img src="../assets/canvas/ad5353a43439.webp" width="2500" height="1406" alt="Habitwave V2.0: from insight to improved screens." loading="lazy"></figure></div></div></section><section class="oc-chapter" id="learnings" data-label="Learnings"><div class="oc-copy"><p class="oc-eyebrow">08 / Learnings</p><h2>Learnings</h2><ul><li>No matter how strong your research is, your users might use your app very differently than intended.</li><li>Focusing on bringing it to the market with just enough research and then working on the feedback and iterating</li><li>Designers are really helpful - I used to ping random designers and ask them for feedback and suggestions about the product and a lot of them actually made time and helped me out. And the feedback they gave experience they shared proved to be extremely valuable</li><li>My major learning was that I like to work on products like these, I did this side project along with my extremely demanding full-time job and still working on this project always used to get me excited and energetic and this made me realize that I really love what I do.</li></ul><div class="oc-end"><a href="../index.html#work">Back to selected work ↗</a><a href="able-jobs.html">Explore the Able Jobs case study ↗</a></div></div><div class="oc-media"></div></section></main>
+<footer class="oc-footer"><span>Vinit Mankar · Habitwave</span><a href="#overview">Back to the beginning ↑</a></footer>
+</div>
+</template>
+<script type="application/json" id="dc-props">{"homeLoaderWidth": {"editor": "range", "default": 40, "min": 16, "max": 120, "step": 1, "unit": "px", "section": "Home loader"}, "homeLoaderDotSize": {"editor": "range", "default": 3, "min": 0.3, "max": 3, "step": 0.05, "section": "Home loader"}, "homeLoaderBandWidth": {"editor": "range", "default": 0.36, "min": 0.2, "max": 1.6, "step": 0.02, "section": "Home loader"}, "homeLoaderDensity": {"editor": "range", "default": 42, "min": 16, "max": 140, "step": 1, "section": "Home loader"}, "homeLoaderRows": {"editor": "range", "default": 6, "min": 1, "max": 14, "step": 1, "section": "Home loader"}, "homeLoaderSpeed": {"editor": "range", "default": 8, "min": 0.6, "max": 8, "step": 0.1, "unit": "s", "section": "Home loader"}, "pageTintColor": {"editor": "color", "default": "#AC8FE6", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6", "#CE9895"], "section": "Page tint"}, "pageTintAmount": {"editor": "range", "default": 0.2, "min": 0, "max": 0.3, "step": 0.005, "section": "Page tint"}, "$preview": {"width": 1440, "height": 6000}}</script>
+<script src="../dc-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  homeLoaderGeometry() {
+    const p = this.props;
+    const dotSize = p.homeLoaderDotSize ?? 3, bandW = p.homeLoaderBandWidth ?? 0.36;
+    const U = Math.round(p.homeLoaderDensity ?? 52), V = Math.round(p.homeLoaderRows ?? 6), em = p.homeLoaderWidth ?? 34;
+    const key = [dotSize, bandW, U, V, em, p.homeLoaderSpeed ?? 8].join('|');
+    if (this._homeLoaderKey === key) return this._homeLoader;
+    const pitch = -1.2, yaw = 1.9, dur = 2.4, pts = [];
+    for (let i = 0; i < U; i++) {
+      const u = i / U * 2 * Math.PI, c = Math.cos(u), sn = Math.sin(u), ch = Math.cos(u / 2), sh = Math.sin(u / 2);
+      for (let j = 0; j < V; j++) {
+        const v = (V === 1 ? 0 : j / (V - 1) - 0.5) * bandW;
+        let x = c + v * ch * c, y = sn + v * ch * sn, z = v * sh;
+        const x2 = x * Math.cos(yaw) - y * Math.sin(yaw), y2 = x * Math.sin(yaw) + y * Math.cos(yaw);
+        const y3 = y2 * Math.cos(pitch) - z * Math.sin(pitch), z3 = y2 * Math.sin(pitch) + z * Math.cos(pitch);
+        pts.push([x2, -y3, z3, i]);
+      }
+    }
+    let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity, zmin = Infinity, zmax = -Infinity;
+    for (const q of pts) { minx = Math.min(minx, q[0]); maxx = Math.max(maxx, q[0]); miny = Math.min(miny, q[1]); maxy = Math.max(maxy, q[1]); zmin = Math.min(zmin, q[2]); zmax = Math.max(zmax, q[2]); }
+    const pad = 4 * Math.max(1, dotSize), VW = 100, sc = (VW - 2 * pad) / (maxx - minx), VH = Math.round((maxy - miny) * sc + 2 * pad);
+    pts.sort((a, b) => a[2] - b[2]);
+    const dots = pts.map(q => {
+      const d = (q[2] - zmin) / ((zmax - zmin) || 1), o = 0.22 + 0.78 * d;
+      return { cx: ((q[0] - minx) * sc + pad).toFixed(2), cy: ((q[1] - miny) * sc + pad).toFixed(2), r: ((0.75 + 0.95 * d) * dotSize).toFixed(2),
+        style: '--o: ' + o.toFixed(2) + '; --f: ' + (1 - q[3] / U).toFixed(3) + '; opacity: ' + o.toFixed(2) };
+    });
+    this._homeLoaderKey = key;
+    this._homeLoader = { dur: (p.homeLoaderSpeed ?? 8) + 's', dots, viewBox: '0 0 ' + VW + ' ' + VH, width: em + 'px', height: (em * VH / VW).toFixed(3) + 'em' };
+    return this._homeLoader;
+  }
+  /* Page tint: white with a whisper of the first Work-dropdown accent. */  pageTintVals(vals) {
+    const p = this.props, hex = String(p.pageTintColor ?? '#95CEE3').replace('#', ''), amt = Math.max(0, Math.min(1, p.pageTintAmount ?? 0.06));
+    const n = parseInt(hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex.slice(0, 6), 16);
+    const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(c => Math.round(255 + (c - 255) * amt));
+    vals.pageTint = 'rgb(' + ch.join(',') + ')';
+    vals.pageTintGlass = 'rgba(' + ch.join(',') + ',0.9)';
+    // the bright, on-white member of the tint colour's family (palette: soft accent -> bright accent)
+    const family = { '95CEE3': '#007EC2', 'E3A37C': '#D85100', '8AC9A1': '#21934C', 'AC8FE6': '#7937E8', 'CE9895': '#D23B65',
+      'C2C5D0': '#5265C7', 'C9C9C9': '#565D6C', 'CBC7C2': '#836247', 'D5C8C2': '#C45162', 'B3DAD9': '#008C91', 'C0B9B1': '#947044', 'D6D293': '#958000', 'FF362B': '#EF2518' };
+    vals.pageAccent = p.pageAccentColor ?? family[hex.toUpperCase()] ?? '#141414';
+    return vals;
+  }  workNav(vals) {
+    const s = this.state || {}, open = !!s.workOpen, idx = open && s.activeWork != null ? s.activeWork : null;
+    const bright = ['#D85100', '#007EC2', '#21934C', '#7937E8', '#D23B65'];
+    vals.workOverlay = open; vals.workExpanded = String(open); vals.workChevron = open ? '\u25B4' : '\u25BE'; vals.workMenuId = 'work-popover';
+    vals.toggleWork = () => this.setState({ workOpen: !open, activeWork: null });
+    vals.clearWork = () => this.setState({ activeWork: null });
+    vals.workKeyDown = e => { if (e.key === 'Escape') this.setState({ workOpen: false, activeWork: null }); };
+    bright.forEach((c, i) => { vals['work' + i] = { active: String(idx === i), text: idx === i ? c : 'var(--ink)', enter: () => this.setState({ activeWork: i }) }; });
+    const sweep = 2.2, every = 5, r = sweep / every, W = r / (2 + r), pct = v => (v * 100).toFixed(2) + '%';
+    const stops = ['var(--ink) 0%', 'var(--ink) ' + pct(W)];
+    bright.forEach((c, i) => stops.push(c + ' ' + pct(W + W * (i + 1) / (bright.length + 1))));
+    stops.push('var(--ink) ' + pct(2 * W), 'var(--ink) 100%');
+    vals.shimmer = { image: 'linear-gradient(90deg, ' + stops.join(', ') + ')', size: (100 / W).toFixed(1) + '%', cycle: every + 's' };
+    return vals;
+  }
+
+  /* Hero show reel: scrolls the V2 overview and taps Add to Cart, then shows the real added state. */  renderVals() {
+    const vals = {};
+    this.workNav(vals);
+    this.pageTintVals(vals);
+    vals.homeLoader = this.homeLoaderGeometry();
+    return vals;
+  }
+}
+window.Component = Component;
+</script>
+</body>
+</html>
