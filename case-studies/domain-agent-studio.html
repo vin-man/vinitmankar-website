@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Designing GoDaddy’s Domain Agent. A study in knowing when to converse, when to compare, and when to act.">
+  <title>Domain Agent — A design study by Vinit Mankar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="domain-agent-studio.css">
+  <script src="domain-agent-studio.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to case study</a>
+  <header class="site-bar">
+    <a class="signature" href="../index.html" aria-label="Vinit Mankar home">v<span>.</span><span class="signature-name">Vinit Mankar</span></a>
+    <a class="project-name" href="#overview">GoDaddy <span>/</span> Domain Agent</a>
+    <div class="bar-actions">
+      <button class="notes-toggle" type="button" aria-pressed="false"><span class="toggle-mark" aria-hidden="true"></span>Design notes</button>
+      <a class="original-link" href="domain-agent.html">Original version <span>↗</span></a>
+    </div>
+    <div class="reading-line" aria-hidden="true"></div>
+  </header>
+
+  <main class="study" id="study">
+    <div class="narrative">
+      <section class="chapter introduction" id="overview" data-label="The brief">
+        <div class="chapter-copy">
+          <p class="eyebrow"><span class="status-dot"></span> GoDaddy Airo · 2025</p>
+          <h1><span style="white-space: normal">Domain Name Registration Agent</span></h1>
+          <p class="intro-deck">Turning an early business idea into a confident domain choice.</p>
+          <dl class="project-facts">
+            <div><dt>Role</dt><dd>Product Designer</dd></div>
+            <div><dt>Scope</dt><dd>Agent UX & interaction strategy</dd></div>
+            <div><dt>Surfaces</dt><dd>Desktop & mobile</dd></div>
+          </dl>
+          <p class="opening-thesis">I designed how the Domain Agent understands intent, presents recommendations, and guides customers toward registration.</p>
+          <a class="read-on" href="#context">Follow the decisions <span>↓</span></a>
+          <aside class="design-note" hidden><p class="note-label">The central question</p><p>When should an agent keep talking—and when should it give the customer something to act on?</p></aside>
+        </div>
+        <figure class="chapter-media cover-media" data-caption="From conversation to a domain decision">
+          <div class="media-label"><span>THE DOMAIN AGENT</span><span>DESKTOP / 2025</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge the Domain Agent design"><img src="assets/dnr-existing-venture-complete-clean.png" width="1118" height="712" alt="Original Figma design: conversation on the left, Sally’s Cakes domain recommendations on the right."></button></div>
+          <div class="visual-idea"><span>Understand</span><i>→</i><span>Compare</span><i>→</i><span>Decide</span></div>
+          <figcaption><span>One task. Two coordinated surfaces.</span><span class="expand-hint">Click screen to inspect ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="context" data-label="The ecosystem">
+        <div class="chapter-copy">
+          <p class="eyebrow">01 / The ecosystem</p>
+          <h2>One front door.<br><em>Many specialists.</em></h2>
+          <p>GoDaddy was evolving Airo into a coordinated system of specialized agents. Airo held the customer context and directed work to the right product expert.</p>
+          <p>The Domain Agent handled one of those tasks: finding a domain. The experience needed to feel like a continuation of Airo, not a fresh start.</p>
+          <div class="decision-line"><span>DESIGN INTENT</span><p>Carry the customer’s context forward.</p></div>
+          <aside class="design-note" hidden><p class="note-label">System boundary</p><p>Airo provides the shared entry point. The Domain Agent brings task-specific guidance. The customer should not have to understand that division to make progress.</p></aside>
+        </div>
+        <figure class="chapter-media home-media" data-caption="Airo home · the shared starting point">
+          <div class="media-label"><span>01 / AIRO HOME</span><span>ORIGINAL FIGMA DESIGN</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge Airo home"><img src="assets/airo-home-clean.png" width="1432" height="902" alt="Airo home with recent chats, recommendations and the shared conversation composer." loading="lazy"></button></div>
+          <div class="logo-footnote"><img src="assets/airo-logo-3d.png" alt="" width="54" height="54"><p>A familiar starting point.<br><span>A specialized next step.</span></p></div>
+          <figcaption><span>The journey starts before the domain search.</span><span class="expand-hint">Inspect ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="reuse" data-label="Reuse context">
+        <div class="chapter-copy">
+          <p class="eyebrow">02 / Reuse context</p>
+          <h2>Confirm what’s known.<br><em>Don’t ask again.</em></h2>
+          <p>“I want to buy a domain” could mean an existing business or an entirely new venture. The request alone wasn’t enough.</p>
+          <p>When Airo already knew the customer’s ventures, I surfaced that context as a choice. Confirm an existing business, or start something new.</p>
+          <div class="decision-line"><span>THE DECISION</span><p>Verification before interrogation.</p></div>
+          <aside class="design-note" hidden><p class="note-label">Control, not assumption</p><p>Known context is a useful starting point, not a decision made on the customer’s behalf. Keeping “new venture” available prevents personalization from becoming a dead end.</p></aside>
+        </div>
+        <figure class="chapter-media" data-caption="Existing venture · Sally’s Cakes">
+          <div class="media-label"><span>02 / EXISTING VENTURE</span><span>ORIGINAL FIGMA DESIGN</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge existing venture design"><img src="assets/dnr-existing-venture-complete-clean.png" width="1118" height="712" alt="The agent offers known ventures, then recommends domains for Sally’s Cakes without asking the customer to repeat business information." loading="lazy"></button></div>
+          <div class="figure-note"><span>01</span><p>Known ventures become an editable starting point.</p></div>
+          <figcaption><span>Context stays visible. The customer stays in control.</span><span class="expand-hint">Inspect ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="discover" data-label="Build intent">
+        <div class="chapter-copy">
+          <p class="eyebrow">03 / Build intent</p>
+          <h2>Ask for the next signal.<br><em>Not the whole brief.</em></h2>
+          <p>A new business starts with less context. Rather than front-loading a questionnaire, the agent gathers what will improve the next recommendation.</p>
+          <p>Each response contributes to a visible set of options. Customers can see where the conversation is taking them—and change direction.</p>
+          <div class="decision-line"><span>THE DECISION</span><p>Make progress while learning.</p></div>
+          <aside class="design-note" hidden><p class="note-label">The trade-off</p><p>More questions can sharpen relevance, but they also delay the first useful result. The interaction is designed to gather context progressively, alongside recommendations.</p></aside>
+        </div>
+        <figure class="chapter-media tall-media" data-caption="New venture · progressive discovery">
+          <div class="media-label"><span>03 / NEW VENTURE</span><span>COMPLETE FRAME</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge progressive discovery design"><img src="assets/dnr-intent-gathering-clean.png" width="1360" height="1525" alt="Full Nile Flowers discovery conversation alongside the developing domain recommendation panel." loading="lazy"></button></div>
+          <figcaption><span>Intent becomes visible in the recommendations.</span><span class="expand-hint">Inspect full-size ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="compare" data-label="Make comparison easier">
+        <div class="chapter-copy">
+          <p class="eyebrow">04 / Make comparison easier</p>
+          <h2>Talk to refine.<br><em>Look to compare.</em></h2>
+          <p>Chat works well for expressing preferences. It is a poor place to compare a growing list of names, extensions, availability, and prices.</p>
+          <p>I separated conversation from the results surface. The customer can refine the request without losing the options they are evaluating.</p>
+          <div class="decision-line"><span>THE DECISION</span><p>One continuous task. Two complementary surfaces.</p></div>
+          <aside class="design-note" hidden><p class="note-label">Why a second surface?</p><p>The task changes from expressing intent to evaluating alternatives. The interface should change with it; conversation does not need to do every job.</p></aside>
+        </div>
+        <figure class="chapter-media tall-media compare-media" data-caption="Refinement · conversation and structured results">
+          <div class="media-label"><span>04 / REFINE & COMPARE</span><span>COMPLETE FRAME</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge comparison design"><img src="assets/dnr-ecommerce-refinement-clean.png" width="1360" height="1201" alt="Nile Flowers ecommerce refinement in the conversation with revised domain options in the adjacent panel." loading="lazy"></button></div>
+          <figcaption><span>A new preference updates a structured set of choices.</span><span class="expand-hint">Inspect full-size ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="decide" data-label="Support the decision">
+        <div class="chapter-copy">
+          <p class="eyebrow">05 / Support the decision</p>
+          <h2>A recommendation.<br><em>Then a next step.</em></h2>
+          <p>Finding an available name is not the end of the journey. Customers still need to understand what they are getting and how to move forward.</p>
+          <p>The available-domain state brings availability, included value, and the next action together. On mobile, the same decision hierarchy takes priority.</p>
+          <div class="decision-line"><span>THE DECISION</span><p>Keep the value close to the action.</p></div>
+          <aside class="design-note" hidden><p class="note-label">Across screen sizes</p><p>The mobile designs preserve the information needed to choose: the recommendation, its value, and a clear next action. Use the Desktop / Mobile control to compare the original designs.</p></aside>
+        </div>
+        <figure class="chapter-media decision-media" data-caption="Available domain · desktop and mobile">
+          <div class="media-label"><span>05 / THE NEXT STEP</span><div class="device-switch" role="group" aria-label="Product design format"><button type="button" data-device="desktop" aria-pressed="true">Desktop</button><button type="button" data-device="mobile" aria-pressed="false">Mobile</button></div></div>
+          <div class="image-space desktop-view"><button class="screen-button" type="button" aria-label="Enlarge available domain design"><img src="assets/dnr-available-domain-clean.png" width="1428" height="906" alt="adambakes.com availability, included benefits and registration next step." loading="lazy"></button></div>
+          <div class="image-space mobile-view" hidden>
+            <button class="screen-button" type="button" aria-label="Enlarge mobile domain detail"><img src="assets/dnr-domain-detail.png" width="462" height="752" alt="Mobile domain detail design for adambakes.com." loading="lazy"></button>
+            <button class="screen-button" type="button" aria-label="Enlarge mobile recommendation list"><img src="assets/dnr-panel-ecommerce.png" width="490" height="1000" alt="Mobile ecommerce domain recommendation list." loading="lazy"></button>
+          </div>
+          <figcaption><span class="device-caption">Available domain · desktop design</span><span class="expand-hint">Inspect ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter" id="recover" data-label="Keep a way forward">
+        <div class="chapter-copy">
+          <p class="eyebrow">06 / Keep a way forward</p>
+          <h2>The agent can fail.<br><em>The journey shouldn’t.</em></h2>
+          <p>Recovery belongs in the core experience. When the system cannot respond, the interface explains the interruption and keeps retry close at hand.</p>
+          <p>The same attention extends to waiting, refinement, and the transition toward registration—not just the ideal conversation.</p>
+          <div class="decision-line"><span>THE DECISION</span><p>Make the next move clear, even when the answer isn’t.</p></div>
+          <aside class="design-note" hidden><p class="note-label">Trust in the less ideal moments</p><p>A recovery state should acknowledge the problem without requiring the customer to diagnose it. A visible retry gives the conversation a way forward.</p></aside>
+        </div>
+        <figure class="chapter-media tall-media" data-caption="Recovery · a clear retry">
+          <div class="media-label"><span>06 / RECOVERY</span><span>COMPLETE FRAME</span></div>
+          <div class="image-space"><button class="screen-button" type="button" aria-label="Enlarge recovery state"><img src="assets/dnr-error-recovery-clean.png" width="1360" height="1077" alt="Airo explains that it is having trouble and offers a Try again action within the conversation." loading="lazy"></button></div>
+          <figcaption><span>An interruption, not a dead end.</span><span class="expand-hint">Inspect full-size ↗</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="chapter closing" id="in-motion" data-label="The interaction model">
+        <div class="chapter-copy">
+          <p class="eyebrow">07 / Bringing it together</p>
+          <h2>Knowing when<br><em>not to chat.</em></h2>
+          <p>The work defined an interaction model for agent-led decisions: converse while intent is fluid, introduce structure when comparison starts, and make the next action explicit.</p>
+          <p class="closing-line">The design challenge wasn’t making the agent talk more. It was knowing what the interface should do next.</p>
+          <p class="evidence-label">Shown here: design work and an interaction prototype.</p>
+          <aside class="design-note" hidden><p class="note-label">What this case study demonstrates</p><p>Context reuse, progressive discovery, coordinated conversation and results, responsive decisions, and recovery. These are design outcomes; no measured business impact is claimed here.</p></aside>
+          <div class="end-links"><a href="../index.html#work">Back to selected work ↗</a><a href="domain-agent.html">Compare with the original ↗</a></div>
+        </div>
+        <figure class="chapter-media video-media" data-caption="The interaction prototype">
+          <div class="media-label"><span>07 / IN MOTION</span><span>INTERACTION PROTOTYPE</span></div>
+          <div class="image-space"><video controls muted playsinline preload="none" poster="assets/dnr-existing-venture-complete-clean.png" aria-label="Domain Agent interaction prototype"><source src="assets/domain-agent-prototype.mp4" type="video/mp4"></video></div>
+          <figcaption><span>See the conversation and results work together.</span><span>PRESS PLAY</span></figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <aside class="visual-column" aria-label="Design evidence">
+      <div class="visual-pin">
+        <div class="visual-stage"></div>
+        <nav class="chapter-navigation" aria-label="Case-study chapters">
+          <button class="previous" type="button" aria-label="Previous chapter">←</button>
+          <div class="chapter-position"><span class="chapter-count">01 / 08</span><span class="chapter-current">The brief</span></div>
+          <button class="next" type="button" aria-label="Next chapter">→</button>
+        </nav>
+        <div class="chapter-track" aria-label="Jump to a chapter">
+          <a href="#overview" aria-label="The brief" aria-current="step"></a><a href="#context" aria-label="The ecosystem"></a><a href="#reuse" aria-label="Reuse context"></a><a href="#discover" aria-label="Build intent"></a><a href="#compare" aria-label="Make comparison easier"></a><a href="#decide" aria-label="Support the decision"></a><a href="#recover" aria-label="Keep a way forward"></a><a href="#in-motion" aria-label="The interaction model"></a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="study-footer"><span>Vinit Mankar · GoDaddy Airo</span><span>Conversation when it helps. Structure when it matters.</span><a href="#overview">Back to the beginning ↑</a></footer>
+  <dialog class="image-dialog" aria-labelledby="image-title">
+    <div class="dialog-bar"><p id="image-title">Design detail</p><div><button class="zoom-toggle" type="button" aria-pressed="false">Original size</button><button class="close-dialog" type="button">Close <span>×</span></button></div></div>
+    <div class="dialog-canvas"><img alt=""></div>
+  </dialog>
+</body>
+</html>

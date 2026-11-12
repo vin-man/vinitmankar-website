@@ -1,0 +1,11 @@
+:host{display:block;width:100%;height:100%;color:var(--ink,#282a25);--title-font:'Newsreader',Georgia,serif;--copy-font:'Archivo',Arial,sans-serif}
+*{box-sizing:border-box}figure{position:relative;width:100%;height:100%;min-height:180px;margin:0;isolation:isolate;user-select:none}
+.hover-layer{position:absolute;inset:0;transform:perspective(1400px) rotateX(var(--hover-x,0deg)) rotateY(var(--hover-y,0deg));transition:transform .4s ease-out}
+.arrival-layer{position:absolute;inset:0;opacity:var(--arrival-opacity,1);transform:perspective(1300px) translateY(var(--arrival-y,0px)) rotateY(var(--arrival-angle,0deg)) rotateZ(var(--arrival-lean,0deg)) scale(var(--arrival-scale,1.08));transform-origin:50% 52%;will-change:transform,opacity}
+svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.surface-color{filter:grayscale(1)}.ring-image{image-rendering:pixelated}.surface-pulse{mix-blend-mode:multiply;animation:approvedPulse 9s ease-in-out infinite alternate}
+.annotations{pointer-events:none;scale:1.08;transform-origin:50% 52%;fill:currentColor}.note{transform:translateY(var(--notes-offset,0px))}.art-note{opacity:var(--art-note-opacity,1)}.logic-note{opacity:var(--logic-note-opacity,1)}.fold-note{opacity:var(--fold-note-opacity,1)}
+.leader{fill:none;stroke:currentColor;stroke-width:1.6;stroke-dasharray:3 4;stroke-linecap:round;opacity:.6}.anchor{fill:currentColor;stroke:var(--paper,#fff);stroke-width:2}.eyebrow{font:var(--index-size,20px) var(--copy-font);letter-spacing:1px;opacity:.75}.title{font:italic var(--title-size,36px) var(--title-font)}.body{font:var(--body-size,24px) var(--copy-font);opacity:.75}.fold-label{font:var(--fold-size,22px) var(--copy-font);text-anchor:middle;opacity:.75}.research-mark{stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;opacity:.65}
+@keyframes approvedPulse{from{opacity:.025}to{opacity:.576}}
+:host([paused]) .surface-pulse,:host([inactive]) .surface-pulse,:host([arriving]) .surface-pulse{animation-play-state:paused}
+@media(max-width:600px){.body{display:none}}
+@media(prefers-reduced-motion:reduce){.hover-layer,.arrival-layer{transform:none!important;transition:none!important}.arrival-layer,.note{opacity:1!important}.surface-pulse{animation:none;opacity:.03}.note{transform:none}.arrival-layer{will-change:auto}}

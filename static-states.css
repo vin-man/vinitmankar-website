@@ -1,0 +1,48 @@
+/* static-states.css — the settled states the canvas design was built on.
+   Pins scroll-, viewport- and script-driven effects to a static state so the
+   original markup and stylesheets can be edited on the Design canvas.
+   Reference viewport for vh conversions: 1440 x 900 (desktop), 390 x 844 (mobile). */
+
+/* Fixed overlays/controls would sit at the bottom of a full-height artboard. */
+.skip,.reading-progress,.motion-toggle,.design-tuner,.image-dialog{display:none!important}
+
+/* ---------- Homepage hero: the motion-reduced / settled state ---------- */
+.hero-pin{min-height:auto;padding-bottom:95px}
+.hero-scroll-hint,.hero-work-cue{display:none}
+.hero-copy h1,.hero-copy .intro-description{animation:none}
+.hero-asset.mobius-static{position:relative;display:block;width:min(795px,100%);height:auto;max-height:none;aspect-ratio:1514/1200;margin:0 auto;mix-blend-mode:multiply;color:var(--ink,#282a25)}
+.mobius-static .mobius-scale{position:absolute;inset:0;transform:scale(1.08);transform-origin:50% 52%}
+.mobius-static .mobius-ring{position:absolute;left:8.586%;top:-2.5%;width:82.827%;height:auto;max-width:none}
+.mobius-static .annotations{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:currentColor;pointer-events:none}
+.mobius-static .leader{fill:none;stroke:currentColor;stroke-width:1.6;stroke-dasharray:3 4;stroke-linecap:round;opacity:.6}
+.mobius-static .anchor{fill:currentColor;stroke:var(--paper,#fff);stroke-width:2}
+.mobius-static .eyebrow{font:21px 'Archivo',Arial,sans-serif;letter-spacing:1px;opacity:.75}
+.mobius-static .title{font:italic 38px 'Newsreader',Georgia,serif}
+.mobius-static .body{font:23px 'Archivo',Arial,sans-serif;opacity:.75}
+.mobius-static .fold-label{font:22px 'Archivo',Arial,sans-serif;text-anchor:middle;opacity:.75}
+.mobius-static .research-mark{stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;opacity:.65}
+@media(max-width:600px){
+  .mobius-static .eyebrow{font-size:43px}
+  .mobius-static .title{font-size:78px;transform:translateY(44px)}
+  .mobius-static .fold-label{font-size:43px}
+  .mobius-static .body{display:none}
+}
+
+/* ---------- DNR original: hero video without the sticky scroll runway ---------- */
+@media(min-width:701px){
+  .hero-video-wrap{height:auto;min-height:0}
+  .hero-video-stage{position:relative;top:auto}
+  .hero-video-canvas{height:684px;min-height:620px}
+}
+
+/* ---------- Studio + Growth: every chapter beside its own figure ---------- */
+.visual-column{display:none!important}
+.growth-study .introduction,.growth-study .closing{min-height:0}
+@media(min-width:961px){
+  .study{display:block}
+  .chapter{display:grid;grid-template-columns:minmax(275px,.39fr) minmax(0,1fr);column-gap:clamp(42px,5vw,88px);align-items:start}
+  .chapter>.chapter-media{margin:0;height:692px;min-height:440px}
+}
+
+/* Export: keep the long wordmark inside narrow screens. */
+.page-root .wordmark{max-width:100%}

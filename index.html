@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Vinit Mankar — product designer connecting imagination and logic.">
+<title>Vinit Mankar — Product Designer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Ctext x='8' y='46' font-family='serif' font-size='46' fill='%23e7502d'%3Ev.%3C/text%3E%3C/svg%3E">
+<script src="vendor/three-0.149.0.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="hero.css">
+<link rel="stylesheet" href="static-states.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Pinyon+Script&amp;family=Great+Vibes&amp;family=Corinthia:wght@700&amp;family=Italianno&amp;family=Parisienne&amp;family=Tangerine:wght@700&amp;family=Monsieur+La+Doulaise&amp;family=Sacramento&amp;family=Fondamento:ital@1&amp;family=Meddon&amp;family=Grenze+Gotisch:wght@500&amp;family=Almendra:ital@1&amp;display=swap">
+<style>
+body{margin:0}
+.project-card{transition:transform .35s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease,border-color .35s ease}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -24px rgba(25,27,23,.28);border-color:var(--ink)!important}
+.project-card .serif-link span{display:inline-block;transition:transform .35s ease}
+.project-card:hover .serif-link{color:var(--orange)}
+.project-card:hover .serif-link span{transform:translate(4px,-4px)}
+.footer-button{transition:background .25s ease,transform .25s ease}
+.footer-button:hover{background:#ffd57e!important;transform:translateY(-2px)}
+.footer-closing nav a:hover,.footer-closing .footer-bottom a:hover{color:var(--orange)}
+.footer-closing:after{display:none}
+.next-project-image{transition:transform .8s cubic-bezier(.2,.75,.25,1),filter .6s ease;filter:grayscale(.35)}
+.next-project-title,.next-project-arrow{transition:color .35s ease,transform .45s cubic-bezier(.2,.75,.25,1)}
+.next-project-arrow{display:inline-block}
+.next-project-pill{opacity:0;transform:translate(-50%,-50%) scale(.9);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.75,.25,1)}
+.next-project:hover .next-project-image,.next-project:focus-visible .next-project-image{transform:scale(1.05);filter:grayscale(0)}
+.next-project:hover .next-project-title,.next-project:focus-visible .next-project-title{color:var(--orange)}
+.next-project:hover .next-project-arrow,.next-project:focus-visible .next-project-arrow{transform:translateX(12px);color:var(--orange)}
+.next-project:hover .next-project-pill,.next-project:focus-visible .next-project-pill{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (max-width:700px){.next-project-media{height:320px!important}}
+@media (prefers-reduced-motion:reduce){.next-project-image,.next-project-title,.next-project-arrow,.next-project-pill{transition:none}.next-project:hover .next-project-image,.next-project:focus-visible .next-project-image{transform:none}.next-project:hover .next-project-arrow,.next-project:focus-visible .next-project-arrow{transform:none}.next-project:hover .next-project-pill,.next-project:focus-visible .next-project-pill{transform:translate(-50%,-50%)}}
+@media (prefers-reduced-motion:reduce){.footer-button{transition:none}.footer-button:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.project-card,.project-card .serif-link span{transition:none}.project-card:hover{transform:none}.project-card:hover .serif-link span{transform:none}}
+@media (prefers-reduced-motion:no-preference){.page-root{transition:background-color .8s ease}.work-item{transition:padding .35s cubic-bezier(.2,.75,.25,1)}.work-dot{transition:transform .35s ease}}
+.work-item:hover,.work-item:focus-visible,.work-item[data-active="true"]{padding-left:14px!important}
+.work-item[data-active="true"] .work-dot{transform:scale(1.6)}
+.nav-work-toggle:hover{color:var(--orange)!important}
+@media (max-width:600px){.work-meta{display:none}.work-item{grid-template-columns:36px minmax(0,1fr) 14px!important}}
+.nav-links{position:relative;z-index:30}
+@media (prefers-reduced-motion:no-preference){.work-pop-item{transition:color .25s ease,padding .3s ease}}
+.work-pop-item[data-active="true"]{padding-left:16px!important}
+@media (max-width:600px){.footer-closing{padding:72px 0 24px!important}.footer-closing .footer-cta-block{padding-bottom:40px!important;gap:20px!important}.footer-closing .footer-heading{font-size:48px!important;letter-spacing:-0.05em!important;line-height:1!important}.footer-closing .footer-contact-row{flex-direction:column!important;align-items:flex-start!important}.footer-closing .footer-links{padding:20px 0 0!important}}
+/* phones: the email moves under the 'Mankar 2026' wordmark (same element, reordered; desktop untouched) */
+@media (max-width:600px){.footer-closing .footer-cta-block{align-items:flex-start!important}.footer-closing .footer-contact-row,.footer-closing .footer-links{display:contents!important}.footer-closing .footer-contact-row>.footer-eyebrow:first-child{order:0}.footer-closing .footer-heading{order:1}.footer-closing .footer-wordmark{order:2;margin-top:12px}.footer-closing .footer-email{order:3;margin-top:-14px!important}.footer-closing .footer-links>nav{order:4}}
+@media (max-width:600px){.glass-mobius{width:88%!important;aspect-ratio:1 / 1!important;margin-top:8px!important}}
+@media (prefers-reduced-motion:no-preference){.mobius-loader-dot{animation:mobiusLoaderTrail var(--loader-dur,2.4s) linear infinite;animation-delay:calc(var(--loader-dur,2.4s) * var(--f,0) * -1);transform-box:fill-box;transform-origin:center}}
+@keyframes mobiusLoaderTrail{0%{opacity:var(--o);transform:scale(1.45)}12%{opacity:var(--o);transform:scale(1.1)}50%{opacity:calc(var(--o) * .3);transform:scale(.85)}100%{opacity:var(--o);transform:scale(1.45)}}
+/* footer words: creativity -> art, logic -> science. Each word pair shares one grid cell sized to its longer word, so the loader never moves. */
+.word-swap-b{opacity:0}
+@media (prefers-reduced-motion:no-preference){
+.word-swap-a{animation:wordSwapA var(--swap-dur,6s) cubic-bezier(.65,0,.35,1) infinite}
+.word-swap-b{animation:wordSwapB var(--swap-dur,6s) cubic-bezier(.65,0,.35,1) infinite}
+.word-swap-right .word-swap-a,.word-swap-right .word-swap-b{animation-delay:calc(var(--swap-dur,6s) * .04)}
+}
+@keyframes wordSwapA{0%,42%{opacity:1;transform:none;filter:blur(0)}50%,92%{opacity:0;transform:translateY(-.18em);filter:blur(6px)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes wordSwapB{0%,42%{opacity:0;transform:translateY(.18em);filter:blur(6px)}50%,92%{opacity:1;transform:none;filter:blur(0)}100%{opacity:0;transform:translateY(.18em);filter:blur(6px)}}
+/* Work label shimmer through all dropdown accents */
+.work-shimmer{color:var(--ink);background-repeat:no-repeat;background-position:0% 0}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.work-shimmer{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}}
+@media (prefers-reduced-motion:no-preference){.work-shimmer{animation:workShimmer var(--shimmer-cycle,5s) linear infinite}}
+@keyframes workShimmer{from{background-position:0% 0}to{background-position:100% 0}}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-template">
+
+<div class="page-root " data-source="index.html" style="background-color: {{ pageBg }}; --paper: {{ pageBg }}"><sc-if value="{{ introOn }}" hint-placeholder-val="{{ false }}"><div class="intro-reel" ref="{{ setIntro }}" onClick="{{ skipIntro }}" role="presentation" style="position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: #ffffff; cursor: pointer; transition: opacity 0.45s ease"><div class="intro-frame" aria-hidden="true" style="position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden"></div><span class="intro-skip" style="position: absolute; right: 24px; bottom: 20px; font: 500 12px/1 Manrope, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(25, 27, 23, 0.55); mix-blend-mode: difference; filter: invert(1)">Skip</span></div></sc-if>
+<a class="skip" href="#work">Skip to selected work</a>
+<header class="nav nav-top wrap" style="height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 48px; padding: 28px 0 30px; border-bottom: 1px solid var(--line)"><div class="nav-identity" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><a aria-label="Vinit Mankar home" class="wordmark" href="#" style="font-size: 22px; line-height: 1; color: var(--ink); font-family: DM Sans, sans-serif; font-weight: 400; width: 677px">Vinit Mankar</a><p class="availability" style="display: block; margin: 0; font: 20px/1.4 var(--sans); letter-spacing: -4px; color: var(--muted); font-family: Manrope, sans-serif; line-height: 1"><span style="color: var(--muted); letter-spacing: -1px; font-family: Manrope, sans-serif">Software Designer, Bay Area</span></p></div><p class="nav-intro" style="flex: 1 1 320px; min-width: 0; max-width: 680px; margin: 0; font: 22px/1.4 var(--sans); color: var(--muted); font-family: Manrope, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; letter-spacing: -0.5px; width: 468px; text-align: start">Designer with 5+ years of experience, specialized in designing digital experiences, problem solving, tweaking frameworks and running growth experiments. Currently @GoDaddy&nbsp;<span style="color: #5F6155; letter-spacing: normal; caret-color: rgb(0, 0, 0)">&lt;- AbleJobs (YC W20), Fractal Analytics</span><br></p></header>
+<nav aria-label="Main navigation" class="nav-links wrap" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 26px; padding: 24px 0 0; font-size: 15px; padding-bottom: 8px"><span class="nav-work" style="position: relative; display: inline-flex"><button aria-controls="{{ workMenuId }}" aria-expanded="{{ workExpanded }}" class="nav-work-toggle" onClick="{{ toggleWork }}" type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; font: inherit; color: var(--ink); cursor: pointer"><span class="work-shimmer" style="background-image: {{ shimmer.image }}; background-size: {{ shimmer.size }} 100%; --shimmer-cycle: {{ shimmer.cycle }}">Work</span> <span aria-hidden="true" style="font-size: 11px">{{ workChevron }}</span></button><sc-if value="{{ workOverlay }}" hint-placeholder-val="{{ false }}"><div class="work-popover" id="work-popover" onKeyDown="{{ workKeyDown }}" onMouseLeave="{{ clearWork }}" style="position: absolute; top: calc(100% + 12px); left: -12px; z-index: 30; min-width: 280px; padding: 6px; border-radius: 14px"><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px"><li><a class="work-pop-item" data-active="{{ work0.active }}" href="case-studies/domain-agent.html" onFocus="{{ work0.enter }}" onMouseEnter="{{ work0.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work0.text }}">Domain Search &amp; Registration Agent</a></li><li><a class="work-pop-item" data-active="{{ work1.active }}" href="case-studies/domain-upsell.html" onFocus="{{ work1.enter }}" onMouseEnter="{{ work1.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work1.text }}">Domain Upsell Strategy</a></li><li><a class="work-pop-item" data-active="{{ work2.active }}" href="case-studies/domain-connect.html" onFocus="{{ work2.enter }}" onMouseEnter="{{ work2.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work2.text }}">Domain Connect Revamp</a></li><li><a class="work-pop-item" data-active="{{ work3.active }}" href="case-studies/habitwave.html" onFocus="{{ work3.enter }}" onMouseEnter="{{ work3.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work3.text }}">Habitwave</a></li><li><a class="work-pop-item" data-active="{{ work4.active }}" href="case-studies/able-jobs.html" onFocus="{{ work4.enter }}" onMouseEnter="{{ work4.enter }}" style="display: block; padding: 9px 12px; border-radius: 8px; font-size: 15px; line-height: 1.3; font-family: Manrope, sans-serif; white-space: nowrap; color: {{ work4.text }}">Able Jobs</a></li></ul></div></sc-if></span><a href="#about" style="color: var(--muted)">Playground</a><a href="#about" style="color: var(--muted)">About</a><a href="#about" style="color: var(--muted)">Resume</a></nav>
+<sc-if value="{{ workList }}" hint-placeholder-val="{{ false }}"><div class="work-menu wrap" id="work-menu" onKeyDown="{{ workKeyDown }}" onMouseLeave="{{ clearWork }}" style="padding: 20px 0 8px; position: relative; z-index: 3"><ul class="work-list" style="list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line)">
+<li style="border-top: 1px solid var(--line)"><a class="work-item" data-active="{{ work0.active }}" href="case-studies/domain-agent.html" onFocus="{{ work0.enter }}" onMouseEnter="{{ work0.enter }}" style="display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 14px; align-items: center; gap: 16px; padding: 18px 0; color: var(--ink)"><span class="work-no" style="font: 12px var(--mono); color: var(--muted)">01</span><span class="work-title" style="font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; font-family: Manrope, sans-serif">Domain Search &amp; Registration Agent</span><span class="work-meta" style="font-size: 14px; color: var(--muted); font-family: Manrope, sans-serif">GoDaddy · Agent UX</span><span aria-hidden="true" class="work-dot" style="width: 12px; height: 12px; border-radius: 50%; background: {{ work0.color }}"></span></a></li>
+<li style="border-top: 1px solid var(--line)"><a class="work-item" data-active="{{ work1.active }}" href="case-studies/domain-upsell.html" onFocus="{{ work1.enter }}" onMouseEnter="{{ work1.enter }}" style="display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 14px; align-items: center; gap: 16px; padding: 18px 0; color: var(--ink)"><span class="work-no" style="font: 12px var(--mono); color: var(--muted)">02</span><span class="work-title" style="font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; font-family: Manrope, sans-serif">Domain Upsell Strategy</span><span class="work-meta" style="font-size: 14px; color: var(--muted); font-family: Manrope, sans-serif">GoDaddy · Growth UX</span><span aria-hidden="true" class="work-dot" style="width: 12px; height: 12px; border-radius: 50%; background: {{ work1.color }}"></span></a></li>
+<li style="border-top: 1px solid var(--line)"><a class="work-item" data-active="{{ work2.active }}" href="case-studies/domain-connect.html" onFocus="{{ work2.enter }}" onMouseEnter="{{ work2.enter }}" style="display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 14px; align-items: center; gap: 16px; padding: 18px 0; color: var(--ink)"><span class="work-no" style="font: 12px var(--mono); color: var(--muted)">03</span><span class="work-title" style="font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; font-family: Manrope, sans-serif">Domain Connect Revamp</span><span class="work-meta" style="font-size: 14px; color: var(--muted); font-family: Manrope, sans-serif">GoDaddy · Platform UX</span><span aria-hidden="true" class="work-dot" style="width: 12px; height: 12px; border-radius: 50%; background: {{ work2.color }}"></span></a></li>
+<li style="border-top: 1px solid var(--line)"><a class="work-item" data-active="{{ work3.active }}" href="case-studies/habitwave.html" onFocus="{{ work3.enter }}" onMouseEnter="{{ work3.enter }}" style="display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 14px; align-items: center; gap: 16px; padding: 18px 0; color: var(--ink)"><span class="work-no" style="font: 12px var(--mono); color: var(--muted)">04</span><span class="work-title" style="font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; font-family: Manrope, sans-serif">Habitwave</span><span class="work-meta" style="font-size: 14px; color: var(--muted); font-family: Manrope, sans-serif">Founding Product Designer</span><span aria-hidden="true" class="work-dot" style="width: 12px; height: 12px; border-radius: 50%; background: {{ work3.color }}"></span></a></li>
+<li style="border-top: 1px solid var(--line)"><a class="work-item" data-active="{{ work4.active }}" href="case-studies/able-jobs.html" onFocus="{{ work4.enter }}" onMouseEnter="{{ work4.enter }}" style="display: grid; grid-template-columns: 48px minmax(0, 1fr) auto 14px; align-items: center; gap: 16px; padding: 18px 0; color: var(--ink)"><span class="work-no" style="font: 12px var(--mono); color: var(--muted)">05</span><span class="work-title" style="font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; font-family: Manrope, sans-serif">Able Jobs</span><span class="work-meta" style="font-size: 14px; color: var(--muted); font-family: Manrope, sans-serif">Founding Product Designer</span><span aria-hidden="true" class="work-dot" style="width: 12px; height: 12px; border-radius: 50%; background: {{ work4.color }}"></span></a></li>
+</ul></div></sc-if>
+<main>
+<section aria-labelledby="hero-title" class="hero-journey">
+<div class="hero-pin">
+<canvas aria-hidden="true" class="hero-smoke" ref="{{ setSmokeCanvas }}" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent)"></canvas>
+<div class="hero-copy wrap" style="text-align: left; padding: 44px 0 0; pointer-events: auto"></div>
+<figure aria-label="A Möbius strip made of glossy rose glass jelly. The words art, science, creativity and logic run inside it along its one side. Moving the pointer tilts it." class="hero-asset glass-mobius" style="position: relative; display: block; width: min(960px, 100%); height: auto; max-height: none; aspect-ratio: 4 / 3; margin: 24px auto 0; mix-blend-mode: multiply"><canvas class="glass-mobius-canvas" ref="{{ setGlassCanvas }}" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: pan-y"></canvas></figure>
+<p class="hero-scroll-hint">Scroll to follow the connection ↓</p>
+<p class="hero-work-cue">From a way of thinking to a way of making. ↓</p>
+<div class="hero-controls" style="justify-content: flex-end"></div>
+</div>
+</section>
+
+
+
+</main>
+<footer class="footer footer-closing" style="padding: 120px 0 32px; background: var(--paper); color: var(--ink); border-top: 1px solid var(--line); font-family: Manrope, sans-serif; min-height: 509px; box-sizing: border-box"><div class="wrap"><div class="footer-cta-block" style="display: flex; flex-direction: column; align-items: flex-end; gap: 24px; padding-bottom: 120px"><div class="footer-contact-row" style="box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; width: 100%"><p class="footer-eyebrow" style="margin: 0; font-size: 16px; line-height: 1.4; color: var(--muted)">I love designing at the intersection of</p><p class="footer-eyebrow footer-email" style="margin: 0; font-size: 16px; line-height: 1.4; color: var(--muted)">vinitmankar@gmail.com</p></div><h2 class="footer-heading" style="--swap-dur: {{ swapDur }}; --loader-dur: {{ loader.dur }}; margin: 0; font-size: clamp(56px, 7.5vw, 112px); line-height: 0.92; letter-spacing: -6px; font-weight: 500; font-family: Manrope, sans-serif; width: 100%"><span class="sr-only" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">creativity and logic, art and science</span><span aria-hidden="true" class="word-swap word-swap-left" style="display: inline-grid; justify-items: end; vertical-align: baseline"><span class="word-swap-a" style="grid-area: 1 / 1">creativity</span><span class="word-swap-b" style="grid-area: 1 / 1">art</span></span><span aria-hidden="true" class="mobius-loader" style="display: inline-block; width: {{ loader.width }}; height: {{ loader.height }}; margin: 0 0.14em; vertical-align: 0.04em"><svg data-dc-attr-viewBox="{{ loader.viewBox }}" width="100%" height="100%" style="display: block; overflow: visible; fill: currentColor"><sc-for list="{{ loader.dots }}" as="dot" hint-placeholder-count="60"><circle class="mobius-loader-dot" data-dc-attr-cx="{{ dot.cx }}" data-dc-attr-cy="{{ dot.cy }}" data-dc-attr-r="{{ dot.r }}" style="{{ dot.style }}"></circle></sc-for></svg></span><span aria-hidden="true" class="word-swap word-swap-right" style="display: inline-grid; justify-items: start; vertical-align: baseline"><span class="word-swap-a" style="grid-area: 1 / 1">logic</span><span class="word-swap-b" style="grid-area: 1 / 1">science</span></span></h2><div class="footer-links" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; width: 100%"><a class="footer-wordmark" href="#" style="font-size: 22px; font-weight: 400; font-family: Manrope, sans-serif">Mankar 2026&nbsp;<span style="color: var(--muted); font-family: &quot;DM Mono&quot;, monospace; font-size: 20px; font-weight: 400; letter-spacing: 0.8px">©</span></a><nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px"><a href="mailto:vinitmankar@gmail.com">X</a><a href="mailto:vinitmankar@gmail.com">Substack</a><a href="mailto:vinitmankar@gmail.com">Medium</a><a href="#about">About</a></nav></div></div></div></footer>
+<section aria-label="Next case study" class="next-project-section wrap" style="padding: 64px 0 96px; height: 761px"><a class="next-project" href="case-studies/domain-agent.html" style="display: flex; flex-direction: column; gap: 28px; color: var(--ink)"><div class="next-project-head" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; width: 100%"><div style="display: flex; flex-direction: column; gap: 10px; min-width: 0"><span class="next-project-label" style="font-size: 16px; line-height: 1.4; color: var(--muted); font-family: Manrope, sans-serif">Next —</span><span class="next-project-title" style="font-size: clamp(36px, 5vw, 72px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; font-family: Manrope, sans-serif">Work</span></div><span aria-hidden="true" class="next-project-arrow" style="font-size: clamp(32px, 4vw, 56px); line-height: 1">→</span></div><div class="next-project-media" style="position: relative; height: 560px; border-radius: 20px; overflow: hidden; background: #e8e4d8"><img alt="Airo home screen from the Domain Search and Registration Agent case study" class="next-project-image" src="case-studies/assets/airo-home-clean.png" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center"><span class="next-project-pill" style="position: absolute; left: 50%; top: 50%; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 15px; font-family: Manrope, sans-serif; white-space: nowrap">View case study ↗</span></div></a></section>
+</div>
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Meow+Script&amp;display=swap"></helmet></template>
+<script type="application/json" id="dc-props">{"pageBackground": {"editor": "color", "default": "#ffffff", "options": ["#ffffff", "#faf9f5", "#f4f4f2", "#f6f7fb"], "section": "Hero smoke"}, "smokeColor": {"editor": "color", "default": "#9aa0ad", "options": ["#9aa0ad", "#c9b8a6", "#a9b8d6", "#8f8f8f"], "section": "Hero smoke"}, "smokeAmount": {"editor": "range", "default": 0.16, "min": 0, "max": 0.4, "step": 0.01, "section": "Hero smoke"}, "smokeSpeed": {"editor": "range", "default": 1.15, "min": 0, "max": 2, "step": 0.05, "section": "Hero smoke"}, "smokeScale": {"editor": "range", "default": 4, "min": 0.5, "max": 5, "step": 0.1, "section": "Hero smoke"}, "accentAgent": {"editor": "color", "default": "#95CEE3", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6"], "section": "Work accents"}, "accentUpsell": {"editor": "color", "default": "#E3A37C", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6"], "section": "Work accents"}, "accentConnect": {"editor": "color", "default": "#8AC9A1", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6"], "section": "Work accents"}, "accentHabitwave": {"editor": "color", "default": "#AC8FE6", "options": ["#95CEE3", "#E3A37C", "#8AC9A1", "#AC8FE6"], "section": "Work accents"}, "accentAbleJobs": {"editor": "color", "default": "#CE9895", "options": ["#CE9895", "#95CEE3", "#E3A37C", "#8AC9A1"], "section": "Work accents"}, "accentSmokeAmount": {"editor": "range", "default": 0.56, "min": 0, "max": 0.6, "step": 0.01, "section": "Work accents"}, "accentBackgroundTint": {"editor": "range", "default": 0.38, "min": 0, "max": 0.5, "step": 0.01, "section": "Work accents"}, "showWorkMenu": {"editor": "boolean", "default": false, "section": "Work accents"}, "showIntro": {"editor": "boolean", "default": true, "section": "Intro reel"}, "introSeconds": {"editor": "range", "default": 3, "min": 1, "max": 8, "step": 0.5, "unit": "s", "section": "Intro reel"}, "introCutMs": {"editor": "range", "default": 200, "min": 80, "max": 600, "step": 10, "unit": "ms", "section": "Intro reel"}, "introOncePerSession": {"editor": "boolean", "default": true, "section": "Intro reel"}, "workMenuStyle": {"editor": "enum", "options": ["overlay", "list"], "default": "overlay", "section": "Work accents"}, "glassHighlight": {"editor": "range", "default": 1.25, "min": 0, "max": 2.5, "step": 0.05, "section": "Möbius · Shine"}, "glassRoughness": {"editor": "range", "default": 0.025, "min": 0, "max": 0.4, "step": 0.005, "section": "Möbius · Shine"}, "glassClearcoat": {"editor": "range", "default": 1, "min": 0, "max": 1, "step": 0.01, "section": "Möbius · Shine"}, "glassIridescence": {"editor": "range", "default": 0.6, "min": 0, "max": 1, "step": 0.01, "section": "Möbius · Shine"}, "glassReflect": {"editor": "range", "default": 1.3, "min": 0, "max": 2.5, "step": 0.05, "section": "Möbius · Shine"}, "glassExposure": {"editor": "range", "default": 1.7, "min": 0.8, "max": 2.6, "step": 0.05, "section": "Möbius · Shine"}, "glassTint": {"editor": "color", "default": "#b00303", "section": "Möbius · Jelly"}, "glassTintStrength": {"editor": "range", "default": 0.68, "min": 0, "max": 1, "step": 0.01, "section": "Möbius · Jelly"}, "glassRim": {"editor": "range", "default": 3.9, "min": 0, "max": 8, "step": 0.1, "section": "Möbius · Jelly"}, "glassIor": {"editor": "range", "default": 1.03, "min": 1, "max": 2, "step": 0.01, "section": "Möbius · Jelly"}, "glassBody": {"editor": "range", "default": 0.24, "min": 0.05, "max": 1, "step": 0.01, "section": "Möbius · Jelly"}, "glassWidth": {"editor": "range", "default": 0.62, "min": 0.3, "max": 0.9, "step": 0.01, "section": "Möbius · Shape"}, "glassDepth": {"editor": "range", "default": 0.15, "min": 0.05, "max": 0.32, "step": 0.005, "section": "Möbius · Shape"}, "glassRound": {"editor": "range", "default": 5, "min": 2, "max": 12, "step": 0.5, "section": "Möbius · Shape"}, "glassFont": {"editor": "enum", "options": ["Sacramento", "Fondamento", "Almendra", "Grenze Gotisch", "Meddon", "Pinyon Script", "Great Vibes", "Corinthia", "Italianno", "Parisienne", "Tangerine", "Monsieur La Doulaise", "IBM Plex Mono"], "default": "Meddon", "section": "Möbius · Text"}, "glassTextColor": {"editor": "color", "default": "#a7112f", "section": "Möbius · Text"}, "glassTextSize": {"editor": "range", "default": 0.1, "min": 0.025, "max": 0.14, "step": 0.001, "section": "Möbius · Text"}, "glassTextWidth": {"editor": "range", "default": 1.11, "min": 0.6, "max": 1.8, "step": 0.01, "section": "Möbius · Text"}, "glassNib": {"editor": "range", "default": 0.07, "min": 0, "max": 0.25, "step": 0.005, "section": "Möbius · Text"}, "glassNibAngle": {"editor": "range", "default": 60, "min": 0, "max": 90, "step": 1, "section": "Möbius · Text"}, "glassTextWeight": {"editor": "range", "default": 0.012, "min": 0, "max": 0.05, "step": 0.001, "section": "Möbius · Text"}, "glassTracking": {"editor": "range", "default": 0.02, "min": 0, "max": 0.8, "step": 0.01, "section": "Möbius · Text"}, "glassBackdrop": {"editor": "enum", "options": ["page", "sky"], "default": "page", "section": "Möbius · Backdrop"}, "glassSkyTop": {"editor": "color", "default": "#bcd5ec", "section": "Möbius · Backdrop"}, "glassSkyLow": {"editor": "color", "default": "#eef3f9", "section": "Möbius · Backdrop"}, "glassCloudShade": {"editor": "color", "default": "#dae0eb", "section": "Möbius · Backdrop"}, "glassCover": {"editor": "range", "default": 0.65, "min": 0, "max": 1, "step": 0.01, "section": "Möbius · Backdrop"}, "glassSoft": {"editor": "range", "default": 0.3, "min": 0.05, "max": 0.6, "step": 0.01, "section": "Möbius · Backdrop"}, "glassCloudScale": {"editor": "range", "default": 1, "min": 0.3, "max": 3, "step": 0.05, "section": "Möbius · Backdrop"}, "glassDrift": {"editor": "range", "default": 1, "min": 0, "max": 5, "step": 0.05, "section": "Möbius · Backdrop"}, "glassSpin": {"editor": "range", "default": 5, "min": 0, "max": 5, "step": 0.05, "section": "Möbius · Motion"}, "glassTilt": {"editor": "range", "default": 2.25, "min": 0, "max": 2.5, "step": 0.05, "section": "Möbius · Motion"}, "glassFlow": {"editor": "range", "default": 1.05, "min": 0, "max": 5, "step": 0.05, "section": "Möbius · Motion"}, "glassFit": {"editor": "range", "default": 1, "min": 0.6, "max": 1.4, "step": 0.01, "section": "Möbius · Shape"}, "loaderDotSize": {"editor": "range", "default": 3, "min": 0.3, "max": 3, "step": 0.05, "section": "Footer loader"}, "loaderBandWidth": {"editor": "range", "default": 0.36, "min": 0.2, "max": 1.6, "step": 0.02, "section": "Footer loader"}, "loaderDensity": {"editor": "range", "default": 52, "min": 16, "max": 140, "step": 1, "section": "Footer loader"}, "loaderRows": {"editor": "range", "default": 6, "min": 1, "max": 14, "step": 1, "section": "Footer loader"}, "loaderSize": {"editor": "range", "default": 1.4, "min": 0.4, "max": 2.4, "step": 0.05, "section": "Footer loader"}, "loaderSpeed": {"editor": "range", "default": 8, "min": 0.6, "max": 8, "step": 0.1, "unit": "s", "section": "Footer loader"}, "wordSwapSeconds": {"editor": "range", "default": 4.5, "min": 2, "max": 16, "step": 0.5, "unit": "s", "section": "Footer loader"}, "shimmerSeconds": {"editor": "range", "default": 2.2, "min": 0.4, "max": 8, "step": 0.1, "unit": "s", "section": "Work shimmer"}, "shimmerEvery": {"editor": "range", "default": 5, "min": 0.4, "max": 20, "step": 0.1, "unit": "s", "section": "Work shimmer"}, "hoverTextAgent": {"editor": "color", "default": "#007EC2", "options": ["#007EC2", "#D85100", "#21934C", "#7937E8"], "section": "Work hover text"}, "hoverTextUpsell": {"editor": "color", "default": "#D85100", "options": ["#D85100", "#007EC2", "#21934C", "#7937E8"], "section": "Work hover text"}, "hoverTextConnect": {"editor": "color", "default": "#21934C", "options": ["#21934C", "#007EC2", "#D85100", "#7937E8"], "section": "Work hover text"}, "hoverTextHabitwave": {"editor": "color", "default": "#7937E8", "options": ["#7937E8", "#007EC2", "#D85100", "#21934C"], "section": "Work hover text"}, "hoverTextAbleJobs": {"editor": "color", "default": "#D23B65", "options": ["#D23B65", "#007EC2", "#D85100", "#21934C"], "section": "Work hover text"}, "$preview": {"width": 1440, "height": 6235}}</script>
+<script src="dc-runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  /* Bright accents (palette: "bright accent on white") used for hovered project names in the Work dropdown. */
+  hoverTextList() {
+    const p = this.props;
+    return [
+      p.hoverTextAgent ?? '#007EC2',
+      p.hoverTextUpsell ?? '#D85100',
+      p.hoverTextConnect ?? '#21934C',
+      p.hoverTextHabitwave ?? '#7937E8',
+      p.hoverTextAbleJobs ?? '#D23B65'
+    ];
+  }
+  accentList() {
+    const p = this.props;
+    return [
+      p.accentAgent ?? '#95CEE3',
+      p.accentUpsell ?? '#E3A37C',
+      p.accentConnect ?? '#8AC9A1',
+      p.accentHabitwave ?? '#AC8FE6',
+      p.accentAbleJobs ?? '#CE9895'
+    ];
+  }
+  smokeVals() {
+    const p = this.props;
+    return {
+      bg: p.pageBackground ?? '#ffffff',
+      sc: p.smokeColor ?? '#9aa0ad',
+      amt: p.smokeAmount ?? 0.12,
+      speed: p.smokeSpeed ?? 0.35,
+      scale: p.smokeScale ?? 1.6,
+      accentAmt: p.accentSmokeAmount ?? 0.3,
+      tint: p.accentBackgroundTint ?? 0.12
+    };
+  }
+  hexToRgb(h) {
+    h = String(h || '').replace('#', '');
+    if (h.length === 3) h = h.split('').map(c => c + c).join('');
+    const n = parseInt(h.slice(0, 6), 16);
+    return isNaN(n) ? [1, 1, 1] : [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+  }
+  mixRgb(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+  activeIndex() {
+    const s = this.state || {};
+    return (s.workOpen || this.props.showWorkMenu) && s.activeWork != null ? s.activeWork : null;
+  }
+  // What the page and smoke should settle on right now.
+  smokeTarget() {
+    const v = this.smokeVals(), base = this.hexToRgb(v.bg), idx = this.activeIndex();
+    if (idx == null) return { bg: base, sc: this.hexToRgb(v.sc), amt: v.amt };
+    const acc = this.hexToRgb(this.accentList()[idx]);
+    return { bg: this.mixRgb(base, acc, v.tint), sc: acc, amt: Math.max(v.amt, v.accentAmt) };
+  }
+  cssRgb(c) { return 'rgb(' + c.map(x => Math.round(x * 255)).join(',') + ')'; }
+  startSmoke() {
+    const cv = this.smokeCanvas;
+    const gl = cv && cv.getContext('webgl', { antialias: false });
+    if (!gl) return;
+    const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs = 'precision mediump float;uniform vec2 r;uniform float t;uniform vec3 bg;uniform vec3 sc;uniform float amt;uniform float sca;' +
+      'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+      'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}' +
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.02+vec2(1.7,9.2);a*=.5;}return v;}' +
+      'void main(){vec2 uv=gl_FragCoord.xy/r.y*sca;vec2 q=vec2(fbm(uv+vec2(0.,t*.12)),fbm(uv+vec2(5.2,1.3)-vec2(t*.08,0.)));float f=fbm(uv+1.8*q+vec2(t*.05,-t*.03));float m=smoothstep(.35,.9,f)*amt;gl_FragColor=vec4(mix(bg,sc,m),1.);}';
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const u = name => gl.getUniformLocation(prog, name);
+    const uR = u('r'), uT = u('t'), uBg = u('bg'), uSc = u('sc'), uA = u('amt'), uS = u('sca');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = true, last = '', elapsed = 0, prev = performance.now();
+    let cur = null;
+    const draw = (time, c) => {
+      const w = Math.max(1, Math.round(cv.clientWidth * 0.5)), hgt = Math.max(1, Math.round(cv.clientHeight * 0.5));
+      if (cv.width !== w || cv.height !== hgt) { cv.width = w; cv.height = hgt; gl.viewport(0, 0, w, hgt); }
+      gl.uniform2f(uR, w, hgt); gl.uniform1f(uT, time);
+      gl.uniform3f(uBg, c.bg[0], c.bg[1], c.bg[2]); gl.uniform3f(uSc, c.sc[0], c.sc[1], c.sc[2]);
+      gl.uniform1f(uA, c.amt); gl.uniform1f(uS, this.smokeVals().scale);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    const loop = now => {
+      this.smokeRaf = requestAnimationFrame(loop);
+      const dt = Math.min(0.1, (now - prev) / 1000); prev = now;
+      if (!visible) return;
+      const target = this.smokeTarget();
+      if (reduce.matches || !cur) {
+        cur = { bg: target.bg.slice(), sc: target.sc.slice(), amt: target.amt };
+      } else {
+        // Ease toward the active accent so the colour shift feels like it drifts in.
+        const k = 1 - Math.exp(-dt * 3.5);
+        cur = { bg: this.mixRgb(cur.bg, target.bg, k), sc: this.mixRgb(cur.sc, target.sc, k), amt: cur.amt + (target.amt - cur.amt) * k };
+      }
+      if (reduce.matches) {
+        const key = JSON.stringify(cur) + this.smokeVals().scale + cv.clientWidth + 'x' + cv.clientHeight;
+        if (key !== last) { last = key; draw(12, cur); }
+        return;
+      }
+      elapsed += dt * this.smokeVals().speed;
+      draw(12 + elapsed, cur);
+    };
+    if ('IntersectionObserver' in window) {
+      this.smokeIo = new IntersectionObserver(([e]) => { visible = e.isIntersecting; });
+      this.smokeIo.observe(cv);
+    }
+    this.smokeRaf = requestAnimationFrame(loop);
+  }
+  stopSmoke() {
+    if (this.smokeRaf) cancelAnimationFrame(this.smokeRaf);
+    this.smokeRaf = null;
+    if (this.smokeIo) this.smokeIo.disconnect();
+    this.smokeIo = null;
+  }
+  /* ---------- One Side Glass Möbius (ported from one-side-glass-asset.html) ---------- */
+  glassDefaults() {
+    return {"body":0.24,"clearcoat":1,"cloudScale":1,"cloudShade":"#dae0eb","cover":0.65,"depth":0.15,"drift":1,"exposure":1.7,"flow":1.05,"font":"Meddon","highlight":1.25,"ior":1.03,"iridescence":0.6,"nib":0.07,"nibAngle":60,"reflect":1.3,"rim":3.9,"roughness":0.025,"round":5,"skyLow":"#eef3f9","skyTop":"#bcd5ec","soft":0.3,"spin":5,"textColor":"#a7112f","textSize":0.1,"textWeight":0.012,"textWidth":1.11,"tilt":2.25,"tint":"#b00303","tintStrength":0.68,"tracking":0.02,"width":0.62,"backdrop":"page","fit":1};
+  }
+  glassKinds() {
+    return {highlight:'env',roughness:'mat',clearcoat:'mat',iridescence:'mat',reflect:'mat',exposure:'mat',
+      tint:'mat',tintStrength:'mat',rim:'mat',ior:'mat',body:'mat',width:'geo',depth:'geo',round:'geo',
+      font:'tex',textColor:'tex',textSize:'geo',textWidth:'tex',nib:'tex',nibAngle:'tex',textWeight:'tex',tracking:'tex',
+      skyTop:'env',skyLow:'env',cloudShade:'env',cover:'env',soft:'env',cloudScale:'env',backdrop:'env',
+      drift:'none',spin:'none',tilt:'none',flow:'none',fit:'size'};
+  }
+  glassSettings() {
+    const d = this.glassDefaults(), S = {};
+    for (const k in d) { const pn = 'glass' + k[0].toUpperCase() + k.slice(1); const v = this.props[pn]; S[k] = v !== undefined && v !== null ? v : d[k]; }
+    return S;
+  }
+  startGlass() {
+    const cv = this.glassCanvas;
+    if (!cv) return;
+    if (!window.THREE) {
+      this.glassWait = (this.glassWait || 0) + 1;
+      if (this.glassWait < 80) this.glassTimer = setTimeout(() => this.startGlass(), 100);
+      return;
+    }
+    const THREE = window.THREE, host = cv.parentNode, self = this;
+    let S = this.glassSettings();
+    const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let renderer;
+    try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, powerPreference: 'high-performance' }); }
+    catch (e) { return; }
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 60);
+    const lin = hex => new THREE.Color(hex).convertSRGBToLinear();
+    /* backdrop "page": plain white so the strip sits on the homepage (the figure multiplies onto the page and smoke). "sky": the asset's cloud sky. */
+    const skyCols = () => S.backdrop === 'sky'
+      ? { top: S.skyTop, low: S.skyLow, shade: S.cloudShade, cover: S.cover }
+      : { top: '#ffffff', low: '#ffffff', shade: '#ffffff', cover: -1 };
+    const sc0 = skyCols();
+    const skyU = { uTop: { value: lin(sc0.top) }, uLow: { value: lin(sc0.low) }, uShade: { value: lin(sc0.shade) },
+      uCover: { value: sc0.cover }, uSoft: { value: S.soft }, uScale: { value: S.cloudScale }, uHi: { value: S.highlight } };
+    const SKY = `
+uniform vec3 uTop,uLow,uShade;uniform float uCover,uSoft,uScale,uHi;
+float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);
+  return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}
+float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<6;i++){v+=a*noise(p);p=m*p;a*=.5;}return v;}
+vec3 sky(vec2 p,float y,float t){
+  vec3 col=mix(uLow,uTop,smoothstep(0.05,1.0,y));
+  vec2 q=p*uScale+vec2(t*0.010,t*0.002);
+  vec2 w=vec2(fbm(q*0.8+vec2(1.7,9.2)),fbm(q*0.8+vec2(8.3,2.8)));
+  float c=fbm(q*1.1+1.4*w);
+  float lo=0.62-uCover*0.4;
+  float dens=smoothstep(lo,lo+uSoft,c);
+  float lit=fbm(q*1.1+1.4*w+vec2(-0.05,0.08));
+  float shade=clamp(0.92+(c-lit)*2.6,0.62,1.06);
+  vec3 cloud=mix(uShade,vec3(1.0),shade);
+  return mix(col,cloud,dens);
+}`;
+    const backU = Object.assign({}, skyU, { uTime: { value: 0 }, uAspect: { value: 0.8 }, uOffset: { value: new THREE.Vector2() } });
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.ShaderMaterial({
+      uniforms: backU, toneMapped: false,
+      vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+      fragmentShader: `uniform float uTime,uAspect;uniform vec2 uOffset;varying vec2 vUv;${SKY}
+        void main(){vec2 p=(vUv-.5)*vec2(uAspect,1.)*2.6+uOffset+vec2(3.1,1.7);
+          gl_FragColor=vec4(sky(p,vUv.y,uTime),1.);
+          #include <encodings_fragment>
+        }`
+    }));
+    back.position.z = -4; back.renderOrder = -1;
+    scene.add(back);
+    const envRT = new THREE.WebGLRenderTarget(1024, 512, { type: THREE.HalfFloatType });
+    envRT.texture.mapping = THREE.EquirectangularReflectionMapping;
+    const envScene = new THREE.Scene(), envCam = new THREE.Camera();
+    envScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ uniforms: skyU,
+      vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+      fragmentShader: `varying vec2 vUv;${SKY}
+        void main(){
+          float phi=vUv.x*6.2831853,th=(vUv.y-.5)*3.14159265;
+          vec3 d=vec3(cos(th)*sin(phi),sin(th),cos(th)*cos(phi));
+          vec3 col;
+          if(d.y>0.){col=sky(d.xz/(d.y+.25)*.7,.25+.75*d.y,0.)*mix(0.8,1.15,d.y);}
+          else{col=mix(uLow*0.72,vec3(0.20,0.22,0.27),clamp(-d.y*2.2,0.,1.));}
+          vec3 sun=normalize(vec3(-.45,.75,.55)),rimL=normalize(vec3(.7,.25,-.65)),box=normalize(vec3(.35,.55,.75));
+          float s=max(dot(d,sun),0.),r=max(dot(d,rimL),0.),b=max(dot(d,box),0.);
+          col+=vec3(1.,.97,.92)*uHi*(pow(s,260.)*26.+pow(s,14.)*.4);
+          col+=vec3(.95,.97,1.)*uHi*pow(r,90.)*7.;
+          col+=vec3(1.)*uHi*smoothstep(.905,.94,b)*2.8;
+          gl_FragColor=vec4(col,1.);
+        }` })));
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const buildEnv = () => {
+      renderer.setRenderTarget(envRT); renderer.render(envScene, envCam); renderer.setRenderTarget(null);
+      const old = scene.environment; scene.environment = pmrem.fromEquirectangular(envRT.texture).texture; if (old) old.dispose();
+    };
+    const R = 1, TAU = Math.PI * 2;
+    const frame = u => { const c = Math.cos(u), s = Math.sin(u), ch = Math.cos(u / 2), sh = Math.sin(u / 2);
+      return { c: [R * c, R * s, 0], w: [ch * c, ch * s, sh], t: [-sh * c, -sh * s, ch] }; };
+    const jellyGeometry = (N, M) => {
+      const sec = [], n = S.round;
+      for (let j = 0; j < M; j++) { const a = j / M * TAU, ca = Math.cos(a), sa = Math.sin(a);
+        sec.push([S.width / 2 * Math.sign(ca) * Math.pow(Math.abs(ca), 2 / n), S.depth / 2 * Math.sign(sa) * Math.pow(Math.abs(sa), 2 / n)]); }
+      const pos = new Float32Array(N * M * 3), idx = [];
+      for (let i = 0; i < N; i++) { const f = frame(i / N * TAU);
+        for (let j = 0; j < M; j++) { const a = sec[j][0], b = sec[j][1], o = (i * M + j) * 3;
+          for (let k = 0; k < 3; k++) pos[o + k] = f.c[k] + a * f.w[k] + b * f.t[k]; } }
+      for (let i = 0; i < N; i++) { const last = i === N - 1, i2 = last ? 0 : i + 1, shift = last ? M / 2 : 0;
+        for (let j = 0; j < M; j++) { const j1 = (j + 1) % M;
+          const a = i * M + j, b = i * M + j1, c = i2 * M + (j + shift) % M, d = i2 * M + (j1 + shift) % M;
+          idx.push(a, c, b, b, c, d); } }
+      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+      return g;
+    };
+    const textH = () => Math.min(S.textSize, S.width * 0.42);
+    const ribbonGeometry = K => {
+      const h = textH(), eps = Math.min(0.018, S.depth * 0.14);
+      const pos = new Float32Array((K + 1) * 2 * 3), uv = new Float32Array((K + 1) * 2 * 2), idx = [];
+      for (let i = 0; i <= K; i++) { const u = i / K * 2 * TAU, f = frame(u);
+        const tg = [-Math.sin(u), Math.cos(u), 0], w = f.w;
+        const nx = tg[1] * w[2] - tg[2] * w[1], ny = tg[2] * w[0] - tg[0] * w[2], nz = tg[0] * w[1] - tg[1] * w[0];
+        for (let r = 0; r < 2; r++) { const v = r ? h : -h, o = (i * 2 + r);
+          pos[o * 3] = f.c[0] + v * w[0] + eps * nx; pos[o * 3 + 1] = f.c[1] + v * w[1] + eps * ny; pos[o * 3 + 2] = f.c[2] + v * w[2] + eps * nz;
+          uv[o * 2] = i / K; uv[o * 2 + 1] = r; } }
+      for (let i = 0; i < K; i++) { const a = i * 2, b = i * 2 + 2, c = i * 2 + 1, d = i * 2 + 3; idx.push(a, b, c, c, b, d); }
+      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      g.setAttribute('uv', new THREE.BufferAttribute(uv, 2)); g.setIndex(idx); return g;
+    };
+    const rimU = { value: S.rim };
+    const jelly = new THREE.Mesh(jellyGeometry(560, 56), new THREE.MeshPhysicalMaterial({
+      color: 0xffffff, metalness: 0, transmission: 1,
+      clearcoatRoughness: 0.02, iridescenceIOR: 1.25, iridescenceThicknessRange: [120, 420], specularIntensity: 1 }));
+    const T_CHUNK = THREE.ShaderChunk.transmission_fragment;
+    if (T_CHUNK.includes('material.thickness = thickness;')) {
+      jelly.material.onBeforeCompile = sh => { sh.uniforms.uRim = rimU;
+        sh.fragmentShader = 'uniform float uRim;\n' + sh.fragmentShader.replace('#include <transmission_fragment>',
+          T_CHUNK.replace('material.thickness = thickness;',
+            'float jellyRim = 1.0 - abs( dot( normal, normalize( vViewPosition ) ) );\n\tmaterial.thickness = thickness * ( 0.25 + uRim * jellyRim * jellyRim );')); };
+    }
+    const applyMaterial = () => { const m = jelly.material;
+      m.roughness = S.roughness; m.clearcoat = S.clearcoat; m.iridescence = S.iridescence; m.envMapIntensity = S.reflect;
+      m.attenuationColor.set(S.tint); m.attenuationDistance = 0.04 * Math.pow(40, 1 - S.tintStrength);
+      m.ior = S.ior; m.thickness = S.body; rimU.value = S.rim;
+      renderer.toneMappingExposure = S.exposure; };
+    const FONTS = {
+      'Sacramento': { w: 400, px: 0.74, base: 0.68 }, 'Fondamento': { w: 400, st: 'italic', px: 0.6, base: 0.66 },
+      'Almendra': { w: 400, st: 'italic', px: 0.6, base: 0.66 }, 'Grenze Gotisch': { w: 500, px: 0.62, base: 0.68 },
+      'Meddon': { w: 400, px: 0.46, base: 0.62 }, 'Pinyon Script': { w: 400, px: 0.66, base: 0.68 },
+      'Great Vibes': { w: 400, px: 0.64, base: 0.66 }, 'Corinthia': { w: 700, px: 0.8, base: 0.66 },
+      'Italianno': { w: 400, px: 0.82, base: 0.66 }, 'Parisienne': { w: 400, px: 0.58, base: 0.66 },
+      'Tangerine': { w: 700, px: 0.86, base: 0.66 }, 'Monsieur La Doulaise': { w: 400, px: 0.66, base: 0.64 },
+      'IBM Plex Mono': { w: 600, px: 0.62, base: 0.54, mono: true } };
+    const PATH = 2 * TAU * R;
+    const fontOf = () => FONTS[S.font] || FONTS['Pinyon Script'];
+    const wordTexture = () => {
+      const f = fontOf();
+      const max = Math.min(host.clientWidth < 600 ? 8192 : 16384, renderer.capabilities.maxTextureSize);   // lighter word texture on phones
+      const Hc = Math.max(32, Math.round(max / (PATH / (2 * textH())))), tc = document.createElement('canvas'); tc.width = max; tc.height = Hc;
+      const x = tc.getContext('2d'), px = Math.round(Hc * f.px);
+      const unit = f.mono ? 'ART · SCIENCE · CREATIVITY · LOGIC · ' : 'Art  ·  Science  ·  Creativity  ·  Logic  ·  ';
+      x.font = `${f.st || ''} ${f.w} ${px}px "${S.font}", ${f.mono ? 'ui-monospace, monospace' : 'cursive'}`;
+      if ('letterSpacing' in x) x.letterSpacing = (px * S.tracking) + 'px';
+      const unitW = x.measureText(unit).width * S.textWidth;
+      const reps = Math.max(1, Math.round(max / unitW)), k = max / (reps * unitW);
+      x.textAlign = 'left'; x.textBaseline = f.mono ? 'middle' : 'alphabetic';
+      x.fillStyle = S.textColor; x.strokeStyle = S.textColor; x.lineJoin = 'round'; x.lineWidth = px * S.textWeight;
+      const L = px * S.nib, a = S.nibAngle * Math.PI / 180, steps = Math.max(1, Math.ceil(L / 0.8));
+      for (let r = 0; r < reps; r++) for (let i = 0; i < steps; i++) { const t = steps === 1 ? 0 : i / (steps - 1) - 0.5;
+        x.setTransform(S.textWidth * k, 0, 0, 1, r * unitW * k + t * L * Math.cos(a), Hc * f.base - t * L * Math.sin(a));
+        if (S.textWeight > 0) x.strokeText(unit, 0, 0); x.fillText(unit, 0, 0); }
+      const tex = new THREE.CanvasTexture(tc); tex.encoding = THREE.sRGBEncoding; tex.wrapS = THREE.RepeatWrapping;
+      tex.anisotropy = renderer.capabilities.getMaxAnisotropy(); return tex;
+    };
+    const words = new THREE.Mesh(ribbonGeometry(1800), new THREE.MeshBasicMaterial({
+      map: null, alphaTest: 0.35, alphaToCoverage: true, side: THREE.FrontSide, toneMapped: false }));
+    const setTexture = () => { const old = words.material.map, off = old ? old.offset.x : 0;
+      const t = wordTexture(); t.offset.x = off; words.material.map = t; words.material.needsUpdate = true; if (old) old.dispose(); };
+    const loadFont = fam => { const f = FONTS[fam] || { w: 400 }; return document.fonts ? document.fonts.load(`${f.st || ''} ${f.w} 40px "${fam}"`).catch(() => {}) : Promise.resolve(); };
+    const spinG = new THREE.Group(); spinG.add(jelly, words);
+    const tiltG = new THREE.Group(); tiltG.add(spinG);
+    tiltG.position.y = -0.32;
+    scene.add(tiltG);
+    let running = false, raf = 0, introAt = -1, clock = 0, last = 0, yaw = 0.5;
+    let nx = 0, ny = 0, hovering = false, tx = 0, ty = 0;
+    const PITCH = -1.0;
+    const E = t => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 4);
+    const render = () => {
+      const lt = introAt < 0 ? 0 : (clock - introAt) / 1000;
+      const k = REDUCE ? 1 : E(lt / 1.6);
+      tiltG.scale.setScalar(0.9 + 0.1 * k);
+      tiltG.rotation.x = PITCH + ty * 0.38 * S.tilt + (1 - k) * 0.25;
+      tiltG.rotation.y = tx * 0.5 * S.tilt;
+      spinG.rotation.z = yaw - (1 - k) * 0.7;
+      backU.uOffset.value.set(-tx * 0.06 * S.tilt, ty * 0.05 * S.tilt);
+      renderer.render(scene, camera);
+    };
+    const resize = () => {
+      // clientWidth/Height ignore the canvas zoom, so the render stays sharp while you pan and zoom
+      const W = Math.max(1, host.clientWidth), H = Math.max(1, host.clientHeight);
+      renderer.setPixelRatio(Math.min(W < 600 ? 1.5 : 2, window.devicePixelRatio || 1)); renderer.setSize(W, H, false);
+      const aspect = W / H; camera.aspect = aspect;
+      /* Fit a sphere round the whole strip (ring + half its width + thickness), so no spin, hover tilt
+         or intro pose can push any part outside the frame, in any frame shape. */
+      const vHalf = camera.fov * Math.PI / 360, hHalf = Math.atan(Math.tan(vHalf) * aspect);
+      const rs = (R + S.width / 2 + S.depth / 2) * 1.05;
+      const dist = rs / Math.sin(Math.min(vHalf, hHalf)) / (S.fit || 1);
+      const cy = tiltG.position.y;
+      camera.position.set(0, cy, dist); camera.lookAt(0, cy, 0); camera.updateProjectionMatrix();
+      back.position.y = cy;
+      const dd = dist - back.position.z, vh = 2 * dd * Math.tan(camera.fov * Math.PI / 360) * 1.12;
+      back.scale.set(vh * aspect, vh, 1); backU.uAspect.value = aspect;
+      if (!running) render();
+    };
+    const rebuildGeometry = () => {
+      jelly.geometry.dispose(); jelly.geometry = jellyGeometry(560, 56);
+      words.geometry.dispose(); words.geometry = ribbonGeometry(1800);
+      setTexture(); resize();
+    };
+    const applySky = () => { const c = skyCols();
+      skyU.uTop.value = lin(c.top); skyU.uLow.value = lin(c.low); skyU.uShade.value = lin(c.shade);
+      skyU.uCover.value = c.cover; skyU.uSoft.value = S.soft; skyU.uScale.value = S.cloudScale; skyU.uHi.value = S.highlight; };
+    const loop = now => {
+      const dt = Math.min(40, now - last); last = now; clock += dt;
+      if (!REDUCE) { yaw += dt * (hovering ? 0.00004 : 0.00012) * S.spin;
+        if (words.material.map) words.material.map.offset.x -= dt * 0.0000045 * S.flow; backU.uTime.value += dt / 1000 * S.drift; }
+      const e = 1 - Math.pow(1 - 0.06, dt / 16.667);
+      tx += (nx - tx) * e; ty += (ny - ty) * e;
+      render(); raf = requestAnimationFrame(loop);
+    };
+    const start = () => { if (running) return; running = true; last = performance.now(); raf = requestAnimationFrame(loop); };
+    const stop = () => { running = false; cancelAnimationFrame(raf); };
+    const pt = e => { const r = cv.getBoundingClientRect(); nx = ((e.clientX - r.left) / r.width - 0.5) * 2; ny = ((e.clientY - r.top) / r.height - 0.5) * 2; hovering = true; };
+    const leave = () => { nx = ny = 0; hovering = false; };
+    cv.addEventListener('pointermove', pt); cv.addEventListener('pointerdown', pt); cv.addEventListener('pointerleave', leave);
+    applyMaterial(); applySky(); buildEnv();
+    const ro = new ResizeObserver(() => resize()); ro.observe(host);
+    const io = new IntersectionObserver(es => { for (const en of es) { if (en.isIntersecting) { if (introAt < 0) introAt = clock; start(); } else stop(); } }, { threshold: 0.3 });
+    let alive = true;
+    loadFont(S.font).finally(() => { if (!alive) return; setTexture(); resize(); io.observe(host); });
+    // live Tweaks: rebuild only what a changed setting touches
+    let geoT = 0, texT = 0, envT = 0;
+    this.glassUpdate = next => {
+      const kinds = this.glassKinds(), hit = {};
+      for (const key in next) if (next[key] !== S[key]) hit[kinds[key] || 'none'] = true;
+      S = next;
+      if (hit.mat) applyMaterial();
+      if (hit.env) { applySky(); clearTimeout(envT); envT = setTimeout(() => { buildEnv(); if (!running) render(); }, 120); }
+      if (hit.geo) { clearTimeout(geoT); geoT = setTimeout(rebuildGeometry, 90); }
+      if (hit.tex && !hit.geo) { clearTimeout(texT); texT = setTimeout(() => loadFont(S.font).then(() => { setTexture(); if (!running) render(); }), 90); }
+      if (hit.size && !hit.geo) resize();
+      if (!running) render();
+    };
+    this.glassStop = () => {
+      alive = false; stop(); io.disconnect(); ro.disconnect();
+      clearTimeout(geoT); clearTimeout(texT); clearTimeout(envT);
+      cv.removeEventListener('pointermove', pt); cv.removeEventListener('pointerdown', pt); cv.removeEventListener('pointerleave', leave);
+      if (words.material.map) words.material.map.dispose();
+      pmrem.dispose(); envRT.dispose(); renderer.dispose();
+      this.glassUpdate = null; this.glassStop = null;
+    };
+  }
+  stopGlass() {
+    clearTimeout(this.glassTimer); this.glassWait = 0;
+    if (this.glassStop) this.glassStop();
+  }
+  componentDidUpdate() {
+    if (this.glassUpdate) this.glassUpdate(this.glassSettings());
+  }
+  /* Footer Möbius loader: dots sampled on a real half-twisted strip, seen from a raised three-quarter angle. */
+  loaderGeometry() {
+    const p = this.props;
+    const dotSize = p.loaderDotSize ?? 1, bandW = p.loaderBandWidth ?? 0.9;
+    const U = Math.round(p.loaderDensity ?? 60), V = Math.round(p.loaderRows ?? 7), em = p.loaderSize ?? 0.95;
+    const key = [dotSize, bandW, U, V, em, p.loaderSpeed ?? 2.4].join('|');
+    if (this._loaderKey === key) return this._loader;
+    const pitch = -1.2, yaw = 1.9, dur = 2.4, pts = [];
+    for (let i = 0; i < U; i++) {
+      const u = i / U * 2 * Math.PI, c = Math.cos(u), sn = Math.sin(u), ch = Math.cos(u / 2), sh = Math.sin(u / 2);
+      for (let j = 0; j < V; j++) {
+        const v = (V === 1 ? 0 : j / (V - 1) - 0.5) * bandW;
+        let x = c + v * ch * c, y = sn + v * ch * sn, z = v * sh;
+        const x2 = x * Math.cos(yaw) - y * Math.sin(yaw), y2 = x * Math.sin(yaw) + y * Math.cos(yaw);
+        const y3 = y2 * Math.cos(pitch) - z * Math.sin(pitch), z3 = y2 * Math.sin(pitch) + z * Math.cos(pitch);
+        pts.push([x2, -y3, z3, i]);
+      }
+    }
+    let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity, zmin = Infinity, zmax = -Infinity;
+    for (const q of pts) { minx = Math.min(minx, q[0]); maxx = Math.max(maxx, q[0]); miny = Math.min(miny, q[1]); maxy = Math.max(maxy, q[1]); zmin = Math.min(zmin, q[2]); zmax = Math.max(zmax, q[2]); }
+    const pad = 4 * Math.max(1, dotSize), VW = 100, sc = (VW - 2 * pad) / (maxx - minx), VH = Math.round((maxy - miny) * sc + 2 * pad);
+    pts.sort((a, b) => a[2] - b[2]);
+    const dots = pts.map(q => {
+      const d = (q[2] - zmin) / ((zmax - zmin) || 1), o = 0.22 + 0.78 * d;
+      return { cx: ((q[0] - minx) * sc + pad).toFixed(2), cy: ((q[1] - miny) * sc + pad).toFixed(2), r: ((0.75 + 0.95 * d) * dotSize).toFixed(2),
+        style: '--o: ' + o.toFixed(2) + '; --f: ' + (1 - q[3] / U).toFixed(3) + '; opacity: ' + o.toFixed(2) };
+    });
+    this._loaderKey = key;
+    this._loader = { dur: (p.loaderSpeed ?? 2.4) + 's', dots, viewBox: '0 0 ' + VW + ' ' + VH, width: em + 'em', height: (em * VH / VW).toFixed(3) + 'em' };
+    return this._loader;
+  }
+  /* "Work" shimmer: one band holding every dropdown accent sweeps across the word, then the word rests in ink until the next sweep. */
+  shimmerStyle() {
+    const p = this.props, sweep = Math.max(0.2, p.shimmerSeconds ?? 2.2), every = Math.max(sweep, p.shimmerEvery ?? 5);
+    const r = sweep / every, W = r / (2 + r);          // the word's share of the gradient strip
+    const pct = v => (v * 100).toFixed(2) + '%';
+    const acc = this.hoverTextList(), stops = ['var(--ink) 0%', 'var(--ink) ' + pct(W)];   // bright accents, same as the dropdown hover text
+    acc.forEach((c, i) => stops.push(c + ' ' + pct(W + W * (i + 1) / (acc.length + 1))));
+    stops.push('var(--ink) ' + pct(2 * W), 'var(--ink) 100%');
+    return { image: 'linear-gradient(90deg, ' + stops.join(', ') + ')', size: (100 / W).toFixed(1) + '%', cycle: every + 's' };
+  }
+  /* Intro reel: jump cuts on a loop before the page appears. Frames are images when introImages has URLs, otherwise typographic placeholders. */
+  introImages() { return ['assets/canvas/4d83ef052420.png', 'assets/canvas/49515b1a6e7c.png', 'assets/canvas/5a3beaae42d4.png']; }
+  introFrames() {
+    const imgs = this.introImages();
+    if (imgs.length) return imgs.map(src => ({ src }));
+    const soft = this.accentList();
+    const bright = ['#007EC2', '#D85100', '#21934C', '#7937E8', '#D23B65'];
+    const words = ['Dalí', 'Feynman', 'art', 'science', '✦'];
+    return words.map((w, i) => ({ text: w, bg: soft[i % soft.length], fg: bright[i % bright.length] }));
+  }
+  introShouldPlay() {
+    if (this.props.showIntro === false) return false;
+    try { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false; } catch (e) {}
+    if (this.props.introOncePerSession !== false) { try { if (sessionStorage.getItem('vm-intro-seen')) return false; } catch (e) {} }
+    return true;
+  }
+  startIntro(el) {
+    const frameEl = el.querySelector('.intro-frame');
+    const frames = this.introFrames();
+    const cut = Math.max(60, this.props.introCutMs ?? 200);
+    const total = Math.max(500, (this.props.introSeconds ?? 3) * 1000);
+    frames.forEach(f => { if (f.src) { const im = new Image(); im.src = f.src; } });
+    let i = 0;
+    const show = () => {
+      const f = frames[i % frames.length]; i++;
+      if (f.src) {
+        frameEl.style.background = '#ffffff';
+        frameEl.innerHTML = '<img src="' + f.src + '" alt="" style="height:min(40vh,300px);width:auto;max-width:80vw;object-fit:contain;display:block">';
+      } else {
+        frameEl.style.background = f.bg;
+        frameEl.innerHTML = '<span style="font:600 clamp(64px,16vw,240px)/0.9 \'Bricolage Grotesque\',Manrope,sans-serif;letter-spacing:-0.04em;color:' + f.fg + '">' + f.text + '</span>';
+      }
+    };
+    show();
+    this.introTick = setInterval(show, cut);
+    this.introEnd = setTimeout(() => this.finishIntro(), total);
+  }
+  finishIntro() {
+    clearInterval(this.introTick); clearTimeout(this.introEnd);
+    try { sessionStorage.setItem('vm-intro-seen', '1'); } catch (e) {}
+    const el = this.introEl;
+    if (el) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; }
+    clearTimeout(this.introFade);
+    this.introFade = setTimeout(() => { this.introActive = false; this.setState({ introTick: Date.now() }); }, 460);
+  }
+  componentWillUnmount() { clearInterval(this.introTick); clearTimeout(this.introEnd); clearTimeout(this.introFade); this.stopSmoke(); this.stopGlass(); }
+  renderVals() {
+    if (this.introActive === undefined) this.introActive = this.introShouldPlay();
+    const wantIntro = this.props.showIntro !== false;
+    if (this.lastShowIntro === false && wantIntro) this.introActive = true;
+    if (!wantIntro) this.introActive = false;
+    this.lastShowIntro = wantIntro;
+    if (!this.setIntro) {
+      this.setIntro = el => {
+        if (el === this.introEl) return;
+        clearInterval(this.introTick); clearTimeout(this.introEnd);
+        this.introEl = el;
+        if (el) this.startIntro(el);
+      };
+      this.skipIntro = () => this.finishIntro();
+    }
+    if (!this.setSmokeCanvas) {
+      this.setSmokeCanvas = el => {
+        if (el === this.smokeCanvas) return;
+        this.stopSmoke();
+        this.smokeCanvas = el;
+        if (el) this.startSmoke();
+      };
+    }
+    if (!this.setGlassCanvas) {
+      this.setGlassCanvas = el => {
+        if (el === this.glassCanvas) return;
+        this.stopGlass();
+        this.glassCanvas = el;
+        if (el) this.startGlass();
+      };
+    }
+    const s = this.state || {};
+    const open = !!(s.workOpen || this.props.showWorkMenu);
+    const idx = this.activeIndex();
+    const accents = this.accentList();
+    const vals = {
+      introOn: !!this.introActive,
+      setIntro: this.setIntro,
+      skipIntro: this.skipIntro,
+      setSmokeCanvas: this.setSmokeCanvas,
+      setGlassCanvas: this.setGlassCanvas,
+      loader: this.loaderGeometry(),
+      shimmer: this.shimmerStyle(),
+      swapDur: (this.props.wordSwapSeconds ?? 6) + 's',
+      pageBg: this.cssRgb(this.smokeTarget().bg),
+      workOpen: open,
+      workList: open && (this.props.workMenuStyle ?? 'overlay') === 'list',
+      workOverlay: open && (this.props.workMenuStyle ?? 'overlay') !== 'list',
+      workMenuId: (this.props.workMenuStyle ?? 'overlay') === 'list' ? 'work-menu' : 'work-popover',
+      workExpanded: String(open),
+      workChevron: open ? '▴' : '▾',
+      toggleWork: () => this.setState({ workOpen: !s.workOpen, activeWork: null }),
+      clearWork: () => this.setState({ activeWork: null }),
+      workKeyDown: e => { if (e.key === 'Escape') this.setState({ workOpen: false, activeWork: null }); }
+    };
+    accents.forEach((color, i) => {
+      const rgb = this.hexToRgb(color).map(x => Math.round(x * 255)).join(',');
+      vals['work' + i] = { color, active: String(idx === i), text: idx === i ? this.hoverTextList()[i] : 'var(--ink)', enter: () => this.setState({ activeWork: i }) };
+    });
+    return vals;
+  }
+}
+window.Component = Component;
+</script>
+</body>
+</html>

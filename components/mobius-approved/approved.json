@@ -1,0 +1,21 @@
+{
+  "name": "Approved Möbius — dither / serif",
+  "outline": "none",
+  "texture": "dither",
+  "density": "medium",
+  "strength": "soft",
+  "colors": "mono",
+  "background": "white",
+  "motion": "pulse",
+  "speed": "normal",
+  "amount": "expressive",
+  "interaction": "tilt",
+  "response": "smooth",
+  "action": "none",
+  "annotations": "research",
+  "placement": "anchored",
+  "scale": "large",
+  "titleFont": "Newsreader",
+  "copyFont": "Archivo",
+  "labels": ["Art", "Creativity", "Science", "Logic", "reframe → test → learn"]
+}

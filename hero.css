@@ -1,0 +1,32 @@
+/* The approved artwork lives on the page's paper, not inside a separate card. */
+.hero-journey{position:relative;margin:0;background:var(--paper)}
+.hero-pin{position:relative;min-height:100svh;isolation:isolate;overflow:clip}
+.hero-copy{position:relative;text-align:center;padding:65px 24px 0;z-index:2;pointer-events:none}
+.hero-copy .intro-index{font:12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 27px}
+.hero-copy h1{font:400 clamp(53px,7.2vw,108px)/.98 var(--serif);letter-spacing:-.055em;margin:0}
+.hero-copy h1 em{font-weight:400;color:var(--orange)}
+.hero-copy .intro-description{font:16px/1.65 var(--sans);max-width:455px;margin:30px auto 0;color:var(--muted)}
+.hero-asset{display:block;width:min(1060px,95vw);height:70svh;max-height:780px;margin:0 auto;mix-blend-mode:multiply}
+.hero-controls{position:absolute;left:48px;right:48px;bottom:25px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:20px;font:12px var(--sans);color:var(--muted)}
+.hero-controls a{border-bottom:1px solid var(--line);padding-bottom:3px}.hero-controls a:hover{color:var(--orange)}
+.hero-controls button{background:none;border:1px solid var(--line);border-radius:30px;padding:7px 13px;font:12px var(--sans);cursor:pointer}
+.hero-controls button:disabled{cursor:default;opacity:.6}
+.hero-scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font:12px var(--sans);letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+.hero-work-cue{position:absolute;bottom:77px;left:50%;transform:translateX(-50%);font:italic 20px var(--serif);text-align:center;opacity:0;pointer-events:none;white-space:nowrap}
+.hero-journey[data-enhanced]:not(.motion-reduced){height:225svh}
+.hero-journey[data-enhanced]:not(.motion-reduced) .hero-pin{position:sticky;top:0;height:100svh;min-height:0}
+.hero-journey[data-enhanced]:not(.motion-reduced) .hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 25px;transform:translateY(var(--copy-y,0px)) scale(var(--copy-scale,1));transform-origin:50% 50%;will-change:transform}
+.hero-journey[data-enhanced] .intro-index,.hero-journey[data-enhanced] .intro-description{opacity:var(--subtitle-opacity,1)}
+.hero-journey[data-enhanced]:not(.motion-reduced) .hero-asset{position:absolute;left:50%;top:22svh;transform:translateX(-50%);margin:0;height:70svh;max-height:none}
+.hero-journey[data-enhanced] .hero-scroll-hint{opacity:var(--subtitle-opacity,1)}
+.hero-journey[data-enhanced] .hero-work-cue{opacity:var(--work-cue-opacity,0)}
+.hero-copy h1{animation:heroTitleIn .9s cubic-bezier(.16,1,.3,1) both}
+.hero-copy .intro-description{animation:heroTitleIn .9s .12s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes heroTitleIn{from{opacity:0;translate:0 17px}to{opacity:1;translate:0 0}}
+.hero-journey+.work{padding-top:75px}
+.hero-journey.motion-reduced .hero-pin{min-height:auto;padding-bottom:95px}
+.hero-journey.motion-reduced .intro-index,.hero-journey.motion-reduced .intro-description{opacity:1}
+.hero-journey.motion-reduced .hero-scroll-hint,.hero-journey.motion-reduced .hero-work-cue{display:none}
+@media(max-width:900px){.hero-controls{left:28px;right:28px}.hero-copy h1{font-size:clamp(52px,8.8vw,85px)}.hero-asset{width:98vw}.hero-journey[data-enhanced]:not(.motion-reduced) .hero-asset{top:26svh;height:64svh}}
+@media(max-width:600px){.hero-copy{padding:46px 20px 0}.hero-copy h1{font-size:clamp(43px,11.8vw,68px);line-height:1.03}.hero-copy .intro-index{font-size:11px;letter-spacing:.1em;margin-bottom:23px}.hero-copy .intro-description{font-size:15px;max-width:300px;margin-top:24px}.hero-controls{left:18px;right:18px;bottom:22px;font-size:11px}.hero-controls button{font-size:11px;padding:7px 10px}.hero-scroll-hint{bottom:74px;font-size:11px}.hero-work-cue{bottom:72px;font-size:17px}.hero-asset{height:56svh;width:100%}.hero-journey[data-enhanced]:not(.motion-reduced){height:200svh}.hero-journey[data-enhanced]:not(.motion-reduced) .hero-asset{top:28svh;height:59svh;width:100%}.hero-journey+.work{padding-top:55px}.hero-journey.motion-reduced .hero-pin{padding-bottom:90px}}
+@media(prefers-reduced-motion:reduce){.hero-journey{height:auto!important}.hero-pin{position:relative!important;height:auto!important;padding-bottom:95px}.hero-copy{position:relative!important;transform:none!important;padding:55px 20px 0!important}.hero-copy h1,.hero-copy .intro-description{animation:none}.hero-asset{position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:auto!important}.hero-scroll-hint,.hero-work-cue{display:none}.hero-journey[data-enhanced] .intro-index,.hero-journey[data-enhanced] .intro-description{opacity:1}}
