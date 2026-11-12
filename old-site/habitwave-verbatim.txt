@@ -1,0 +1,126 @@
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/d58e76a8-d696-409e-a34b-5707b160da12/Frame+665+%284%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/f520a6a7-eec3-4b8a-acfd-2b99a68beb29/ezgif.com-gif-maker+%285%29.gif
+
+### TLDR;
+Habitwave is a side project that we started during the lockdown to make the habit-building journey more exciting!
+A new age habit-building app that elevates the traditional ways of building habits by adding a refreshing social twist and turning it into a fresh and engaging experience!
+Habitwave is used by ~600+ users from 23 countries.
+I was responsible for the product’s design, research, and taking care of the experience.
+
+### Prologue
+
+#### “UX designer needed to work on a fun project”
+That’s how I met Charmie via an Instagram story. She had a couple of ideas and wanted to work on them alongside her grad school. I was interning with Fractal Analytics back then. Vedant (a software developer) joined us as well. We immediately connected and started discussing ideas & problem spaces to tackle.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/8a5c829b-64ab-4696-b0e7-4b92c5af3930/Frame+660+%282%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/f3e6a89f-3177-4508-b8fc-09d638a60f2e/Desktop+-+4.png
+
+### Problem
+
+People start with a habit but they fail to keep up with it. We were interested to devise solutions to tackle this problem space in particular.
+
+### Solution
+
+We built Habitwave - an app that brings a refreshing social spin to habit-building.
+
+### Metrics
+
+Habitwave is used in 23 countries by ~600+ users!
+
+## Problem
+
+As the world was slowly approaching a lockdown due to the COVID’19 pandemic 🦠. More people started picking up new hobbies — working out daily, 10mins of guitar every day. etc.
+
+#### They faced challenges in staying motivated and often gave up in a few days.
+
+To have an in-depth understanding of the problem, I conducted user-interviews to validate assumptions, find and prioritize needs, and discover more pain-points in this problem space.
+
+## Research
+
+#### User Interviews
+User recruitment - We were mainly targeting professionals in their 20s, I interviewed people who picked up habits the previous week - to understand their progress, how they are tracking their habits and what other challenges they are facing to keep up with their habits.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/1ef986da-d7b8-486f-a99a-c5e447c05892/Frame+657.jpg
+
+### Insights ➡️ Actions
+
+Most of the products out there revolve around habit tracking —
+a simple ‘press done if you have performed your habit for the day’. Apps like Fabulous, Habitica, and Habitnow motivated their users through personalized vocal advice, unlocking avatar accessories, and data analysis respectively.
+We then started ideating around building a support system that’ll help the user stay on task regularly, motivating them throughout their journey, achieving their goals, and thus building a habit.
+
+#### As more and more people started picking up new habits during the lockdown, we approached the entire habit-building journey from a social angle ✴️
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/a80d5c94-42e9-4843-ab5d-b8c06ec16083/Frame+656+%281%29.jpg
+
+### Solution : V.1.0 (MVP)
+
+#### We planned to ship the proof of concept quickly to validate our ideas and get early feedback from the actual users.
+I started out actualizing the above ideas with some rough quick sketches about what the product might be and what features to include in the MVP.
+The first release had the rudimentary habit tracker and the squad’s page where the user could track their friends’ habits.
+
+## Habitwave //MVP
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/6c46713e-986d-4528-beed-d3a6a149b25c/Frame+17.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/003f4698-6152-41b0-8828-c272b03ed4b4/Frame+18.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/d442d46a-db4e-4233-a153-35b2df59c48d/Frame+19.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/6d65848b-6290-4af0-9dd3-7da24c42e237/Frame+20.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/3f45cb0b-8316-4a9d-82b7-ecd6d961f70c/Frame+21.jpg
+
+### Re-assessing V.1.0
+
+After a few weeks of the release, I interviewed two cohorts of users -
+Cohort 1 - who actively used our platform to track the habits.
+Cohort 2 - who did it for <=5 times and then dropped off from the platform.
+
+#### The insights that I got from cohort 1 were pretty similar to the play store reviews
+
+#### The insights from cohort 2 were that even though the app was great, they got bored because their friends weren’t on it.
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/3497b1c2-0e47-4409-87e4-94aa76cde627/Frame+621.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/1d9a1b75-2a26-4bb4-a9fd-06d687dec5f9/Frame+622+%284%29.jpg
+
+# …and, We were back with a bang V2.0!
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/d8fa0d23-b979-4666-bc31-3c7df37ce9ca/Frame+616+%285%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/09d60dcd-9f05-4fff-9777-0b36c1725060/Frame+641+%282%29.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/93fed413-55d3-4818-81e4-3f3fa4cd233a/Slide+16_9+-+68.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/a1cd5481-f731-454c-8c35-935602912e12/Slide+16_9+-+101.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/cd8c4d2d-99b0-40fc-9f5e-9074f89489e3/Slide+16_9+-+69.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/4c390d0a-6558-404e-8629-d819d506884d/Slide+16_9+-+70.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/2d6799fa-7e33-4d34-98bf-83a12c258905/Slide+16_9+-+102.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/3f3e5752-f567-431a-b3fa-3cbc4c6172fe/Slide+16_9+-+75.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/eaba6187-eb23-4a6d-89b1-282950251e04/Slide+16_9+-+81.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/979e7ef1-04b0-46fa-9a18-ed13123bff8e/Slide+16_9+-+78.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/bb4d8391-6dc6-4c7e-83a6-6e350b2b5a23/Slide+16_9+-+76.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/93d08e4b-4f26-49d5-91d4-ba804e121e81/Slide+16_9+-+107.jpg
+
+[IMAGE] https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/007fcaf2-56f4-4e90-927c-fff0548c7bfc/Slide+16_9+-+79+%281%29.jpg
+
+### Learnings
+
+- No matter how strong your research is, your users might use your app very differently than intended.
+
+- Focusing on bringing it to the market with just enough research and then working on the feedback and iterating
+
+- Designers are really helpful - I used to ping random designers and ask them for feedback and suggestions about the product and a lot of them actually made time and helped me out. And the feedback they gave experience they shared proved to be extremely valuable
+
+- My major learning was that I like to work on products like these, I did this side project along with my extremely demanding full-time job and still working on this project always used to get me excited and energetic and this made me realize that I really love what I do.
+

@@ -26,7 +26,12 @@ Insights: existing apps focus on daily check-offs. Fabulous, Habitica and Habitn
 
 ## Solution — V1.0 (MVP)
 A quick proof of concept for early feedback: a basic habit tracker plus a squad page showing friends' habits.
-[img ×5] "Habitwave //MVP" Frame 17–21. These are embedded in a gallery that the tool couldn't read the addresses of. Save them manually.
+[img ×5] "Habitwave //MVP" Frame 17–21:
+- https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/6c46713e-986d-4528-beed-d3a6a149b25c/Frame+17.jpg
+- https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/003f4698-6152-41b0-8828-c272b03ed4b4/Frame+18.jpg
+- https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/d442d46a-db4e-4233-a153-35b2df59c48d/Frame+19.jpg
+- https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/6d65848b-6290-4af0-9dd3-7da24c42e237/Frame+20.jpg
+- https://images.squarespace-cdn.com/content/v1/61acfa305e678b4d4360930b/3f45cb0b-8316-4a9d-82b7-ecd6d961f70c/Frame+21.jpg
 
 ## Re-assessing V1.0
 Two cohorts interviewed after a few weeks:
